@@ -3472,6 +3472,12 @@ img.u-pull-left {
     vertical-align: bottom;
 }
 
+@media (max-width: 600px) {
+    .about-info__pic {
+        width: 100%;
+    }
+}
+
 .about-info__text {
     padding: var(--vspace-3_5) 10vw var(--vspace-2) 0;
     margin-left: -4rem;
