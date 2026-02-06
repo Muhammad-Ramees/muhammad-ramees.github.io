@@ -1,737 +1,1839 @@
 <!DOCTYPE html>
-<html class="no-js ss-preload" lang="en">
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>rms</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- SEO Meta Tags -->
+    <title>Muhammad Ramees - Web & SEO Specialist | Frontend Developer Dubai</title>
+    <meta name="description"
+        content="Muhammad Ramees is a Web & SEO Specialist and Frontend Developer in Dubai with 4+ years of experience in technical SEO, web development, and digital growth strategies.">
+    <meta name="keywords"
+        content="Web Developer Dubai, SEO Specialist Dubai, Frontend Developer, Technical SEO, Digital Growth, Muhammad Ramees">
+    <meta name="author" content="Muhammad Ramees">
+    <meta name="robots" content="index, follow">
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Muhammad Ramees - Web & SEO Specialist | Frontend Developer Dubai">
+    <meta property="og:description"
+        content="Building high-performance websites and SEO-driven growth strategies in Dubai">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://https://muhammad-ramees.github.io">
+    <meta property="og:image" content="https://https://muhammad-ramees.github.io/og-image.jpg">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Muhammad Ramees - Web & SEO Specialist">
+    <meta name="twitter:description" content="Building high-performance websites and SEO-driven growth strategies">
 
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/rms-logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/rms-logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/rms-logo.png">
-    <link rel="manifest" href="site.webmanifest">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://https://muhammad-ramees.github.io">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google Fonts - Using distinctive typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== CSS VARIABLES ==================== */
+        :root {
+            /* Colors */
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #13131a;
+            --bg-tertiary: #1a1a24;
+            --accent-primary: #00ff88;
+            --accent-secondary: #0088ff;
+            --text-primary: #ffffff;
+            --text-secondary: #b4b4c8;
+            --text-muted: #6b6b7f;
+            --border-color: #2a2a38;
+            --gradient-1: linear-gradient(135deg, #00ff88 0%, #0088ff 100%);
+            --gradient-2: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 136, 255, 0.1) 100%);
+
+            /* Typography */
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+
+            /* Spacing */
+            --section-padding: 120px;
+            --container-max-width: 1200px;
+
+            /* Effects */
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(0, 255, 136, 0.1);
+            --shadow-md: 0 8px 24px rgba(0, 255, 136, 0.15);
+            --shadow-lg: 0 16px 48px rgba(0, 255, 136, 0.2);
+        }
+
+        /* ==================== RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 24px 0;
+            transition: var(--transition);
+            background-color: transparent;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        /* Animated background grid */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(60px, 60px);
+            }
+        }
+
+        /* Gradient orbs */
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.3), transparent);
+            top: -200px;
+            right: -200px;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 136, 255, 0.3), transparent);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        .hero-container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: var(--gradient-2);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent-primary);
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-badge i {
+            font-size: 12px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 7vw, 92px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            background: var(--gradient-2);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== SECTION STYLES ==================== */
+        section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--gradient-2);
+            padding: 4px;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-1);
+            border-radius: 24px;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: var(--accent-primary);
+            position: relative;
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--accent-primary);
+            margin-bottom: 24px;
+        }
+
+        .skill-category h3 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 12px 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li i {
+            color: var(--accent-primary);
+            font-size: 12px;
+        }
+
+        /* ==================== EXPERIENCE SECTION ==================== */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: calc(50% - 40px);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--gradient-2);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 16px;
+        }
+
+        .timeline-content h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-company {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent-primary);
+            border: 4px solid var(--bg-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--border-color);
+            z-index: 2;
+        }
+
+        /* ==================== PROJECTS SECTION ==================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--accent-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .project-card:hover .project-image::before {
+            left: 100%;
+        }
+
+        .project-info {
+            padding: 32px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: var(--gradient-2);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        .project-info h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            gap: 12px;
+        }
+
+        /* ==================== TESTIMONIALS SECTION ==================== */
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin: 0 16px;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            color: var(--bg-primary);
+            font-weight: 700;
+        }
+
+        .testimonial-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .stars {
+            color: var(--accent-primary);
+            margin-bottom: 24px;
+            font-size: 20px;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 60px 0;
+        }
+
+        .contact-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px 24px;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+            color: var(--accent-primary);
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 20px;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+            transform: translateY(-4px) rotate(5deg);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 32px;
+            margin-top: 120px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ==================== SCROLL TO TOP BUTTON ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px) rotate(360deg);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 968px) {
+            :root {
+                --section-padding: 80px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 100px 40px;
+                gap: 32px;
+                transition: var(--transition);
+                border-left: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: row;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-dot {
+                left: 0;
+                transform: translateX(0);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            :root {
+                --section-padding: 60px;
+            }
+
+            .container,
+            .nav-container,
+            .hero-container {
+                padding: 0 24px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .scroll-top {
+                bottom: 24px;
+                right: 24px;
+            }
+        }
+
+        /* ==================== LOADING ANIMATION ==================== */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Stagger animation delays for elements */
+        .skill-category:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .skill-category:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .skill-category:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .skill-category:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .project-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+    </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REMXM5B2N9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-REMXM5B2N9');
-</script>
-    
-<body id="top">
-
-
-    <!-- # preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">RMS.</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-    </div>
+    </nav>
 
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
 
-    <!-- # page wrap
-    ================================================== -->
-    <div class="s-pagewrap">
-
-        <div class="circles">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-
-        <!-- ## site header 
-        ================================================== -->
-        <header class="s-header">
-
-            <div class="header-mobile">
-                <span class="mobile-home-link"><a href="index.html">rms</a></span>
-                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
+        <div class="hero-container">
+            <div class="hero-badge">
+                <i class="fas fa-circle"></i>
+                Available for Projects
             </div>
 
-            <div class="row wide main-nav-wrap">
-                <nav class="column lg-12 main-nav">
-                    <ul>
-                        <li><a href="index.html" class="home-link">rms</a></li>
-                        <li class="current"><a href="#intro" class="smoothscroll">Intro</a></li>
-                        <li><a href="#about" class="smoothscroll">About</a></li>
-                        <li><a href="#experience" class="smoothscroll">Experience</a></li>
-                        <li><a href="#contact" class="smoothscroll">Say Hello</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <h1 class="hero-title">
+                Muhammad Ramees<br>
+                <span class="gradient-text">Web & SEO Specialist</span>
+            </h1>
 
-        </header> <!-- end s-header -->
+            <p class="hero-subtitle">
+                Building high-performance websites and SEO-driven growth strategies.
+                Transforming digital presence into measurable results with 4+ years of expertise in web development,
+                technical SEO, and digital marketing.
+            </p>
 
-
-        <!-- ## main content
-        ==================================================- -->
-        <main class="s-content">
-
-
-            <!-- ### intro
-            ================================================== -->
-            <section id="intro" class="s-intro target-section">
-
-                <div class="row intro-content wide">
-
-                    <div class="column">
-                        <div class="text-pretitle with-line">
-                            Hello!
-                        </div>
-
-                        <h1 class="text-huge-title klemer">
-                            I’m Ramees,<br>
-                            a UI/web designer,<br>
-                            graphic design enthusiast,<br>
-                            and entrepreneur.
-                        </h1>
-                    </div>
-
-                    <ul class="intro-social">
-                        <li><a target="_blank" href="https://linkedin.com/in/muhammad-ramees">Linkedin</a></li>
-                        <li><a target="_blank" href="https://wa.me/+917907361983">Whatsapp</a></li>
-                        <li><a target="_blank" href="https://instagram.com/ramees.palliyal">Instagram</a></li>
-                    </ul>
-
-                </div> <!-- end intro content -->
-
-                <a href="#about" class="intro-scrolldown smoothscroll">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                        fill-rule="evenodd" clip-rule="evenodd">
-                        <path
-                            d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z" />
-                    </svg>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    View Portfolio
+                    <i class="fas fa-arrow-right"></i>
                 </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-            </section> <!-- end s-intro -->
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-label">About Me</span>
+                    <h2>Crafting Digital Excellence in Dubai</h2>
+                    <p>
+                        I'm a passionate Web & SEO Specialist with over 4 years of experience helping startups,
+                        agencies, and businesses establish powerful digital footprints. My expertise spans across modern
+                        web development, technical SEO optimization, and data-driven digital growth strategies.
+                    </p>
+                    <p>
+                        From building responsive, lightning-fast websites to implementing comprehensive SEO strategies
+                        that drive organic traffic and conversions, I bring a holistic approach to every project. I've
+                        worked with diverse clients ranging from sports academies to international brands, always
+                        focused on delivering measurable results.
+                    </p>
 
-
-            <!-- ### about
-            ================================================== -->
-            <section id="about" class="s-about target-section">
-
-
-                <div class="row about-info wide" data-animate-block>
-
-                    <div class="column lg-6 md-12 about-info__pic-block">
-                        <img src="images/about-photo.png" srcset="images/about-photo.png 1x, images/about-photo.png 2x"
-                            alt="" class="about-info__pic" data-animate-el>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <!-- <div class="stat-card">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div> -->
                     </div>
+                </div>
 
-                    <div class="column lg-6 md-12">
-                        <div class="about-info__text">
-
-                            <h2 class="text-pretitle with-line" data-animate-el>
-                                About
-                            </h2>
-                            <p class="attention-getter" data-animate-el>
-                                I’m an entrepreneurial enthusiast and web designer with a passion for creating visually
-                                stunning and user-friendly websites. Specializing in Front-end, UI/UX, and
-                                graphic design design, I craft responsive, engaging web experiences that focus on both
-                                functionality and aesthetics. I combine creativity with technical skills to deliver
-                                designs that leave a lasting impression
-                            </p>
-                            <a href="./Muhammad_Ramees.pdf" download="Muhammad_Ramees_Resume_2024.pdf" class="btn btn--medium u-fullwidth"
-                                data-animate-el>Download Resume</a>
-
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="profile-placeholder">
+                            <img src="./rms.png" alt="" srcset="">
                         </div>
                     </div>
-                </div> <!-- about-info -->
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- SKILLS SECTION -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Skills & Expertise</span>
+                <h2 class="section-title">Tech Stack & Capabilities</h2>
+                <p class="section-description">
+                    A comprehensive skill set covering modern web technologies, SEO best practices, and digital growth
+                    tools
+                </p>
+            </div>
 
-                <div class="row about-expertise" data-animate-block>
-                    <div class="column lg-12">
-
-                        <h2 class="text-pretitle" data-animate-el>Expertise</h2>
-
-                        <ul class="skills-list h1" data-animate-el>
-                            <li>Web design</li>
-                            <li>Front-end development</li>
-                            <li>Figma UI/UX</li>
-                            <li>Canva design</li>
-                            <li>Graphic design</li>
-                            <li>JavaScript</li>
-                            <li>AI prompting</li>
-                        </ul>
-
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                </div> <!-- end about-expertise -->
+                    <h3>Web Development</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> HTML5 & CSS3</li>
+                        <li><i class="fas fa-check"></i> JavaScript (ES6+)</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Appscript</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    </ul>
+                </div>
 
-             </section>
-            <section id="experience" class="s-works target-section">
-                <div class="row about-timelines" data-animate-block>
-
-                    <div class="column tab-12">
-
-                        <h2 class="text-pretitle" data-animate-el>
-                            Experience
-                        </h2>
-
-                        <div class="timeline" data-animate-el>
-
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Freelancer</h4>
-                                    <p class="timeline__timeframe">November 2020 - Present</p>
-                                </div>
-                                <div class="timeline__desc">
-                                    <p>
-                                    <ul>
-                                        <li><strong>Web Design:</strong> Designed and developed websites from scratch
-                                            and templates, focusing on creating responsive, visually appealing designs
-                                            using Figma, HTML, CSS, and JavaScript.</li>
-                                        <li><strong>Canva Design:</strong> Created custom designs for marketing
-                                            materials, including social media posts, banners, and ads, using Canva to
-                                            deliver high-quality visuals for clients.</li>
-                                        <li><strong>Figma UI/UX Design:</strong> Designed user interfaces and
-                                            experiences for e-commerce platforms, apps, and various digital projects,
-                                            ensuring intuitive navigation and visually appealing designs.</li>
-                                        <li><strong>Logo and Graphic Design:</strong> Created unique logos and graphic
-                                            elements tailored to client branding needs, delivering designs that stand
-                                            out and effectively communicate the brand’s identity.</li>
-                                        <li><strong>Google Apps Script:</strong> Developed automation scripts to
-                                            streamline workflows, including Google Sheets automation and email handling,
-                                            enhancing productivity for clients.</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Glaube International Pvt Ltd</h4>
-                                    <h5 class="timeline__meta">Front-end Developer</h5>
-                                    <p class="timeline__timeframe">May 2024 - Septemper 2024</p>
-                                </div>
-                                <div class="timeline__desc">
-                                    <p>
-                                    <ul>
-                                        <li><strong>Design and Development:</strong> Responsible for designing and
-                                            developing websites from scratch and templates, utilizing Figma for visually
-                                            appealing designs and implementing them using HTML, CSS, and JavaScript.
-                                        </li>
-                                        <li><strong>ERP Software Design:</strong> Design and develop functional
-                                            dashboards, invoices, and other components for ERP software, ensuring
-                                            seamless integration of design elements with backend functionalities using
-                                            JavaScript and jQuery.</li>
-                                        <li><strong>Frontend Testing:</strong> Conduct thorough testing of software
-                                            updates, identifying and resolving bugs to ensure optimal performance and
-                                            user experience.</li>
-                                        <li><strong>Backend Contributions:</strong> Collaborate with backend teams to
-                                            provide logical solutions and contribute to Laravel Blade integrations,
-                                            demonstrating a well-rounded understanding of full-stack development.</li>
-                                        <li><strong>Version Control:</strong> Proficient in using Git for effective
-                                            project management and collaboration.</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Brototype</h4>
-                                    <h5 class="timeline__meta">Junior Software Engineer</h5>
-                                    <p class="timeline__timeframe">August 2022 - January 2024</p>
-                                </div>
-                                <div class="timeline__desc">
-                                    <p>
-                                    <ul>
-                                        <li><strong>Proficiency in Coding & ERP Software Design:</strong> Strong programming skills, actively contributing to ERP system design, ensuring scalable, user-centric solutions.</li>
-                                        <li><strong>Problem-Solving & Manual Testing:</strong> Addressing complex challenges with innovative solutions and performing thorough manual testing to ensure software quality.</li>
-                                        <li><strong>UI/UX Design & Website Maintenance:</strong> Designing intuitive user interfaces and managing websites to optimize performance and user experience.</li>
-                                        <li><strong>Collaboration & Communication:</strong> Working seamlessly with teams, conducting training sessions, and organizing technical events for knowledge sharing.</li>
-                                        <li><strong>Code Reviews & Community Support:</strong> Performing rigorous code reviews and providing support to the community to enhance user engagement and software quality.</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div> <!-- end timeline -->
-
-                    </div> <!-- end column -->
-
-
-                </div> <!-- end about-timelines -->
-
-            </section> <!-- end s-about -->
-
-
-            <!-- ### works
-            ================================================== -->
-            <!-- <section id="works" class="s-works target-section">
-
-
-                <div class="row works-portfolio">
-
-                    <div class="column lg-12" data-animate-block>
-
-                        <h2 class="text-pretitle" data-animate-el>
-                            Recent Works
-                        </h2>
-                        <p class="h1" data-animate-el>
-                            Here are some of my recent projects I have done lately. Feel free to check them out.
-                        </p>
-
-                        <ul class="folio-list row block-lg-one-half block-stack-on-1000">
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-01">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/fuji.jpg"
-                                            srcset="images/portfolio/fuji.jpg 1x, images/portfolio/fuji@2x.jpg 2x"
-                                            alt="">
-                                    </div>
-
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Website
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Retro Camera.
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="folio-list__proj-link" href="#" title="project link">
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </li>
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-02">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/lamp.jpg"
-                                            srcset="images/portfolio/lamp.jpg 1x, images/portfolio/lamp@2x.jpg 2x"
-                                            alt="">
-                                    </div>
-
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Product Design
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            The White Lamp.
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="folio-list__proj-link" href="#" title="project link">
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </li>
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-03">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/rucksack.jpg"
-                                            srcset="images/portfolio/rucksack.jpg 1x, images/portfolio/rucksack@2x.jpg 2x"
-                                            alt="">
-                                    </div>
-
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Branding
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Rucksuck.
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="folio-list__proj-link" href="#" title="project link">
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </li>
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-04">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/skaterboy.jpg"
-                                            srcset="images/portfolio/skaterboy.jpg 1x, images/portfolio/skaterboy@2x.jpg 2x"
-                                            alt="">
-                                    </div>
-
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Website
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Since Day One.
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="folio-list__proj-link" href="#" title="project link">
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </li>
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-05">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/sanddunes.jpg"
-                                            srcset="images/portfolio/sanddunes.jpg 1x, images/portfolio/sanddunes@2x.jpg 2x"
-                                            alt="">
-                                    </div>
-
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Illustration
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Sand Dunes.
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="folio-list__proj-link" href="#" title="project link">
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </li>
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-06">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/minimalismo.jpg"
-                                            srcset="images/portfolio/minimalismo.jpg 1x, images/portfolio/minimalismo@2x.jpg 2x"
-                                            alt="">
-                                    </div>
-
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Branding
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Minimalismo.
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="folio-list__proj-link" href="#" title="project link">
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
-                            </li>
-
-                        </ul>
-
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-search"></i>
                     </div>
+                    <h3>SEO & Analytics</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Technical SEO</li>
+                        <li><i class="fas fa-check"></i> On-page Optimization</li>
+                        <li><i class="fas fa-check"></i> Local SEO</li>
+                        <li><i class="fas fa-check"></i> Ai Optimization</li>
+                        <li><i class="fas fa-check"></i> Google Analytics 4</li>
+                        <li><i class="fas fa-check"></i> Google Search Console</li>
+                        <li><i class="fas fa-check"></i> SEO Audits</li>
+                    </ul>
+                </div>
 
-                    <div id="modal-01" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-fuji.jpg" alt="">
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Web Hosting Setup</li>
+                        <li><i class="fas fa-check"></i> Domain Management</li>
+                        <li><i class="fas fa-check"></i> CDN Configuration</li>
+                        <li><i class="fas fa-check"></i> SSL & Security</li>
+                        <li><i class="fas fa-check"></i> Site Optimization</li>
+                        <li><i class="fas fa-check"></i> CRM/Contact Management</li>
+                        <li><i class="fas fa-check"></i> Backup & Security</li>
+                    </ul>
+                </div>
 
-                            <div class="modal-popup__desc">
-                                <h5>Retro Camera</h5>
-                                <p>Odio soluta enim quos sit asperiores rerum rerum repudiandae cum. Vel voluptatem
-                                    alias qui assumenda iure et expedita voluptatem. Ratione officiis quae.</p>
-                                <ul class="modal-popup__cat">
-                                    <li>Branding</li>
-                                    <li>Product Design</li>
-                                </ul>
-                            </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Growth</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Growth Strategies</li>
+                        <li><i class="fas fa-check"></i> Content Marketing</li>
+                        <li><i class="fas fa-check"></i> Conversion Optimization</li>
+                        <li><i class="fas fa-check"></i> Data Analysis</li>
+                        <li><i class="fas fa-check"></i> A/B Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
-                        </div>
-                    </div> 
+    <!-- EXPERIENCE SECTION -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Experience</span>
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-description">
+                    Building digital excellence across diverse industries and organizations
+                </p>
+            </div>
 
-                    <div id="modal-02" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-lamp.jpg" alt="">
-
-                            <div class="modal-popup__desc">
-                                <h5>The White Lamp</h5>
-                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
-                                    auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                                <ul class="modal-popup__cat">
-                                    <li>Branding</li>
-                                </ul>
-                            </div>
-
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
-                        </div>
-                    </div> 
-
-                    <div id="modal-03" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-rucksack.jpg" alt="">
-
-                            <div class="modal-popup__desc">
-                                <h5>Rucksuck</h5>
-                                <p>Exercitationem reprehenderit quod explicabo consequatur aliquid ut magni ut. Deleniti
-                                    quo corrupti illum velit eveniet ratione necessitatibus ipsam mollitia.</p>
-                                <ul class="modal-popup__cat">
-                                    <li>Product Design</li>
-                                </ul>
-                            </div>
-
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
-                        </div>
-                    </div> 
-
-                    <div id="modal-04" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-skaterboy.jpg" alt="">
-
-                            <div class="modal-popup__desc">
-                                <h5>Since Day One</h5>
-                                <p>Dolores velit qui quos nobis. Aliquam delectus voluptas quos possimus non voluptatem
-                                    voluptas voluptas. Est doloribus eligendi porro doloribus voluptatum.</p>
-                                <ul class="modal-popup__cat">
-                                    <li>Website</li>
-                                </ul>
-                            </div>
-
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
-                        </div>
-                    </div> 
-
-                    <div id="modal-05" hidden>
-                        <div class="modal-popup">
-
-                            <img src="images/portfolio/gallery/g-sanddunes.jpg" alt="">
-
-                            <div class="modal-popup__desc">
-                                <h5>Sand Dunes</h5>
-                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
-                                    auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                                <ul class="modal-popup__cat">
-                                    <li>Illustration</li>
-                                </ul>
-                            </div>
-
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
-                        </div>
-                    </div> 
-
-                    <div id="modal-06" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-minimalismo.jpg" alt="">
-
-                            <div class="modal-popup__desc">
-                                <h5>Minimalismo</h5>
-                                <p>Quisquam vel libero consequuntur autem voluptas. Qui aut vero. Omnis fugit mollitia
-                                    cupiditate voluptas. Aenean sollicitudin, lorem quis bibendum auctor.</p>
-                                <ul class="modal-popup__cat">
-                                    <li>Branding</li>
-                                    <li>Product Design</li>
-                                </ul>
-                            </div>
-
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
-                        </div>
-                    </div> 
-
-                </div> 
-
-
-                <div class="row testimonials">
-                    <div class="column lg-12" data-animate-block>
-
-                        <div class="swiper-container testimonial-slider" data-animate-el>
-
-                            <div class="swiper-wrapper">
-
-                                <div class="testimonial-slider__slide swiper-slide">
-                                    <div class="testimonial-slider__author">
-                                        <img src="images/avatars/user-02.jpg" alt="Author image"
-                                            class="testimonial-slider__avatar">
-                                        <cite class="testimonial-slider__cite">
-                                            <strong>Tim Cook</strong>
-                                            <span>CEO, Apple</span>
-                                        </cite>
-                                    </div>
-                                    <p>
-                                        Molestiae incidunt consequatur quis ipsa autem nam sit enim magni. Voluptas
-                                        tempore rem.
-                                        Explicabo a quaerat sint autem dolore ducimus ut consequatur neque. Nisi dolores
-                                        quaerat fuga rem nihil nostrum.
-                                        Laudantium quia consequatur molestias delectus culpa.
-                                    </p>
-                                </div> 
-
-                                <div class="testimonial-slider__slide swiper-slide">
-                                    <div class="testimonial-slider__author">
-                                        <img src="images/avatars/user-03.jpg" alt="Author image"
-                                            class="testimonial-slider__avatar">
-                                        <cite class="testimonial-slider__cite">
-                                            <strong>Sundar Pichai</strong>
-                                            <span>CEO, Google</span>
-                                        </cite>
-                                    </div>
-                                    <p>
-                                        Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos
-                                        repellat voluptas animi adipisci.
-                                        Nisi eaque consequatur. Voluptatem dignissimos ut ducimus accusantium
-                                        perspiciatis.
-                                        Quasi voluptas eius distinctio. Atque eos maxime.
-                                    </p>
-                                </div> 
-
-                                <div class="testimonial-slider__slide swiper-slide">
-                                    <div class="testimonial-slider__author">
-                                        <img src="images/avatars/user-01.jpg" alt="Author image"
-                                            class="testimonial-slider__avatar">
-                                        <cite class="testimonial-slider__cite">
-                                            <strong>Satya Nadella</strong>
-                                            <span>CEO, Microsoft</span>
-                                        </cite>
-                                    </div>
-                                    <p>
-                                        Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil
-                                        ea quia nesciunt. Ducimus aut sed ipsam.
-                                        Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas
-                                        eius distinctio.
-                                        Voluptatem dignissimos ut.
-                                    </p>
-                                </div> 
-
-                                <div class="testimonial-slider__slide swiper-slide">
-                                    <div class="testimonial-slider__author">
-                                        <img src="images/avatars/user-06.jpg" alt="Author image"
-                                            class="testimonial-slider__avatar">
-                                        <cite class="testimonial-slider__cite">
-                                            <strong>Jeff Bezos</strong>
-                                            <span>CEO, Amazon</span>
-                                        </cite>
-                                    </div>
-                                    <p>
-                                        Nunc interdum lacus sit amet orci. Vestibulum dapibus nunc ac augue. Fusce vel
-                                        dui. In ac felis
-                                        quis tortor malesuada pretium. Curabitur vestibulum aliquam leo. Qui sed at
-                                        corrupti expedita voluptas odit.
-                                        Nihil ea quia nesciunt. Ducimus aut sed ipsam.
-                                    </p>
-                                </div> 
-
-                            </div> 
-
-                            <div class="swiper-pagination"></div>
-
-                        </div> 
-
-                    </div> 
-                </div> 
-
-            </section> -->
-
-
-            <!-- ### contact
-            ================================================== -->
-            <section id="contact" class="s-contact target-section">
-
-                <div class="row contact-top">
-                    <div class="column lg-12">
-                        <h2 class="text-pretitle">
-                            Get In Touch
-                        </h2>
-
-                        <p class="h1">
-                            I’d love to hear from you! Whether you have a question, want to discuss design, tech,
-                            entrepreneurship, or just feel like having a chat — feel free to send me a message.
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 - Present</span>
+                        <h3>Creative & Digital Growth Lead</h3>
+                        <p class="timeline-company">Touchline Sport Academy, Dubai</p>
+                        <p>
+                            Ranked Touchline Football Academy #1 in Dubai for high-intent searches such as “best adult
+                            football academy in Dubai” and built a multi-channel discovery and conversion system that
+                            increased qualified lead generation by over 250% across Google Search, ChatGPT, Google
+                            Business Profile, Instagram, and Meta Ads.
                         </p>
                     </div>
-                </div> <!-- end contact-top -->
+                    <div class="timeline-dot"></div>
+                </div>
 
-                <div class="row contact-bottom">
-                    <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
-                        <img src="./images/rms-logo.png" alt="">
-                        <!-- -->
-                    </div>
-                    <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
-                        <h3 class="text-pretitle">Reach me at</h3>
-                        <p class="contact-links">
-                            <a href="mailto:rms.palliyall@gmail.com" class="mailtoui">rms.palliyall@gmail.com</a> <br>
-                            <a href="tel:+917907361983">+91 7907 361 983</a>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 - Present</span>
+                        <h3>Freelance Web & Digital Marketing Specialist</h3>
+                        <p class="timeline-company">Independent Contractor</p>
+                        <p>
+                            Worked independently as a Digital Growth and Web Strategy Consultant, delivering end-to-end
+                            website design and development, technical SEO, and digital presence execution for startups
+                            and small businesses across travel, corporate services, and service-based industries. Led
+                            the creation of high-performance websites, optimized search visibility through structured
+                            SEO and content architecture, managed Google Business Profiles for local discovery, and
+                            supported social media and campaign execution.
                         </p>
                     </div>
-                    <div class="column lg-4 md-12 contact-block">
-                        <a href="mailto:rms.palliyall@gmail.com"
-                            class="mailtoui btn btn--medium u-fullwidth contact-btn">Say Hello.</a>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 - 2023</span>
+                        <h3>Frontend Developer</h3>
+                        <p class="timeline-company">Glaube International</p>
+                        <p>
+                            Worked as a Frontend Developer at Glaube International, contributing to the development of
+                            web applications and internal software systems for enterprise clients. Built responsive,
+                            performance-focused user interfaces primarily using HTML, CSS, and JavaScript, while
+                            supporting backend functionality with PHP. Collaborated closely with cross-functional teams
+                            across development, design, and testing, designed UI/UX flows and interfaces in Figma, and
+                            conducted functional testing. Developed scalable internal tools including invoice,
+                            quotation, and generation systems used in daily business operations, delivering reliable,
+                            production-ready web and software solutions.
+                        </p>
                     </div>
-                </div> <!-- end contact-bottom -->
+                    <div class="timeline-dot"></div>
+                </div>
 
-            </section> <!-- end contact -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020 - 2021</span>
+                        <h3>Junior Software Engineer</h3>
+                        <p class="timeline-company">Brototype</p>
+                        <p>
+                            Worked as a Junior Software Engineer at Brototype, contributing to the development of
+                            internal websites, landing pages, and software interfaces while building a strong foundation
+                            in full-stack web development and modern engineering practices. Supported UI/UX design for
+                            web and software products, assisted in quality assurance and course delivery processes, and
+                            helped maintain technical standards for student-facing programs. Led and supported
+                            activities at the Bangalore tech hub, contributing to student guidance and operations, and
+                            actively supported the Brocamp community of over 70,000 members through technical
+                            assistance, coordination, and platform support.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        </main> <!-- end s-content -->
+    <!-- PROJECTS SECTION -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    Showcase of web development and SEO success stories
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Local SEO</span>
+                            <span class="tag">Google Business</span>
+                            <span class="tag">Meta Ads</span>
+                        </div>
+
+                        <h3>Touchline Football Academy</h3>
+
+                        <p>
+                            Ranked #1 on Google for “Best Adult Football Academy in Dubai”, generating
+                            12,612 profile views and 1,580 high-intent actions through SEO, Google Business
+                            optimization and paid ads.
+                        </p>
+
+                        <a href="./case-study-growth.html" class="project-link">
+                            View Case Study
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
 
-        <!-- ## footer
-        ================================================== -->
-        <footer class="s-footer">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
 
-            <div class="row">
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+
+                        <h3>Automated Poster Generator</h3>
+
+                        <p>
+                            Built a custom web-based design tool for a sports academy that reduced poster
+                            creation time by 95%, generates 200+ branded posters monthly and eliminated
+                            external design costs completely.
+                        </p>
+
+                        <a href="./case-study-postgen.html" class="project-link">
+                            View Case Study
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
 
-                <div class="ss-go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd"
-                            clip-rule="evenodd">
-                            <path
-                                d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z" />
-                        </svg>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Custom Software</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Web App</span>
+                        </div>
+
+                        <h3>Daily Report Management System</h3>
+
+                        <p>
+                            Built a centralized web-based operations system for a sports academy that
+                            saves 80% admin time, generates 500+ automated reports monthly and replaces
+                            fragmented spreadsheets with a single source of truth.
+                        </p>
+
+                        <a href="./case-study-daily-report.html" class="project-link">
+                            View Case Study
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Growth</span>
+                        </div>
+                        <h3>Digital Growth Campaign</h3>
+                        <p>
+                            Comprehensive digital marketing campaign combining SEO, content marketing, and conversion
+                            optimization. Achieved 300% ROI in 6 months.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Case Study
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Mobile-First</span>
+                            <span class="tag">PWA</span>
+                        </div>
+                        <h3>Progressive Web App</h3>
+                        <p>
+                            Built a lightning-fast progressive web application with offline capabilities and push
+                            notifications, improving user engagement by 200%.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Case Study
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Content</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                        <h3>Content Hub Development</h3>
+                        <p>
+                            Developed a high-performance content platform with advanced SEO architecture, resulting in
+                            top 3 rankings for 50+ competitive keywords.
+                        </p>
+                        <a href="#" class="project-link">
+                            View Case Study
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">What Clients Say</h2>
+                <p class="section-description">
+                    Feedback from satisfied clients and partners
+                </p>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">JD</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Ramees transformed our online presence completely. His expertise in both web development and
+                        SEO helped us rank on the first page for our target keywords and doubled our lead generation.
+                        Highly professional and results-driven."
+                    </p>
+                    <h4 class="testimonial-author">John Davidson</h4>
+                    <p class="testimonial-role">CEO, TechStart Dubai</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="section-header">
+                    <span class="section-label">Get In Touch</span>
+                    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="section-description">
+                        Ready to elevate your digital presence? Let's discuss how I can help you achieve your business
+                        goals.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <a href="mailto:rms.palliyal@gmail.com" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">rms.palliyal@gmail.com</div>
+                    </a>
+
+                    <a href="tel:+971542711288" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">+971 542711288</div>
+                    </a>
+
+                    <a href="https://linkedin.com/in/muhammad-ramees" target="_blank" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">Connect with me</div>
+                    </a>
+
+                    <a href="https://wa.me/971542711288" target="_blank" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-label">WhatsApp</div>
+                        <div class="contact-value">Chat Now</div>
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/muhammad-ramees" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/muhammad-ramees" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://instagram.com/ramees.palliyal" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
 
-        </footer> <!-- end s-footer -->
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">RMS.</div>
+                <p class="footer-text">
+                    Web & SEO Specialist dedicated to creating exceptional digital experiences that drive real business
+                    growth.
+                </p>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Muhammad Ramees. All rights reserved. Built with passion in Dubai.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    </div> <!-- end -s-pagewrap -->
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
+    <!-- JAVASCRIPT -->
+    <script>
+        // ==================== NAVIGATION SCROLL EFFECT ====================
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
+        // ==================== MOBILE MENU TOGGLE ====================
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // ==================== SMOOTH SCROLLING ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ==================== SCROLL TO TOP BUTTON ====================
+        const scrollTop = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ==================== CURSOR GRADIENT EFFECT (OPTIONAL) ====================
+        document.addEventListener('mousemove', (e) => {
+            const orb1 = document.querySelector('.orb-1');
+            const orb2 = document.querySelector('.orb-2');
+
+            const x = e.clientX;
+            const y = e.clientY;
+
+            orb1.style.transform = `translate(${x * 0.02}px, ${y * 0.02}px)`;
+            orb2.style.transform = `translate(${-x * 0.01}px, ${-y * 0.01}px)`;
+        });
+
+        // ==================== PERFORMANCE: LAZY LOADING ====================
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+
+        // ==================== ACTIVE NAV LINK HIGHLIGHTING ====================
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

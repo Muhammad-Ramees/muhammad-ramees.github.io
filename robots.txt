@@ -1,0 +1,29 @@
+# robots.txt for Muhammad Ramees Portfolio
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of any admin or private directories (if you add them later)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://https://muhammad-ramees.github.io/sitemap.xml
+
+# Crawl-delay (optional, use if needed)
+# Crawl-delay: 10
+
+# Specific directives for common bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots (optional)
+# User-agent: BadBot
+# Disallow: /
