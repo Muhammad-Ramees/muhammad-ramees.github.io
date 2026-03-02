@@ -47,17 +47,17 @@
         /* ==================== CSS VARIABLES ==================== */
         :root {
             /* Colors */
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #13131a;
-            --bg-tertiary: #1a1a24;
-            --accent-primary: #00ff88;
-            --accent-secondary: #0088ff;
+            --bg-primary: #050505;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #121212;
+            --accent-primary: #6366f1;
+            --accent-secondary: #22d3ee;
             --text-primary: #ffffff;
-            --text-secondary: #b4b4c8;
-            --text-muted: #6b6b7f;
-            --border-color: #2a2a38;
-            --gradient-1: linear-gradient(135deg, #00ff88 0%, #0088ff 100%);
-            --gradient-2: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 136, 255, 0.1) 100%);
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border-color: #27272a;
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
+            --gradient-2: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.1) 100%);
 
             /* Typography */
             --font-display: 'Syne', sans-serif;
@@ -69,9 +69,9 @@
 
             /* Effects */
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-sm: 0 2px 8px rgba(0, 255, 136, 0.1);
-            --shadow-md: 0 8px 24px rgba(0, 255, 136, 0.15);
-            --shadow-lg: 0 16px 48px rgba(0, 255, 136, 0.2);
+            --shadow-sm: 0 2px 8px rgba(99, 102, 241, 0.1);
+            --shadow-md: 0 8px 24px rgba(99, 102, 241, 0.15);
+            --shadow-lg: 0 16px 48px rgba(99, 102, 241, 0.2);
         }
 
         /* ==================== RESET & BASE STYLES ==================== */
@@ -94,6 +94,12 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* ==================== NAVIGATION ==================== */
@@ -197,8 +203,8 @@
             right: 0;
             bottom: 0;
             background-image:
-                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
             z-index: 0;
@@ -226,7 +232,7 @@
         .orb-1 {
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(0, 255, 136, 0.3), transparent);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.25), transparent);
             top: -200px;
             right: -200px;
         }
@@ -234,7 +240,7 @@
         .orb-2 {
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(0, 136, 255, 0.3), transparent);
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.25), transparent);
             bottom: -150px;
             left: -150px;
             animation-delay: -5s;
@@ -270,7 +276,7 @@
             gap: 8px;
             padding: 8px 20px;
             background: var(--gradient-2);
-            border: 1px solid rgba(0, 255, 136, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.2);
             border-radius: 50px;
             font-size: 14px;
             font-weight: 500;
@@ -299,7 +305,7 @@
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(48px, 7vw, 92px);
+            font-size: clamp(36px, 9vw, 80px);
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -0.03em;
@@ -429,7 +435,7 @@
 
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(32px, 6vw, 56px);
             font-weight: 800;
             letter-spacing: -0.02em;
             margin-bottom: 20px;
@@ -535,6 +541,8 @@
             font-size: 120px;
             color: var(--accent-primary);
             position: relative;
+            overflow: hidden;
+            /* Ensure image stays inside border radius */
         }
 
         /* ==================== SKILLS SECTION ==================== */
@@ -655,7 +663,7 @@
             display: inline-block;
             padding: 6px 16px;
             background: var(--gradient-2);
-            border: 1px solid rgba(0, 255, 136, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.2);
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
@@ -737,7 +745,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
             transition: left 0.6s;
         }
 
@@ -759,7 +767,7 @@
         .tag {
             padding: 4px 12px;
             background: var(--gradient-2);
-            border: 1px solid rgba(0, 255, 136, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.2);
             border-radius: 12px;
             font-size: 12px;
             color: var(--accent-primary);
@@ -1002,6 +1010,17 @@
         }
 
         /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1280px) {
+            .about-content {
+                gap: 40px;
+            }
+
+            .container {
+                padding: 0 40px;
+                /* Keep standard padding */
+            }
+        }
+
         @media (max-width: 968px) {
             :root {
                 --section-padding: 80px;
@@ -1012,6 +1031,7 @@
                 top: 0;
                 right: -100%;
                 width: 300px;
+                max-width: 85vw;
                 height: 100vh;
                 background: var(--bg-secondary);
                 flex-direction: column;
@@ -1100,6 +1120,59 @@
             }
         }
 
+        @media (max-width: 480px) {
+
+            .container,
+            .nav-container,
+            .hero-container {
+                padding: 0 20px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .hero-title {
+                font-size: clamp(22px, 8vw, 32px);
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .section-title,
+            .about-text h2 {
+                font-size: clamp(22px, 7vw, 28px);
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .skill-category,
+            .project-card {
+                padding: 24px;
+            }
+
+            .hero-badge {
+                padding: 6px 16px;
+                font-size: 12px;
+                margin-bottom: 24px;
+            }
+
+            .timeline-content {
+                padding: 24px;
+                width: calc(100% - 40px);
+                margin-left: 40px !important;
+            }
+
+            .timeline-dot {
+                width: 12px;
+                height: 12px;
+            }
+
+            .contact-value {
+                word-break: break-all;
+                font-size: 14px;
+            }
+        }
+
         /* ==================== LOADING ANIMATION ==================== */
         .fade-in {
             opacity: 0;
@@ -1152,6 +1225,51 @@
         .project-card:nth-child(6) {
             animation-delay: 0.6s;
         }
+
+        /* ==================== MOBILE MENU IMPROVEMENTS ==================== */
+        .mobile-close-btn {
+            display: none;
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1002;
+            transition: var(--transition);
+        }
+
+        .mobile-close-btn:hover {
+            color: var(--accent-primary);
+            transform: rotate(90deg);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 968px) {
+            .mobile-close-btn {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -1161,6 +1279,11 @@
         <div class="nav-container">
             <div class="logo">RMS.</div>
             <ul class="nav-links" id="navLinks">
+                <li style="position: static; border: none; padding: 0;">
+                    <button class="mobile-close-btn" id="mobileCloseBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -1173,6 +1296,7 @@
             </button>
         </div>
     </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
@@ -1192,8 +1316,9 @@
 
             <p class="hero-subtitle">
                 Building high-performance websites and SEO-driven growth strategies.
-                Transforming digital presence into measurable results with 4+ years of expertise in web development,
-                technical SEO, and digital marketing.
+                I achieved the <strong>#1 ranking</strong> on Google and ChatGPT for <em>"best adult football academy in
+                    Dubai"</em>.
+                Transforming digital presence into measurable results with 4+ years of expertise.
             </p>
 
             <div class="cta-buttons">
@@ -1349,14 +1474,14 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">2023 - Present</span>
-                        <h3>Creative & Digital Growth Lead</h3>
+                        <span class="timeline-date">Feb 2025 - Present</span>
+                        <h3>SEO & Digital Growth Lead</h3>
                         <p class="timeline-company">Touchline Sport Academy, Dubai</p>
                         <p>
-                            Ranked Touchline Football Academy #1 in Dubai for high-intent searches such as “best adult
-                            football academy in Dubai” and built a multi-channel discovery and conversion system that
-                            increased qualified lead generation by over 250% across Google Search, ChatGPT, Google
-                            Business Profile, Instagram, and Meta Ads.
+                            Designed, developed, and launched the academy website with full technical SEO architecture.
+                            Ranked Touchline Football Academy #1 in Dubai for high-intent searches such as "best adult
+                            football academy in Dubai". Pioneered AI search optimization (ChatGPT/Perplexity/AI
+                            overviews) and achieved top visibility on emerging AI-powered platforms.
                         </p>
                     </div>
                     <div class="timeline-dot"></div>
@@ -1364,16 +1489,15 @@
 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">2022 - Present</span>
-                        <h3>Freelance Web & Digital Marketing Specialist</h3>
+                        <span class="timeline-date">Nov 2020 - Present</span>
+                        <h3>Freelance SEO & Web Specialist</h3>
                         <p class="timeline-company">Independent Contractor</p>
                         <p>
-                            Worked independently as a Digital Growth and Web Strategy Consultant, delivering end-to-end
-                            website design and development, technical SEO, and digital presence execution for startups
-                            and small businesses across travel, corporate services, and service-based industries. Led
-                            the creation of high-performance websites, optimized search visibility through structured
-                            SEO and content architecture, managed Google Business Profiles for local discovery, and
-                            supported social media and campaign execution.
+                            Delivered end-to-end SEO and web solutions for 20+ clients across diverse industries,
+                            achieving rank improvements of 15-30 positions for target keywords. Optimized Google
+                            Business Profiles and directory listings for local businesses in the UAE, increasing local
+                            search visibility and customer inquiries by 40%. Conducted in-depth keyword analysis,
+                            on-page SEO, and custom high-performance web development.
                         </p>
                     </div>
                     <div class="timeline-dot"></div>
@@ -1381,18 +1505,14 @@
 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">2021 - 2023</span>
-                        <h3>Frontend Developer</h3>
-                        <p class="timeline-company">Glaube International</p>
+                        <span class="timeline-date">May 2024 - Sep 2024</span>
+                        <h3>Frontend Developer & Digital Solutions</h3>
+                        <p class="timeline-company">Glaube International Pvt Ltd</p>
                         <p>
-                            Worked as a Frontend Developer at Glaube International, contributing to the development of
-                            web applications and internal software systems for enterprise clients. Built responsive,
-                            performance-focused user interfaces primarily using HTML, CSS, and JavaScript, while
-                            supporting backend functionality with PHP. Collaborated closely with cross-functional teams
-                            across development, design, and testing, designed UI/UX flows and interfaces in Figma, and
-                            conducted functional testing. Developed scalable internal tools including invoice,
-                            quotation, and generation systems used in daily business operations, delivering reliable,
-                            production-ready web and software solutions.
+                            Developed responsive, SEO-optimized web applications ensuring cross-browser compatibility
+                            and technical performance. Implemented on-page SEO best practices during development,
+                            embedding metadata, canonical tags, and structured data into web builds. Enhanced UX for ERP
+                            and CRM platforms, streamlining workflows and improving enterprise user engagement metrics.
                         </p>
                     </div>
                     <div class="timeline-dot"></div>
@@ -1400,18 +1520,14 @@
 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">2020 - 2021</span>
+                        <span class="timeline-date">Aug 2022 - Jan 2024</span>
                         <h3>Junior Software Engineer</h3>
                         <p class="timeline-company">Brototype</p>
                         <p>
-                            Worked as a Junior Software Engineer at Brototype, contributing to the development of
-                            internal websites, landing pages, and software interfaces while building a strong foundation
-                            in full-stack web development and modern engineering practices. Supported UI/UX design for
-                            web and software products, assisted in quality assurance and course delivery processes, and
-                            helped maintain technical standards for student-facing programs. Led and supported
-                            activities at the Bangalore tech hub, contributing to student guidance and operations, and
-                            actively supported the Brocamp community of over 70,000 members through technical
-                            assistance, coordination, and platform support.
+                            Designed and built SEO-optimized landing pages and website interfaces focused on conversion
+                            rate optimization and user engagement. Assisted in implementing SEO strategies for multiple
+                            websites. Managed and hosted a technical community of 80,000+ members, providing mentorship
+                            and educational content while supporting UI/UX design and course delivery processes.
                         </p>
                     </div>
                     <div class="timeline-dot"></div>
@@ -1516,68 +1632,57 @@
                 </div>
 
 
-                <!-- <div class="project-card fade-in">
+                <div class="project-card fade-in">
                     <div class="project-image">
-                        <i class="fas fa-chart-bar"></i>
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
+
                     <div class="project-info">
                         <div class="project-tags">
-                            <span class="tag">Analytics</span>
-                            <span class="tag">Growth</span>
+                            <span class="tag">Internal Tool</span>
+                            <span class="tag">Web App</span>
+                            <span class="tag">Generator</span>
                         </div>
-                        <h3>Digital Growth Campaign</h3>
+
+                        <h3>Business Operations Toolkit</h3>
+
                         <p>
-                            Comprehensive digital marketing campaign combining SEO, content marketing, and conversion
-                            optimization. Achieved 300% ROI in 6 months.
+                            Developed a custom web-based generator for invoices, quotations, and letterheads,
+                            streamlining daily corporate workflows and ensuring perfect brand consistency.
                         </p>
-                        <a href="#" class="project-link">
-                            View Case Study
-                            <i class="fas fa-arrow-right"></i>
+
+                        <a href="#" class="project-link" style="opacity:0.5; cursor:not-allowed;">
+                            Private Tool
+                            <i class="fas fa-lock"></i>
                         </a>
                     </div>
                 </div>
 
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-calendar-check"></i>
                     </div>
+
                     <div class="project-info">
                         <div class="project-tags">
-                            <span class="tag">Mobile-First</span>
-                            <span class="tag">PWA</span>
+                            <span class="tag">Full-Stack ERP</span>
+                            <span class="tag">Booking</span>
+                            <span class="tag">Management</span>
                         </div>
-                        <h3>Progressive Web App</h3>
+
+                        <h3>Ground Booking Platform & ERP</h3>
+
                         <p>
-                            Built a lightning-fast progressive web application with offline capabilities and push
-                            notifications, improving user engagement by 200%.
+                            A comprehensive web application featuring a public booking site and a secure admin dashboard
+                            to manage VAT, accounting, inventory, customers, and advanced dynamic reports.
                         </p>
-                        <a href="#" class="project-link">
-                            View Case Study
-                            <i class="fas fa-arrow-right"></i>
+
+                        <a href="#" class="project-link" style="opacity:0.5; cursor:not-allowed;">
+                            Private Tool
+                            <i class="fas fa-lock"></i>
                         </a>
                     </div>
                 </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-newspaper"></i>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">Content</span>
-                            <span class="tag">SEO</span>
-                        </div>
-                        <h3>Content Hub Development</h3>
-                        <p>
-                            Developed a high-performance content platform with advanced SEO architecture, resulting in
-                            top 3 rankings for 50+ competitive keywords.
-                        </p>
-                        <a href="#" class="project-link">
-                            View Case Study
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -1714,21 +1819,43 @@
         });
 
         // ==================== MOBILE MENU TOGGLE ====================
-        mobileMenuBtn.addEventListener('click', () => {
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        function toggleMenu() {
             navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+
+            // Toggle icon on the main menu button
             const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileCloseBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
+            link.addEventListener('click', closeMenu);
         });
 
         // ==================== SMOOTH SCROLLING ====================
