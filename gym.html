@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0D1B2A;
+  --blue:#00A8E8;
+  --blue-dark:#0087bb;
+  --white:#fff;
+  --gray:#F4F6F8;
+  --text-muted:#8a9bb0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:#0D1B2A;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Montserrat',sans-serif}
+
+/* NAVBAR */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,27,42,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,168,232,0.15);padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.nav.scrolled{background:rgba(13,27,42,0.98);box-shadow:0 2px 30px rgba(0,168,232,0.1)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:-0.5px}
+.nav-logo span{color:#00A8E8}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:.88rem;font-weight:500;letter-spacing:.5px;transition:color .2s;text-transform:uppercase}
+.nav-links a:hover,.nav-links a.active{color:#00A8E8}
+.nav-cta{background:#00A8E8;color:#fff;border:none;padding:.55rem 1.3rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.5px;cursor:pointer;transition:all .2s;text-transform:uppercase}
+.nav-cta:hover{background:#0087bb;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;transition:all .3s;border-radius:2px}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:#0D1B2A;z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.8rem;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.mobile-menu a:hover{color:#00A8E8}
+.mobile-menu .nav-cta{font-size:1rem;padding:.8rem 2rem}
+
+/* HERO */
+.hero{height:100vh;min-height:600px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 5%;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80');background-size:cover;background-position:center;filter:brightness(0.35)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,42,0.8) 0%,rgba(0,30,60,0.6) 50%,rgba(0,80,120,0.3) 100%)}
+.hero-content{position:relative;z-index:2;max-width:860px}
+.hero-badge{display:inline-block;background:rgba(0,168,232,0.15);border:1px solid rgba(0,168,232,0.4);color:#00A8E8;padding:.4rem 1.2rem;border-radius:30px;font-size:.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-1px}
+.hero h1 span{color:#00A8E8}
+.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.75);max-width:640px;margin:0 auto 2.5rem;line-height:1.6;font-weight:300}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#00A8E8;color:#fff;border:none;padding:.85rem 2.2rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.5px;cursor:pointer;transition:all .25s;text-transform:uppercase;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:#0087bb;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,168,232,0.35)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);padding:.85rem 2.2rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.5px;cursor:pointer;transition:all .25s;text-transform:uppercase;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+.stats-bar{position:relative;z-index:2;margin-top:3.5rem;display:flex;gap:0;background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;max-width:700px;width:100%}
+.stat-item{flex:1;padding:1.2rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,0.1)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:900;color:#00A8E8;line-height:1}
+.stat-label{font-size:.72rem;color:rgba(255,255,255,0.65);margin-top:.35rem;letter-spacing:.5px;text-transform:uppercase;font-weight:500}
+
+/* SECTIONS */
+.section{padding:90px 5%}
+.section-label{display:inline-block;background:rgba(0,168,232,0.1);color:#00A8E8;padding:.35rem 1rem;border-radius:30px;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.15;margin-bottom:.8rem;letter-spacing:-0.5px}
+.section-sub{color:#6b7280;max-width:580px;line-height:1.7;font-size:.95rem}
+
+/* ABOUT */
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;display:block;background:linear-gradient(160deg,#1a2f45 0%,#0a1929 100%)}
+.about-img-placeholder{width:100%;aspect-ratio:3/4;border-radius:6px;background:linear-gradient(160deg,#1a3a55 0%,#0a1929 100%);position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.about-img-placeholder::before{content:'';position:absolute;top:0;left:0;right:0;height:65%;background:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80') center/cover}
+.about-img-placeholder::after{content:'COACH KHALID';position:absolute;bottom:1.5rem;left:1.5rem;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;color:rgba(255,255,255,0.9);letter-spacing:2px}
+.about-accent{position:absolute;top:-12px;left:-12px;right:12px;bottom:-12px;border:2px solid #00A8E8;border-radius:6px;z-index:-1}
+.about-text .section-title{color:#0D1B2A}
+.about-para{color:#4b5563;line-height:1.85;font-size:.95rem;margin-bottom:2rem}
+.badges{display:flex;flex-wrap:wrap;gap:.7rem}
+.badge{display:flex;align-items:center;gap:.5rem;background:#F4F6F8;border:1px solid #e5e7eb;padding:.55rem 1rem;border-radius:4px;font-size:.8rem;font-weight:600;color:#0D1B2A;font-family:'Montserrat',sans-serif}
+.badge-icon{width:20px;height:20px;background:#00A8E8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* RESULTS */
+.results{background:#0D1B2A;padding:90px 5%}
+.results-header{text-align:center;margin-bottom:3.5rem}
+.results-header .section-title{color:#fff}
+.results-header .section-sub{color:rgba(255,255,255,0.55);margin:0 auto}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.result-card{border:1px solid rgba(0,168,232,0.25);border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.03);transition:transform .3s,border-color .3s}
+.result-card:hover{transform:translateY(-6px);border-color:rgba(0,168,232,0.6)}
+.result-img{height:180px;position:relative;overflow:hidden}
+.result-img-before{background:linear-gradient(160deg,#1e3040 0%,#0a1929 100%);height:100%;display:flex;align-items:center;justify-content:center}
+.result-img-after{background:linear-gradient(160deg,#0a2535 0%,#063048 100%);height:100%;display:flex;align-items:center;justify-content:center}
+.result-label{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:.35rem .8rem;position:absolute;top:.75rem;left:.75rem;border-radius:3px}
+.label-before{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)}
+.label-after{background:rgba(0,168,232,0.2);color:#00A8E8}
+.result-img-inner{height:100%;position:relative}
+.result-photo{width:100%;height:180px;object-fit:cover;display:block}
+.result-info{padding:1.25rem 1.5rem}
+.result-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.15rem;color:#fff;margin-bottom:.25rem}
+.result-weeks{font-size:.75rem;color:#00A8E8;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem}
+.result-desc{font-size:.85rem;color:rgba(255,255,255,0.55);line-height:1.6}
+
+/* PRICING */
+.pricing{background:#F4F6F8}
+.pricing-header{text-align:center;margin-bottom:3.5rem}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;align-items:start}
+.price-card{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:2.2rem 2rem;transition:all .3s;position:relative}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.08)}
+.price-card.featured{border:2px solid #00A8E8;box-shadow:0 0 0 4px rgba(0,168,232,0.08);transform:scale(1.03);background:#fff}
+.price-card.featured:hover{transform:scale(1.03) translateY(-4px);box-shadow:0 0 0 4px rgba(0,168,232,0.12),0 20px 50px rgba(0,168,232,0.15)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#00A8E8;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:1.5px;padding:.35rem 1.2rem;border-radius:20px;text-transform:uppercase;white-space:nowrap}
+.price-tier{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:#00A8E8;margin-bottom:.8rem}
+.price-amount{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.4rem;color:#0D1B2A;line-height:1}
+.price-per{font-size:.85rem;color:#9ca3af;font-weight:400;margin-left:.3rem}
+.price-divider{border:none;border-top:1px solid #f0f0f0;margin:1.5rem 0}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+.price-features li{display:flex;align-items:center;gap:.7rem;font-size:.88rem;color:#4b5563}
+.check{width:18px;height:18px;background:#00A8E8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.check::after{content:'✓';color:#fff;font-size:.65rem;font-weight:700}
+.btn-price{width:100%;padding:.8rem;background:#00A8E8;color:#fff;border:none;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.btn-price:hover{background:#0087bb;transform:translateY(-1px)}
+.price-card:not(.featured) .btn-price{background:#0D1B2A}
+.price-card:not(.featured) .btn-price:hover{background:#1a3050}
+
+/* HOW IT WORKS */
+.how{background:#fff}
+.how-header{text-align:center;margin-bottom:4rem}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:0 auto;position:relative}
+.steps-grid::before{content:'';position:absolute;top:2rem;left:calc(12.5% + 1rem);right:calc(12.5% + 1rem);height:2px;background:linear-gradient(90deg,#00A8E8,rgba(0,168,232,0.2));z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:64px;height:64px;border-radius:50%;background:#00A8E8;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.5rem;color:#fff;margin:0 auto 1.25rem;position:relative}
+.step-num::after{content:'';position:absolute;inset:-4px;border:2px solid rgba(0,168,232,0.25);border-radius:50%}
+.step h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#0D1B2A;margin-bottom:.6rem;letter-spacing:.3px}
+.step p{font-size:.85rem;color:#6b7280;line-height:1.7}
+
+/* TESTIMONIALS */
+.testimonials{background:#0D1B2A;padding:90px 5%}
+.testi-header{text-align:center;margin-bottom:3.5rem}
+.testi-header .section-title{color:#fff}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.testi-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:2rem;transition:all .3s}
+.testi-card:hover{background:rgba(0,168,232,0.06);border-color:rgba(0,168,232,0.2)}
+.stars{color:#00A8E8;font-size:1rem;letter-spacing:2px;margin-bottom:1rem}
+.testi-quote{color:rgba(255,255,255,0.75);font-size:.9rem;line-height:1.8;margin-bottom:1.5rem;font-style:italic}
+.testi-quote::before{content:'"';font-size:2rem;font-family:'Montserrat',sans-serif;font-weight:900;color:#00A8E8;line-height:.5;display:block;margin-bottom:.5rem}
+.testi-author{display:flex;align-items:center;gap:.75rem}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#00A8E8,#0066aa);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;color:#fff;flex-shrink:0}
+.testi-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:#fff}
+.testi-role{font-size:.78rem;color:rgba(255,255,255,0.45)}
+
+/* BOOKING */
+.booking{background:#fff;padding:90px 5%}
+.booking-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start;max-width:1100px;margin:0 auto}
+.booking-left h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#0D1B2A;line-height:1.2;margin-bottom:1rem}
+.booking-left p{color:#6b7280;line-height:1.7;margin-bottom:2rem;font-size:.95rem}
+.trust-badges{display:flex;flex-direction:column;gap:.8rem}
+.trust-badge{display:flex;align-items:center;gap:.75rem;font-size:.88rem;color:#0D1B2A;font-weight:500}
+.trust-icon{width:34px;height:34px;background:rgba(0,168,232,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#00A8E8;font-size:.9rem;font-weight:700}
+.form-card{background:#F4F6F8;border-radius:8px;padding:2.5rem;border:1px solid #e5e7eb}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-size:.8rem;font-weight:600;color:#0D1B2A;margin-bottom:.4rem;letter-spacing:.3px;text-transform:uppercase;font-family:'Montserrat',sans-serif}
+.form-input{width:100%;padding:.75rem 1rem;border:1.5px solid #e5e7eb;border-radius:4px;font-size:.9rem;color:#0D1B2A;background:#fff;transition:border-color .2s;font-family:'Inter',sans-serif;outline:none}
+.form-input:focus{border-color:#00A8E8}
+.form-input.error{border-color:#ef4444}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.phone-wrap{display:flex;gap:.5rem}
+.phone-prefix{padding:.75rem .75rem;background:#0D1B2A;color:#fff;border-radius:4px;font-size:.85rem;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:.3rem}
+.btn-submit{width:100%;padding:1rem;background:#00A8E8;color:#fff;border:none;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .25s;margin-top:.5rem}
+.btn-submit:hover{background:#0087bb;transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,168,232,0.3)}
+.success-msg{background:rgba(0,168,232,0.08);border:2px solid #00A8E8;border-radius:8px;padding:2rem;text-align:center}
+.success-msg h3{font-family:'Montserrat',sans-serif;font-weight:800;color:#0D1B2A;margin-bottom:.5rem}
+.success-msg p{color:#6b7280;font-size:.9rem}
+
+/* INSTAGRAM */
+.instagram{background:#F4F6F8;padding:90px 5%}
+.instagram-header{text-align:center;margin-bottom:2.5rem}
+.instagram-header .section-title{color:#0D1B2A}
+.insta-handle{color:#00A8E8;font-size:1rem;font-weight:500}
+.insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;max-width:900px;margin:0 auto}
+.insta-tile{aspect-ratio:1;border-radius:6px;overflow:hidden;position:relative;cursor:pointer}
+.insta-bg{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .4s}
+.insta-tile:hover .insta-bg{transform:scale(1.05)}
+.insta-overlay{position:absolute;inset:0;background:rgba(13,27,42,0);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;transition:all .3s;opacity:0}
+.insta-tile:hover .insta-overlay{background:rgba(13,27,42,0.7);opacity:1}
+.insta-heart{font-size:1.8rem;color:#fff}
+.insta-count{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem}
+
+/* FOOTER */
+footer{background:#0D1B2A;padding:60px 5% 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.footer-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;margin-bottom:.75rem}
+.footer-logo span{color:#00A8E8}
+.footer-tagline{color:rgba(255,255,255,0.45);font-size:.85rem;line-height:1.6;margin-bottom:1.5rem}
+.social-icons{display:flex;gap:.75rem}
+.social-icon{width:38px;height:38px;border:1px solid rgba(255,255,255,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:.8rem;text-decoration:none;transition:all .25s;font-weight:700;font-family:'Montserrat',sans-serif}
+.social-icon:hover{border-color:#00A8E8;color:#00A8E8;background:rgba(0,168,232,0.08)}
+.footer-heading{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:1.25rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:.88rem;transition:color .2s}
+.footer-links a:hover{color:#00A8E8}
+.contact-item{display:flex;align-items:flex-start;gap:.65rem;margin-bottom:.75rem;color:rgba(255,255,255,0.5);font-size:.88rem;line-height:1.5}
+.contact-icon{color:#00A8E8;font-weight:700;flex-shrink:0;margin-top:2px;font-size:.85rem}
+.footer-bottom{padding:1.5rem 0;display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,0.3)}
+.footer-credit{font-size:.73rem;color:rgba(255,255,255,0.2)}
+.footer-credit a{color:rgba(0,168,232,0.4);text-decoration:none;transition:color .2s}
+.footer-credit a:hover{color:#00A8E8}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* SCROLL INDICATOR */
+.scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-dot{width:1px;height:40px;background:linear-gradient(180deg,rgba(0,168,232,0.8),transparent);animation:scrollPulse 1.5s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-img-placeholder{aspect-ratio:16/9}
+  .cards-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr;max-width:420px}
+  .price-card.featured{transform:none}
+  .price-card.featured:hover{transform:translateY(-4px)}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .steps-grid::before{display:none}
+  .testi-grid{grid-template-columns:1fr}
+  .booking-grid{grid-template-columns:1fr}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .section{padding:60px 5%}
+  .results{padding:60px 5%}
+  .testimonials{padding:60px 5%}
+  .booking{padding:60px 5%}
+  .instagram{padding:60px 5%}
+}
+@media(max-width:480px){
+  .steps-grid{grid-template-columns:1fr}
+  .insta-grid{grid-template-columns:repeat(3,1fr);gap:.4rem}
+  .form-row{grid-template-columns:1fr}
+  .stats-bar{flex-direction:column;max-width:280px}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1)}
+  .stat-item:last-child{border-bottom:none}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="navbar">
+  <a href="#hero" class="nav-logo">PEAK<span>FORM</span></a>
+  <ul class="nav-links">
+    <li><a href="#hero" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#results" class="nav-link">Results</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#booking" class="nav-link">Book Now</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Free Call</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#results" onclick="closeMenu()">Results</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#booking" onclick="closeMenu()">Book Now</a>
+  <button class="nav-cta" onclick="closeMenu();document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Free Call</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Dubai's Premier Body Transformation Coach</div>
+    <h1>Transform Your Body.<br><span>Elevate Your Life.</span></h1>
+    <p class="hero-sub">Elite personal training in Dubai Marina. 12-week transformation programs. Online &amp; in-person.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">Start Your Transformation</a>
+      <a href="#results" class="btn-outline">Watch Results</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num" data-target="200" data-suffix="+">0+</div>
+        <div class="stat-label">Clients Transformed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="4.9" data-suffix="★" data-decimal="true">0★</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="12" data-suffix=" Weeks">0 Weeks</div>
+        <div class="stat-label">Average Result</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator"><div class="scroll-dot"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-up">
+      <div class="about-img-placeholder"></div>
+      <div class="about-accent"></div>
+    </div>
+    <div class="about-text fade-up">
+      <div class="section-label">Meet the Coach</div>
+      <h2 class="section-title">Meet Coach Khalid</h2>
+      <p class="about-para">With over 10 years of elite coaching experience in Dubai, Coach Khalid has helped over 200 professionals, athletes, and busy parents completely transform their bodies and mindset. Certified by NASM and ACE, Khalid combines science-backed programming with a deep understanding of the UAE lifestyle — because training here is different. Whether you're starting from zero or breaking through a plateau, the Peak Form method delivers real, lasting results.</p>
+      <div class="badges">
+        <div class="badge"><div class="badge-icon"></div>NASM Certified</div>
+        <div class="badge"><div class="badge-icon"></div>ACE Certified</div>
+        <div class="badge"><div class="badge-icon"></div>10+ Years Experience</div>
+        <div class="badge"><div class="badge-icon"></div>Dubai Marina Based</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="results-header fade-up">
+    <div class="section-label">Transformations</div>
+    <h2 class="section-title" style="color:#fff">Real People. Real Results.</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.5);margin:0 auto">Every transformation below is a real Peak Form client. Average result: 12 weeks.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="result-card fade-up">
+      <div class="result-img result-img-inner">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=70" class="result-photo" alt="Before" style="filter:grayscale(60%) contrast(0.9)">
+        <span class="result-label label-before">Before</span>
+      </div>
+      <div class="result-img result-img-inner">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=70" class="result-photo" alt="After">
+        <span class="result-label label-after">After</span>
+      </div>
+      <div class="result-info">
+        <div class="result-name">Ahmed</div>
+        <div class="result-weeks">12 Weeks</div>
+        <div class="result-desc">Lost 18kg and built visible muscle definition</div>
+      </div>
+    </div>
+    <div class="result-card fade-up">
+      <div class="result-img result-img-inner">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=70" class="result-photo" alt="Before" style="filter:grayscale(50%) contrast(0.9)">
+        <span class="result-label label-before">Before</span>
+      </div>
+      <div class="result-img result-img-inner">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=70" class="result-photo" alt="After">
+        <span class="result-label label-after">After</span>
+      </div>
+      <div class="result-info">
+        <div class="result-name">Sarah</div>
+        <div class="result-weeks">10 Weeks</div>
+        <div class="result-desc">Post-pregnancy body recomposition — lost 14kg</div>
+      </div>
+    </div>
+    <div class="result-card fade-up">
+      <div class="result-img result-img-inner">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&q=70" class="result-photo" alt="Before" style="filter:grayscale(50%) contrast(0.85)">
+        <span class="result-label label-before">Before</span>
+      </div>
+      <div class="result-img result-img-inner">
+        <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=70" class="result-photo" alt="After">
+        <span class="result-label label-after">After</span>
+      </div>
+      <div class="result-info">
+        <div class="result-name">Marcus</div>
+        <div class="result-weeks">14 Weeks</div>
+        <div class="result-desc">Went from skinny to 8kg muscle gain</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="services">
+  <div class="pricing-header fade-up">
+    <div class="section-label">Programs</div>
+    <h2 class="section-title">Choose Your Program</h2>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card fade-up">
+      <div class="price-tier">Online Coaching</div>
+      <div><span class="price-amount">AED 1,200</span><span class="price-per">/month</span></div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><div class="check"></div>Custom workout plan</li>
+        <li><div class="check"></div>Nutrition guide</li>
+        <li><div class="check"></div>Weekly check-in calls</li>
+        <li><div class="check"></div>WhatsApp support</li>
+        <li><div class="check"></div>Progress tracking app</li>
+      </ul>
+      <button class="btn-price">Get Started</button>
+    </div>
+    <div class="price-card featured fade-up">
+      <div class="popular-badge">Most Popular</div>
+      <div class="price-tier">In-Person Training</div>
+      <div><span class="price-amount">AED 3,500</span><span class="price-per">/month</span></div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><div class="check"></div>Everything in Online, plus:</li>
+        <li><div class="check"></div>3 sessions/week at Dubai Marina gym</li>
+        <li><div class="check"></div>Body composition scans</li>
+        <li><div class="check"></div>Supplement guidance</li>
+        <li><div class="check"></div>Priority WhatsApp support</li>
+      </ul>
+      <button class="btn-price">Get Started</button>
+    </div>
+    <div class="price-card fade-up">
+      <div class="price-tier">Elite Transformation</div>
+      <div><span class="price-amount">AED 6,500</span><span class="price-per">/ 12 weeks</span></div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><div class="check"></div>Everything in In-Person, plus:</li>
+        <li><div class="check"></div>Daily check-ins</li>
+        <li><div class="check"></div>Meal prep consultation</li>
+        <li><div class="check"></div>2 bonus sessions/week</li>
+        <li><div class="check"></div>Transformation photoshoot</li>
+      </ul>
+      <button class="btn-price">Get Started</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how" id="how">
+  <div class="how-header fade-up">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title">How Peak Form Works</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step fade-up">
+      <div class="step-num">1</div>
+      <h3>Free Consultation</h3>
+      <p>Book a free 30-minute call. We assess your goals, lifestyle, and starting point.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">2</div>
+      <h3>Custom Program Built</h3>
+      <p>Your personalized 12-week training and nutrition plan is ready within 48 hours.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">3</div>
+      <h3>Train &amp; Track</h3>
+      <p>Follow your program. Weekly check-ins keep you accountable and on track.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">4</div>
+      <h3>Transform</h3>
+      <p>Hit your goal. Most clients see visible results within the first 3 weeks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testi-header fade-up">
+    <div class="section-label">Client Stories</div>
+    <h2 class="section-title" style="color:#fff">What Our Clients Say</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">I tried 3 other coaches in Dubai before Khalid. Nothing compares. Lost 16kg in 11 weeks and I genuinely enjoyed the process.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">FR</div>
+        <div>
+          <div class="testi-name">Fatima R.</div>
+          <div class="testi-role">Marketing Director, Dubai</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">As a busy professional working 12-hour days, I needed a plan that fit my life. Khalid understood that from day one. The results speak for themselves.</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#1a5fa8,#0D1B2A)">JT</div>
+        <div>
+          <div class="testi-name">James T.</div>
+          <div class="testi-role">Finance Manager, DIFC</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">Best investment I've made in Dubai. The online coaching is incredibly detailed and the WhatsApp check-ins kept me accountable every single day.</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#6b21a8,#3730a3)">PS</div>
+        <div>
+          <div class="testi-name">Priya S.</div>
+          <div class="testi-role">Entrepreneur, Dubai Marina</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-grid">
+    <div class="booking-left fade-up">
+      <div class="section-label">Get Started</div>
+      <h2>Ready to Start?</h2>
+      <p>Book your free 30-minute consultation. No commitment. Just a conversation about your goals.</p>
+      <div class="trust-badges">
+        <div class="trust-badge"><div class="trust-icon">✓</div>Free First Consultation</div>
+        <div class="trust-badge"><div class="trust-icon">◎</div>No Lock-in Contracts</div>
+        <div class="trust-badge"><div class="trust-icon">★</div>Results Guaranteed</div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="form-card" id="formCard">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-input" id="f-name" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-input" id="f-email" placeholder="you@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <div class="phone-wrap">
+            <div class="phone-prefix">🇦🇪 +971</div>
+            <input type="tel" class="form-input" id="f-phone" placeholder="50 XXX XXXX" style="flex:1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Goal</label>
+            <select class="form-input" id="f-goal">
+              <option value="">Select goal...</option>
+              <option>Lose Weight</option>
+              <option>Build Muscle</option>
+              <option>Body Recomposition</option>
+              <option>General Fitness</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Training</label>
+            <select class="form-input" id="f-training">
+              <option value="">Select preference...</option>
+              <option>Online</option>
+              <option>In-Person</option>
+              <option>Either</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message (Optional)</label>
+          <textarea class="form-input" id="f-message" rows="3" placeholder="Tell Coach Khalid about your current situation..." style="resize:vertical"></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">Book My Free Consultation</button>
+      </div>
+      <div class="success-msg" id="successMsg" style="display:none">
+        <div style="font-size:2.5rem;margin-bottom:1rem">🎯</div>
+        <h3>You're booked in!</h3>
+        <p>Thanks! Coach Khalid will contact you within 2 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="instagram" id="instagram">
+  <div class="instagram-header fade-up">
+    <div class="section-label">Social</div>
+    <h2 class="section-title">Follow The Journey</h2>
+    <p class="insta-handle">@PeakFormDubai</p>
+  </div>
+  <div class="insta-grid">
+    <div class="insta-tile fade-up"><div class="insta-bg" style="background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=70') center/cover"><div class="insta-overlay"><div class="insta-heart">♥</div><div class="insta-count">2.4K</div></div></div></div>
+    <div class="insta-tile fade-up"><div class="insta-bg" style="background:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=70') center/cover"><div class="insta-overlay"><div class="insta-heart">♥</div><div class="insta-count">1.8K</div></div></div></div>
+    <div class="insta-tile fade-up"><div class="insta-bg" style="background:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=70') center/cover"><div class="insta-overlay"><div class="insta-heart">♥</div><div class="insta-count">3.1K</div></div></div></div>
+    <div class="insta-tile fade-up"><div class="insta-bg" style="background:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&q=70') center/cover"><div class="insta-overlay"><div class="insta-heart">♥</div><div class="insta-count">2.9K</div></div></div></div>
+    <div class="insta-tile fade-up"><div class="insta-bg" style="background:url('https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=70') center/cover"><div class="insta-overlay"><div class="insta-heart">♥</div><div class="insta-count">1.5K</div></div></div></div>
+    <div class="insta-tile fade-up"><div class="insta-bg" style="background:url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&q=70') center/cover"><div class="insta-overlay"><div class="insta-heart">♥</div><div class="insta-count">4.2K</div></div></div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">PEAK<span>FORM</span> DUBAI</div>
+      <div class="footer-tagline">Dubai's Premier Body Transformation Coach. 12-week programs that actually work. 200+ clients transformed.</div>
+      <div class="social-icons">
+        <a href="#" class="social-icon">IG</a>
+        <a href="#" class="social-icon">YT</a>
+        <a href="#" class="social-icon">WA</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#booking">Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="contact-item"><span class="contact-icon">📞</span>+971 50 XXX XXXX</div>
+      <div class="contact-item"><span class="contact-icon">✉</span>coach@peakformdubai.com</div>
+      <div class="contact-item"><span class="contact-icon">📍</span>Dubai Marina, UAE</div>
+      <div class="contact-item"><span class="contact-icon">⏰</span>Available 6am–9pm daily</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Peak Form Dubai. All rights reserved.</div>
+    <div class="footer-credit">Website designed by <a href="#">Ramees</a> — Web Design &amp; SEO Dubai</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  const nav=document.getElementById('navbar');
+  if(y>50)nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+  const sections=['hero','about','results','services','how','testimonials','booking'];
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const rect=el.getBoundingClientRect();
+    if(rect.top<=100&&rect.bottom>100){
+      document.querySelectorAll('.nav-link').forEach(a=>{
+        a.classList.remove('active');
+        if(a.getAttribute('href')==='#'+id)a.classList.add('active');
+      });
+    }
+  });
+});
+
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-up').forEach((el,i)=>{
+  el.style.transitionDelay=(i%4)*0.1+'s';
+  observer.observe(el);
+});
+
+const counterObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-target]').forEach(el=>counterObserver.observe(el));
+
+function animateCounter(el){
+  const target=parseFloat(el.dataset.target);
+  const suffix=el.dataset.suffix||'';
+  const isDecimal=el.dataset.decimal==='true';
+  const duration=1800;
+  const start=performance.now();
+  function update(now){
+    const elapsed=now-start;
+    const progress=Math.min(elapsed/duration,1);
+    const ease=1-Math.pow(1-progress,3);
+    const current=isDecimal?(target*ease).toFixed(1):Math.floor(target*ease);
+    el.textContent=current+suffix;
+    if(progress<1)requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+function submitForm(){
+  const fields=['f-name','f-email','f-phone','f-goal','f-training'];
+  let valid=true;
+  fields.forEach(id=>{
+    const el=document.getElementById(id);
+    el.classList.remove('error');
+    if(!el.value.trim()){el.classList.add('error');valid=false;}
+  });
+  if(!valid){return;}
+  const emailEl=document.getElementById('f-email');
+  if(!/^[^@]+@[^@]+\.[^@]+$/.test(emailEl.value)){
+    emailEl.classList.add('error');
+    return;
+  }
+  document.getElementById('formCard').style.display='none';
+  document.getElementById('successMsg').style.display='block';
+}
+</script>
+</body>
+</html>
