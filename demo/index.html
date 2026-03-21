@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Showcase — Muhammad Ramees</title>
+  <meta name="description" content="A curated collection of premium website demos crafted by Muhammad Ramees — restaurants, nightlife, cafes, coaches and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #07070f;
+      --surface:   rgba(255,255,255,0.045);
+      --border:    rgba(255,255,255,0.09);
+      --gold:      #f5c842;
+      --gold2:     #e0a020;
+      --purple:    #a259ff;
+      --cyan:      #38bdf8;
+      --green:     #34d399;
+      --pink:      #f472b6;
+      --orange:    #fb923c;
+      --text:      #f1f1f1;
+      --muted:     #8a8a9a;
+      --radius:    18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background blobs ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 700px 500px at 15% 10%, rgba(162,89,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 400px at 85% 80%, rgba(245,200,66,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 400px at 60% 30%, rgba(56,189,248,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Particle canvas ── */
+    #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(7,7,15,0.7);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, var(--gold), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 5px 14px;
+      border-radius: 99px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 160px 24px 80px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(245,200,66,0.1);
+      border: 1px solid rgba(245,200,66,0.25);
+      padding: 6px 18px;
+      border-radius: 99px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow::before { content: '✦'; font-size: 0.65rem; }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      background: linear-gradient(160deg, #ffffff 30%, rgba(162,89,255,0.7) 70%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* Stats bar */
+    .stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gold), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 2px; font-weight: 500; letter-spacing: 0.05em; }
+    .stat-divider { width: 1px; height: 36px; background: var(--border); }
+
+    /* ── Filter pills ── */
+    .filters {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      padding: 0 24px;
+    }
+
+    .filter-pill {
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 22px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      transition: all 0.25s;
+      letter-spacing: 0.03em;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      color: #fff;
+      border-color: var(--gold);
+      background: rgba(245,200,66,0.12);
+      box-shadow: 0 0 18px rgba(245,200,66,0.15);
+    }
+
+    /* ── Grid ── */
+    .grid-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    /* ── Card ── */
+    .card {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.25), box-shadow 0.35s, border-color 0.35s;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* Stagger */
+    .card:nth-child(1)  { animation-delay: 0.05s; }
+    .card:nth-child(2)  { animation-delay: 0.10s; }
+    .card:nth-child(3)  { animation-delay: 0.15s; }
+    .card:nth-child(4)  { animation-delay: 0.20s; }
+    .card:nth-child(5)  { animation-delay: 0.25s; }
+    .card:nth-child(6)  { animation-delay: 0.30s; }
+    .card:nth-child(7)  { animation-delay: 0.35s; }
+
+    /* Glow per accent colour */
+    .card:hover { box-shadow: 0 24px 60px var(--card-glow, rgba(162,89,255,0.2)); }
+
+    /* ── Card thumb ── */
+    .card-thumb {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .card-thumb-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      background: var(--thumb-bg, linear-gradient(135deg, #1e1b4b, #312e81));
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-thumb-inner { transform: scale(1.08); }
+
+    /* Screen mockup lines */
+    .card-thumb-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255,255,255,0.025) 30px, rgba(255,255,255,0.025) 31px),
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,0.015) 50px, rgba(255,255,255,0.015) 51px);
+    }
+
+    /* Top bar of thumb */
+    .thumb-topbar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 28px;
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+    .url-bar {
+      flex: 1;
+      height: 14px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      margin: 0 8px;
+    }
+
+    /* ── Card body ── */
+    .card-body { padding: 22px 24px 24px; }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .card-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 99px;
+      background: var(--badge-bg, rgba(162,89,255,0.15));
+      color: var(--badge-color, var(--purple));
+      border: 1px solid var(--badge-border, rgba(162,89,255,0.3));
+    }
+
+    .card-arrow {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted);
+      font-size: 1rem;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+    .card:hover .card-arrow {
+      background: var(--accent, var(--gold));
+      border-color: var(--accent, var(--gold));
+      color: #000;
+      transform: rotate(45deg);
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card-footer {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    /* ── Hidden class for filter ── */
+    .card.hidden {
+      display: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .hero { padding: 120px 20px 60px; }
+      .stats { gap: 24px; }
+      .stat-divider { display: none; }
+      .cards-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <!-- Nav -->
+  <nav>
+    <a href="../index.html" class="nav-logo">Muhammad Ramees</a>
+    <span class="nav-badge">✦ Demo Projects</span>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">Crafted with precision</div>
+    <h1>Demo Showcase</h1>
+    <p>A curated collection of premium website demos spanning restaurants, nightlife, cafes, and coaching brands.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Custom Code</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <div class="filters">
+    <button class="filter-pill active" data-filter="all" onclick="filterCards(this, 'all')">All Projects</button>
+    <button class="filter-pill" data-filter="restaurant" onclick="filterCards(this, 'restaurant')">🍽 Restaurant</button>
+    <button class="filter-pill" data-filter="nightlife" onclick="filterCards(this, 'nightlife')">🎶 Nightlife</button>
+    <button class="filter-pill" data-filter="cafe" onclick="filterCards(this, 'cafe')">☕ Café</button>
+    <button class="filter-pill" data-filter="coach" onclick="filterCards(this, 'coach')">⚽ Coach</button>
+  </div>
+
+  <!-- Cards Grid -->
+  <section class="grid-section">
+    <div class="cards-grid" id="cardsGrid">
+
+      <!-- OVO Club -->
+      <a href="ovo.html" class="card"
+         data-category="nightlife"
+         style="--card-glow: rgba(162,89,255,0.25); --accent: var(--purple);">
+        <div class="card-thumb">
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d0020, #2d0068, #6600cc);">
+            🎧
+            <div class="thumb-topbar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-badge" style="--badge-bg: rgba(162,89,255,0.15); --badge-color: #c084fc; --badge-border: rgba(162,89,255,0.3);">Nightlife</span>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h2>OVO Club Al Nahda</h2>
+          <p>Dubai's premier nightlife destination — immersive dark design with neon glow effects and event listings.</p>
+          <div class="card-footer">
+            <span class="card-tag">Dark Theme</span>
+            <span class="card-tag">Nightclub</span>
+            <span class="card-tag">Dubai</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- JJ Jalebi -->
+      <a href="jj-jalebi.html" class="card"
+         data-category="restaurant"
+         style="--card-glow: rgba(251,146,60,0.25); --accent: var(--orange);">
+        <div class="card-thumb">
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #1c0a00, #5c1c00, #a33000);">
+            🍡
+            <div class="thumb-topbar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-badge" style="--badge-bg: rgba(251,146,60,0.15); --badge-color: var(--orange); --badge-border: rgba(251,146,60,0.3);">Restaurant</span>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h2>JJ Jalebi Dubai</h2>
+          <p>Since 1947 — Mohammed Ali Road Mumbai heritage brand at Al Karama Dubai. Rich, warm Indian street food vibes.</p>
+          <div class="card-footer">
+            <span class="card-tag">Indian Food</span>
+            <span class="card-tag">Heritage Brand</span>
+            <span class="card-tag">Al Karama</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Bombay Dhaba -->
+      <a href="bombay-dhaba.html" class="card"
+         data-category="restaurant"
+         style="--card-glow: rgba(245,200,66,0.25); --accent: var(--gold);">
+        <div class="card-thumb">
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #1a1200, #3d2d00, #7a5c00);">
+            🍛
+            <div class="thumb-topbar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-badge" style="--badge-bg: rgba(245,200,66,0.12); --badge-color: var(--gold); --badge-border: rgba(245,200,66,0.3);">Restaurant</span>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h2>Bombay Dhaba</h2>
+          <p>Restaurant & Cafeteria in Al Nahda, Dubai — authentic Bombay flavours with a warm, welcoming identity.</p>
+          <div class="card-footer">
+            <span class="card-tag">Indian Cuisine</span>
+            <span class="card-tag">Cafeteria</span>
+            <span class="card-tag">Al Nahda</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Saffron & Smoke (hotel.html) -->
+      <a href="hotel.html" class="card"
+         data-category="restaurant"
+         style="--card-glow: rgba(52,211,153,0.22); --accent: var(--green);">
+        <div class="card-thumb">
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #001a10, #003d22, #006b3c);">
+            🔥
+            <div class="thumb-topbar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-badge" style="--badge-bg: rgba(52,211,153,0.12); --badge-color: var(--green); --badge-border: rgba(52,211,153,0.3);">Restaurant</span>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h2>Saffron & Smoke</h2>
+          <p>Contemporary Arabic Fusion dining at Downtown Dubai — elegant fine-dining experience with rich cultural aesthetics.</p>
+          <div class="card-footer">
+            <span class="card-tag">Arabic Fusion</span>
+            <span class="card-tag">Fine Dining</span>
+            <span class="card-tag">Downtown Dubai</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Vicolo Cafe -->
+      <a href="vicolo.html" class="card"
+         data-category="cafe"
+         style="--card-glow: rgba(56,189,248,0.22); --accent: var(--cyan);">
+        <div class="card-thumb">
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #001520, #002d40, #004d6b);">
+            💨
+            <div class="thumb-topbar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-badge" style="--badge-bg: rgba(56,189,248,0.12); --badge-color: var(--cyan); --badge-border: rgba(56,189,248,0.3);">Café</span>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h2>Vicolo Cafe</h2>
+          <p>Al Nahda Dubai — Shisha, Coffee & Late Night Vibes. Open 9AM–5AM. الجو عنا غير. Bilingual design.</p>
+          <div class="card-footer">
+            <span class="card-tag">Shisha</span>
+            <span class="card-tag">Coffee</span>
+            <span class="card-tag">Late Night</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Marcus Silva – Coach -->
+      <a href="coach.html" class="card"
+         data-category="coach"
+         style="--card-glow: rgba(244,114,182,0.22); --accent: var(--pink);">
+        <div class="card-thumb">
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d001a, #2a0044, #4a0080);">
+            ⚽
+            <div class="thumb-topbar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-badge" style="--badge-bg: rgba(244,114,182,0.12); --badge-color: var(--pink); --badge-border: rgba(244,114,182,0.3);">Coach</span>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h2>Marcus Silva</h2>
+          <p>Elite Football Coach — professional personal branding page with training programs, highlights, and client booking.</p>
+          <div class="card-footer">
+            <span class="card-tag">Football</span>
+            <span class="card-tag">Personal Brand</span>
+            <span class="card-tag">Sports</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Built with ❤️ by <a href="https://muhammad-ramees.github.io" target="_blank">Muhammad Ramees</a> &mdash; All demos are custom-coded, pixel-perfect websites.</p>
+  </footer>
+
+  <script>
+    /* ── Filter ── */
+    function filterCards(btn, category) {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    /* ── Particles ── */
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particles = Array.from({ length: 55 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.4 + 0.3,
+      dx: (Math.random() - 0.5) * 0.4,
+      dy: (Math.random() - 0.5) * 0.4,
+      alpha: Math.random() * 0.5 + 0.1,
+    }));
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(245,200,66,${p.alpha})`;
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+  </script>
+
+</body>
+</html>
