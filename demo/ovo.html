@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OVO Club Al Nahda — Dubai's Premier Nightlife Destination</title>
+    <meta name="description"
+        content="OVO Club Al Nahda — Dubai's premier Bollywood + international nightlife. Inside Seven Seas Hotel. Curated by Jacqueline Fernandez.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Josefin+Sans:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --deep: #080808;
+            --card: #0f0f0f;
+            --gold: #C9A84C;
+            --gold2: #F0C040;
+            --white: #FFFFFF;
+            --grey: #AAAAAA;
+            --border: #3D2E0F;
+            --glow: rgba(201, 168, 76, 0.13);
+            --fd: 'Cinzel', serif;
+            --fb: 'Josefin Sans', sans-serif;
+            --fs: 'Cormorant Garamond', serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--fb);
+            font-weight: 300;
+            letter-spacing: .04em;
+            overflow-x: hidden
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        ::-webkit-scrollbar {
+            width: 3px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 2px
+        }
+
+        .lbl {
+            font-family: var(--fb);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .38em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 14px
+        }
+
+        .ttl {
+            font-family: var(--fd);
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.08;
+            color: var(--white);
+            margin-bottom: 18px
+        }
+
+        .ttl span {
+            color: var(--gold)
+        }
+
+        .dsc {
+            font-family: var(--fs);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-style: italic;
+            color: var(--grey);
+            line-height: 1.85;
+            max-width: 600px;
+            margin: 0 auto
+        }
+
+        section {
+            padding: 100px 24px
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        .tc {
+            text-align: center
+        }
+
+        .div {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 22px auto
+        }
+
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.04)
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(32px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes goldShimmer {
+
+            0%,
+            100% {
+                text-shadow: 0 0 60px rgba(201, 168, 76, .4), 0 0 120px rgba(201, 168, 76, .15)
+            }
+
+            50% {
+                text-shadow: 0 0 100px rgba(240, 192, 64, .75), 0 0 200px rgba(201, 168, 76, .3), 0 0 30px rgba(255, 220, 100, .9)
+            }
+        }
+
+        @keyframes pulseRing {
+            0% {
+                box-shadow: 0 0 0 0 rgba(201, 168, 76, .5)
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(201, 168, 76, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 168, 76, 0)
+            }
+        }
+
+        @keyframes scrollLine {
+
+            0%,
+            100% {
+                opacity: .4
+            }
+
+            50% {
+                opacity: 1
+            }
+        }
+
+        @keyframes waPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 18px rgba(37, 211, 102, .45)
+            }
+
+            50% {
+                box-shadow: 0 4px 28px rgba(37, 211, 102, .7), 0 0 0 8px rgba(37, 211, 102, .08)
+            }
+        }
+
+        @keyframes scanLine {
+            0% {
+                top: -4px
+            }
+
+            100% {
+                top: 105%
+            }
+        }
+
+        @keyframes eqBeat {
+
+            0%,
+            100% {
+                transform: scaleY(0.25)
+            }
+
+            50% {
+                transform: scaleY(1)
+            }
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-family: var(--fb);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .35s;
+            position: relative;
+            overflow: hidden;
+            border: none
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--white);
+            transform: translateX(-101%);
+            transition: transform .4s cubic-bezier(.4, 0, .2, 1);
+            z-index: 0
+        }
+
+        .btn:hover::before {
+            transform: translateX(0)
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+            transition: color .35s
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--black)
+        }
+
+        .btn-gold:hover span {
+            color: var(--black)
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold)
+        }
+
+        .btn-outline:hover span {
+            color: var(--black)
+        }
+
+        .btn-gold:hover {
+            box-shadow: 0 8px 30px rgba(201, 168, 76, .4);
+            animation: pulseRing .6s forwards
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all .4s
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, .97);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            padding: 13px 40px
+        }
+
+        .nav-logo {
+            font-family: var(--fd);
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: .22em;
+            color: var(--gold);
+            text-shadow: 0 0 28px rgba(201, 168, 76, .5)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 34px;
+            list-style: none
+        }
+
+        .nav-links a {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: var(--grey);
+            transition: color .3s
+        }
+
+        .nav-links a:hover {
+            color: var(--gold)
+        }
+
+        .nav-cta {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--gold);
+            padding: 10px 22px;
+            transition: background .3s
+        }
+
+        .nav-cta:hover {
+            background: var(--gold2)
+        }
+
+        .ham {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px
+        }
+
+        .ham span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--gold);
+            transition: all .3s
+        }
+
+        .mmenu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .98);
+            backdrop-filter: blur(24px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px
+        }
+
+        .mmenu.open {
+            display: flex
+        }
+
+        .mmenu a {
+            font-family: var(--fd);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: color .3s
+        }
+
+        .mmenu a:hover {
+            color: var(--gold)
+        }
+
+        .mclose {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 1.5rem;
+            color: var(--gold);
+            cursor: pointer;
+            background: none;
+            border: none
+        }
+
+        /* HERO */
+        #hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0 24px
+        }
+
+        #hc {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0
+        }
+
+        .ho {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 168, 76, .03) 0%, transparent 60%), linear-gradient(to bottom, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .55) 100%);
+            z-index: 1
+        }
+
+        .hero {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 920px
+        }
+
+        .h-eye {
+            font-family: var(--fb);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .45em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 22px;
+            opacity: 0;
+            animation: fadeUp 1s .3s forwards
+        }
+
+        .h-ovo {
+            font-family: var(--fd);
+            font-size: clamp(7rem, 20vw, 16rem);
+            font-weight: 900;
+            letter-spacing: .18em;
+            line-height: .85;
+            color: var(--gold);
+            animation: fadeUp 1s .5s forwards, goldShimmer 3.5s 1.5s infinite;
+            opacity: 0;
+            margin-bottom: 6px
+        }
+
+        .h-sub {
+            font-family: var(--fb);
+            font-size: clamp(.6rem, 1.4vw, .75rem);
+            font-weight: 300;
+            letter-spacing: .52em;
+            text-transform: uppercase;
+            color: var(--grey);
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 1s .8s forwards
+        }
+
+        .h-tag {
+            font-family: var(--fs);
+            font-size: clamp(1.2rem, 3vw, 1.9rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.5;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeUp 1s 1s forwards
+        }
+
+        .h-by {
+            font-family: var(--fb);
+            font-size: 9px;
+            letter-spacing: .4em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0;
+            margin-bottom: 50px;
+            animation: fadeUp 1s 1.2s forwards
+        }
+
+        .h-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 1s 1.4s forwards
+        }
+
+        .h-scroll {
+            position: absolute;
+            bottom: 34px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeIn 1s 2s forwards
+        }
+
+        .h-scroll span {
+            font-size: 9px;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: .6
+        }
+
+        .sbar {
+            width: 1px;
+            height: 48px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollLine 2s infinite
+        }
+
+        .eq {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 3px;
+            pointer-events: none
+        }
+
+        .eq div {
+            width: 3px;
+            background: linear-gradient(to top, var(--gold), rgba(201, 168, 76, .08));
+            border-radius: 2px 2px 0 0;
+            transform-origin: bottom;
+            opacity: .5
+        }
+
+        .eq div:nth-child(1) {
+            height: 16px;
+            animation: eqBeat .6s 0s infinite alternate
+        }
+
+        .eq div:nth-child(2) {
+            height: 28px;
+            animation: eqBeat .7s .1s infinite alternate
+        }
+
+        .eq div:nth-child(3) {
+            height: 22px;
+            animation: eqBeat .5s .2s infinite alternate
+        }
+
+        .eq div:nth-child(4) {
+            height: 38px;
+            animation: eqBeat .8s .05s infinite alternate
+        }
+
+        .eq div:nth-child(5) {
+            height: 26px;
+            animation: eqBeat .65s .15s infinite alternate
+        }
+
+        .eq div:nth-child(6) {
+            height: 48px;
+            animation: eqBeat .55s 0s infinite alternate
+        }
+
+        .eq div:nth-child(7) {
+            height: 33px;
+            animation: eqBeat .75s .25s infinite alternate
+        }
+
+        .eq div:nth-child(8) {
+            height: 20px;
+            animation: eqBeat .9s .1s infinite alternate
+        }
+
+        .eq div:nth-child(9) {
+            height: 40px;
+            animation: eqBeat .6s .3s infinite alternate
+        }
+
+        .eq div:nth-child(10) {
+            height: 26px;
+            animation: eqBeat .7s .05s infinite alternate
+        }
+
+        .eq div:nth-child(11) {
+            height: 16px;
+            animation: eqBeat .8s .2s infinite alternate
+        }
+
+        .eq div:nth-child(12) {
+            height: 34px;
+            animation: eqBeat .5s .15s infinite alternate
+        }
+
+        /* TICKER */
+        .tkw {
+            background: var(--gold);
+            overflow: hidden;
+            padding: 13px 0;
+            white-space: nowrap
+        }
+
+        .tki {
+            display: inline-block;
+            animation: ticker 22s linear infinite
+        }
+
+        .tki span {
+            font-family: var(--fb);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--black);
+            padding: 0 36px
+        }
+
+        .tki span::after {
+            content: '✦';
+            padding-left: 36px
+        }
+
+        /* EXPERIENCE */
+        #experience {
+            background: var(--deep);
+            position: relative
+        }
+
+        #experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 70px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent)
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2px;
+            margin-top: 56px
+        }
+
+        .exp-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 52px 40px;
+            position: relative;
+            transition: all .4s;
+            overflow: hidden
+        }
+
+        .exp-card .scan {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, .35), transparent);
+            top: -4px;
+            opacity: 0
+        }
+
+        .exp-card:hover .scan {
+            opacity: 1;
+            animation: scanLine 1.6s linear infinite
+        }
+
+        .exp-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--glow);
+            opacity: 0;
+            transition: opacity .4s
+        }
+
+        .exp-card:hover::after {
+            opacity: 1
+        }
+
+        .exp-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(201, 168, 76, .1)
+        }
+
+        .exp-corner {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 18px;
+            height: 18px;
+            border-top: 1px solid var(--gold);
+            border-right: 1px solid var(--gold);
+            opacity: .3;
+            transition: opacity .3s
+        }
+
+        .exp-card:hover .exp-corner {
+            opacity: 1
+        }
+
+        .exp-icon {
+            font-size: 2.4rem;
+            margin-bottom: 26px;
+            display: block
+        }
+
+        .exp-card h3 {
+            font-family: var(--fd);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--gold);
+            margin-bottom: 14px;
+            text-transform: uppercase
+        }
+
+        .exp-card p {
+            font-family: var(--fs);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--grey);
+            line-height: 1.8
+        }
+
+        /* EVENTS */
+        #events {
+            background: var(--black);
+            position: relative;
+            overflow: hidden
+        }
+
+        .ev-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--fd);
+            font-size: clamp(8rem, 20vw, 18rem);
+            font-weight: 900;
+            color: rgba(201, 168, 76, .022);
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: .3em;
+            user-select: none
+        }
+
+        .ev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+            margin-top: 58px;
+            position: relative;
+            z-index: 1
+        }
+
+        .ev-card {
+            border: 1px solid var(--border);
+            padding: 42px 30px;
+            background: var(--card);
+            position: relative;
+            overflow: hidden;
+            transition: all .4s;
+            cursor: default
+        }
+
+        .ev-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: scaleX(0);
+            transition: transform .4s
+        }
+
+        .ev-card:hover::before {
+            transform: scaleX(1)
+        }
+
+        .ev-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 40px rgba(201, 168, 76, .1)
+        }
+
+        .ev-tag {
+            display: inline-block;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            margin-bottom: 20px;
+            transition: border-color .3s, background .3s
+        }
+
+        .ev-card:hover .ev-tag {
+            border-color: var(--gold);
+            background: var(--glow)
+        }
+
+        .ev-icon {
+            font-size: 1.9rem;
+            margin-bottom: 16px;
+            display: block
+        }
+
+        .ev-card h3 {
+            font-family: var(--fd);
+            font-size: .9rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 12px
+        }
+
+        .ev-card p {
+            font-family: var(--fs);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--grey);
+            line-height: 1.75
+        }
+
+        .ev-cta {
+            text-align: center;
+            margin-top: 52px;
+            position: relative;
+            z-index: 1
+        }
+
+        .tlink {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border-bottom: 1px solid transparent;
+            transition: border-color .3s;
+            padding-bottom: 2px
+        }
+
+        .tlink:hover {
+            border-color: var(--gold)
+        }
+
+        /* VIP */
+        #vip {
+            background: var(--deep);
+            position: relative;
+            overflow: hidden
+        }
+
+        .vip-box {
+            position: relative;
+            border: 1px solid var(--border);
+            padding: 80px 60px;
+            text-align: center;
+            background: var(--card)
+        }
+
+        .vip-box::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 130px;
+            height: 130px;
+            border-top: 1px solid var(--gold);
+            border-left: 1px solid var(--gold);
+            opacity: .6
+        }
+
+        .vip-box::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 130px;
+            height: 130px;
+            border-bottom: 1px solid var(--gold);
+            border-right: 1px solid var(--gold);
+            opacity: .6
+        }
+
+        .vip-icons {
+            display: flex;
+            justify-content: center;
+            gap: 56px;
+            margin: 50px 0;
+            flex-wrap: wrap
+        }
+
+        .vip-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px
+        }
+
+        .vip-item .ico {
+            font-size: 2rem;
+            width: 68px;
+            height: 68px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s
+        }
+
+        .vip-item:hover .ico {
+            border-color: var(--gold);
+            background: var(--glow);
+            box-shadow: 0 0 24px rgba(201, 168, 76, .2);
+            animation: beat .6s ease
+        }
+
+        .vip-item label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--grey);
+            cursor: default
+        }
+
+        .vip-desc {
+            font-family: var(--fs);
+            font-size: clamp(1rem, 2.2vw, 1.22rem);
+            font-style: italic;
+            color: var(--grey);
+            max-width: 640px;
+            margin: 0 auto 50px;
+            line-height: 1.92
+        }
+
+        /* REVIEWS */
+        #reviews {
+            background: var(--black)
+        }
+
+        .rev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 22px;
+            margin-top: 58px
+        }
+
+        .rev-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 40px 34px;
+            position: relative;
+            transition: all .4s
+        }
+
+        .rev-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 14px;
+            left: 22px;
+            font-family: var(--fs);
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: .18;
+            line-height: 1;
+            pointer-events: none
+        }
+
+        .rev-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 40px rgba(201, 168, 76, .08);
+            transform: translateY(-4px)
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: .8rem;
+            letter-spacing: 2px;
+            margin-bottom: 18px
+        }
+
+        .rev-text {
+            font-family: var(--fs);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.82;
+            margin-bottom: 22px
+        }
+
+        .rev-auth {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: .65
+        }
+
+        /* LOCATIONS */
+        #locations {
+            background: var(--deep)
+        }
+
+        .loc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-top: 58px
+        }
+
+        .loc-card {
+            border: 1px solid var(--border);
+            background: var(--card);
+            padding: 54px 46px;
+            position: relative;
+            overflow: hidden;
+            transition: all .4s
+        }
+
+        .loc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: scaleX(0);
+            transition: transform .5s
+        }
+
+        .loc-card:hover::before {
+            transform: scaleX(1)
+        }
+
+        .loc-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(201, 168, 76, .09)
+        }
+
+        .loc-badge {
+            display: inline-block;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--gold);
+            padding: 5px 13px;
+            margin-bottom: 26px
+        }
+
+        .loc-card h3 {
+            font-family: var(--fd);
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: var(--white);
+            margin-bottom: 18px
+        }
+
+        .loc-card p {
+            font-family: var(--fs);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--grey);
+            line-height: 1.8;
+            margin-bottom: 32px
+        }
+
+        .loc-phone {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .2em;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 26px
+        }
+
+        /* RESERVE */
+        #reserve {
+            background: var(--black);
+            text-align: center
+        }
+
+        .wa-big {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--gold);
+            color: var(--black);
+            font-family: var(--fb);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            padding: 22px 50px;
+            transition: all .35s;
+            position: relative;
+            overflow: hidden;
+            margin: 46px 0
+        }
+
+        .wa-big::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold2);
+            transform: translateX(-101%);
+            transition: transform .4s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .wa-big:hover::before {
+            transform: translateX(0)
+        }
+
+        .wa-big span {
+            position: relative;
+            z-index: 1
+        }
+
+        .wa-big:hover {
+            box-shadow: 0 10px 40px rgba(201, 168, 76, .45)
+        }
+
+        .cgrid {
+            margin-top: 50px;
+            padding-top: 50px;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 38px;
+            text-align: left
+        }
+
+        .ci label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 9px
+        }
+
+        .ci p,
+        .ci a {
+            font-family: var(--fs);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--grey);
+            line-height: 1.75
+        }
+
+        .ci a:hover {
+            color: var(--gold)
+        }
+
+        .mwrap {
+            margin-top: 50px;
+            width: 100%;
+            height: 290px;
+            border: 1px solid var(--border);
+            overflow: hidden
+        }
+
+        .mwrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: invert(1) hue-rotate(180deg) saturate(.5)
+        }
+
+        /* FLOAT WA */
+        .fwa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 18px rgba(37, 211, 102, .45);
+            transition: all .3s;
+            animation: waPulse 3s infinite
+        }
+
+        .fwa:hover {
+            transform: scale(1.1);
+            animation: none;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, .6)
+        }
+
+        .fwa svg {
+            width: 27px;
+            height: 27px;
+            fill: white
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--deep);
+            border-top: 1px solid var(--border);
+            padding: 70px 24px 38px;
+            text-align: center
+        }
+
+        .ftl {
+            font-family: var(--fd);
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: .3em;
+            color: var(--gold);
+            text-shadow: 0 0 40px rgba(201, 168, 76, .3);
+            margin-bottom: 7px
+        }
+
+        .ftby {
+            font-size: 9px;
+            font-weight: 300;
+            letter-spacing: .42em;
+            text-transform: uppercase;
+            color: var(--grey);
+            margin-bottom: 38px
+        }
+
+        .fdiv {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 38px 0
+        }
+
+        .ftg {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 38px
+        }
+
+        .ftc h4 {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px
+        }
+
+        .ftc p,
+        .ftc a {
+            font-family: var(--fs);
+            font-size: .95rem;
+            font-style: italic;
+            color: var(--grey);
+            line-height: 1.9;
+            display: block;
+            transition: color .3s
+        }
+
+        .ftc a:hover {
+            color: var(--gold)
+        }
+
+        .ftso {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px
+        }
+
+        .si {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            color: var(--grey);
+            transition: all .3s
+        }
+
+        .si:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: var(--glow)
+        }
+
+        .ftloc {
+            font-family: var(--fb);
+            font-size: 10px;
+            letter-spacing: .4em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: .5;
+            margin-bottom: 7px
+        }
+
+        .ftcp {
+            font-size: 9px;
+            font-weight: 300;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--border);
+            padding-top: 30px;
+            border-top: 1px solid rgba(61, 46, 15, .4)
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(38px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            nav {
+                padding: 17px 18px
+            }
+
+            nav.scrolled {
+                padding: 12px 18px
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none
+            }
+
+            .ham {
+                display: flex
+            }
+
+            section {
+                padding: 68px 18px
+            }
+
+            .vip-box {
+                padding: 46px 24px
+            }
+
+            .vip-icons {
+                gap: 28px
+            }
+
+            .loc-grid {
+                grid-template-columns: 1fr
+            }
+
+            .loc-card {
+                padding: 38px 26px
+            }
+
+            .cgrid {
+                grid-template-columns: 1fr
+            }
+
+            .ftl {
+                font-size: 2.8rem
+            }
+
+            .ftg {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:480px) {
+            .h-btns {
+                flex-direction: column;
+                align-items: center
+            }
+
+            .btn,
+            .wa-big {
+                width: 100%;
+                justify-content: center
+            }
+
+            .vip-box::before,
+            .vip-box::after {
+                width: 55px;
+                height: 55px
+            }
+
+            .ftg {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="nav">
+        <div class="nav-logo">OVO</div>
+        <ul class="nav-links">
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#events">Nights</a></li>
+            <li><a href="#vip">VIP</a></li>
+            <li><a href="#locations">Locations</a></li>
+        </ul>
+        <a href="https://wa.me/971551009235?text=Hi%2C+I'd+like+to+reserve+a+table+at+OVO+Club+Al+Nahda" target="_blank"
+            class="nav-cta">Reserve</a>
+        <div class="ham" onclick="openM()"><span></span><span></span><span></span></div>
+    </nav>
+
+    <div class="mmenu" id="mmenu">
+        <button class="mclose" onclick="closeM()">&#10005;</button>
+        <a href="#experience" onclick="closeM()">Experience</a>
+        <a href="#events" onclick="closeM()">Nights</a>
+        <a href="#vip" onclick="closeM()">VIP</a>
+        <a href="#reviews" onclick="closeM()">Reviews</a>
+        <a href="#locations" onclick="closeM()">Locations</a>
+        <a href="#reserve" onclick="closeM()">Reserve</a>
+    </div>
+
+    <section id="hero">
+        <canvas id="hc"></canvas>
+        <div class="ho"></div>
+        <div class="hero">
+            <p class="h-eye">Dubai's Premier Nightlife Destination</p>
+            <h1 class="h-ovo">OVO</h1>
+            <p class="h-sub">Al Nahda, Dubai &nbsp;&middot;&nbsp; Inside Seven Seas Hotel</p>
+            <p class="h-tag">Where Bollywood Glamour Meets Dubai Nightlife</p>
+            <p class="h-by">Curated by Jacqueline Fernandez</p>
+            <div class="h-btns">
+                <a href="https://wa.me/971551009235?text=Hi%2C+I'd+like+to+reserve+a+table+at+OVO+Club+Al+Nahda"
+                    target="_blank" class="btn btn-gold"><span>&#128241; Reserve on WhatsApp</span></a>
+                <a href="#vip" class="btn btn-outline"><span>Book Private Event</span></a>
+            </div>
+        </div>
+        <div class="eq">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="h-scroll"><span>Scroll</span>
+            <div class="sbar"></div>
+        </div>
+    </section>
+
+    <div class="tkw">
+        <div class="tki">
+            <span>Bollywood Nights</span><span>VIP Lounges</span><span>Afro House</span>
+            <span>Bottle Service</span><span>Celebrity Nights</span><span>Family Karaoke</span>
+            <span>International DJs</span><span>Al Nahda Dubai</span><span>Live Events</span>
+            <span>Bollywood Nights</span><span>VIP Lounges</span><span>Afro House</span>
+            <span>Bottle Service</span><span>Celebrity Nights</span><span>Family Karaoke</span>
+            <span>International DJs</span><span>Al Nahda Dubai</span><span>Live Events</span>
+        </div>
+    </div>
+
+    <section id="experience">
+        <div class="wrap tc">
+            <span class="lbl reveal">The OVO Experience</span>
+            <h2 class="ttl reveal">Step Into a <span>Different World</span></h2>
+            <div class="div reveal"></div>
+            <div class="exp-grid">
+                <div class="exp-card reveal">
+                    <div class="scan"></div>
+                    <div class="exp-corner"></div>
+                    <span class="exp-icon">&#127925;</span>
+                    <h3>World Class DJs</h3>
+                    <p>Top international and local DJs. Bollywood nights to Afro house &mdash; every night hits
+                        different.</p>
+                </div>
+                <div class="exp-card reveal">
+                    <div class="scan"></div>
+                    <div class="exp-corner"></div>
+                    <span class="exp-icon">&#127946;</span>
+                    <h3>VIP Lounges</h3>
+                    <p>Private lounges. Bottle service. Personalized hospitality. Your table, your night.</p>
+                </div>
+                <div class="exp-card reveal">
+                    <div class="scan"></div>
+                    <div class="exp-corner"></div>
+                    <span class="exp-icon">&#127864;</span>
+                    <h3>Handcrafted Cocktails</h3>
+                    <p>Signature drinks curated for the night. Sip slow or sip fast &mdash; we don't judge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="ev-bg">NIGHTS</div>
+        <div class="wrap tc">
+            <span class="lbl reveal">Every Night Is Different</span>
+            <h2 class="ttl reveal">What's On at <span>OVO</span></h2>
+            <div class="div reveal"></div>
+            <div class="ev-grid">
+                <div class="ev-card reveal">
+                    <div class="ev-tag">Weekly</div>
+                    <span class="ev-icon">&#127916;</span>
+                    <h3>Bollywood Nights</h3>
+                    <p>The city's best Bollywood DJ nights. Dance to the songs you grew up on.</p>
+                </div>
+                <div class="ev-card reveal">
+                    <div class="ev-tag">Live Set</div>
+                    <span class="ev-icon">&#127911;</span>
+                    <h3>DJ Artist Events</h3>
+                    <p>International DJs. Afro house. English club beats. Electrifying live sets.</p>
+                </div>
+                <div class="ev-card reveal">
+                    <div class="ev-tag">Family</div>
+                    <span class="ev-icon">&#127908;</span>
+                    <h3>Family Karaoke</h3>
+                    <p>Bring everyone. Great song selection, incredible sound. Unexpected fan favourite.</p>
+                </div>
+                <div class="ev-card reveal">
+                    <div class="ev-tag">Exclusive</div>
+                    <span class="ev-icon">&#127881;</span>
+                    <h3>Celebrity Nights</h3>
+                    <p>When Dubai's biggest names show up, OVO is where they come.</p>
+                </div>
+            </div>
+            <div class="ev-cta reveal"><a href="https://ovo-club.com" target="_blank" class="tlink">See upcoming events
+                    &rarr;</a></div>
+        </div>
+    </section>
+
+    <section id="vip">
+        <div class="wrap">
+            <div class="vip-box reveal">
+                <span class="lbl">Private Events &amp; VIP</span>
+                <h2 class="ttl">Your Night. <span>Your Rules.</span></h2>
+                <div class="div"></div>
+                <p class="vip-desc">Whether it's a birthday, corporate gathering, or an unforgettable special night
+                    &mdash; OVO's private event packages give you exclusive access, dedicated service, and a night no
+                    one forgets.</p>
+                <div class="vip-icons">
+                    <div class="vip-item">
+                        <div class="ico">&#127874;</div><label>Birthday Packages</label>
+                    </div>
+                    <div class="vip-item">
+                        <div class="ico">&#128188;</div><label>Corporate Events</label>
+                    </div>
+                    <div class="vip-item">
+                        <div class="ico">&#128141;</div><label>Special Occasions</label>
+                    </div>
+                </div>
+                <a href="https://wa.me/971551009235?text=Hi%2C+I'd+like+to+plan+a+private+event+at+OVO+Club"
+                    target="_blank" class="btn btn-gold"><span>Plan Your Event &mdash; WhatsApp Us</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <div class="wrap tc">
+            <span class="lbl reveal">Guest Experiences</span>
+            <h2 class="ttl reveal">What Dubai Says <span>About OVO</span></h2>
+            <div class="div reveal"></div>
+            <div class="rev-grid">
+                <div class="rev-card reveal">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="rev-text">"OVO is the ultimate party spot in Dubai! The music, the vibe, and the drinks
+                        were all top-notch. Can't wait to come back!"</p><span class="rev-auth">&mdash; Verified
+                        Guest</span>
+                </div>
+                <div class="rev-card reveal">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="rev-text">"The DJ lineup at OVO is incredible! The beats kept us dancing all night. A
+                        must-visit for nightlife lovers!"</p><span class="rev-auth">&mdash; Verified Guest</span>
+                </div>
+                <div class="rev-card reveal">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="rev-text">"Had an unforgettable night at the VIP lounge. The service was exceptional, and
+                        the cocktails were amazing!"</p><span class="rev-auth">&mdash; VIP Guest</span>
+                </div>
+                <div class="rev-card reveal">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="rev-text">"The Family Karaoke was so much fun! Great song selection and fantastic sound
+                        quality. Highly recommend!"</p><span class="rev-auth">&mdash; Verified Guest</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="locations">
+        <div class="wrap tc">
+            <span class="lbl reveal">Two Venues</span>
+            <h2 class="ttl reveal">OVO &mdash; Two Experiences, <span>One Standard</span></h2>
+            <div class="div reveal"></div>
+            <div class="loc-grid">
+                <div class="loc-card reveal">
+                    <span class="loc-badge">Flagship Club</span>
+                    <h3>OVO Al Nahda</h3>
+                    <p>The ultimate clubbing destination. Seven Seas Hotel. Top DJs. VIP lounges. The night starts here.
+                    </p>
+                    <span class="loc-phone">&#128222; +971 55 100 9235</span>
+                    <a href="https://wa.me/971551009235?text=Hi%2C+I'd+like+to+reserve+at+OVO+Al+Nahda" target="_blank"
+                        class="btn btn-gold"><span>&#128241; WhatsApp to Book</span></a>
+                </div>
+                <div class="loc-card reveal">
+                    <span class="loc-badge">Restro Lounge</span>
+                    <h3>OVO Al Habtoor</h3>
+                    <p>A refined restro lounge. Global cuisine, handcrafted cocktails, live entertainment. Dine, unwind,
+                        socialise.</p>
+                    <span class="loc-phone">&#128222; +971 54 54 54 354</span>
+                    <a href="https://wa.me/971545454354?text=Hi%2C+I'd+like+to+reserve+at+OVO+Al+Habtoor"
+                        target="_blank" class="btn btn-outline"><span>&#128241; WhatsApp to Book</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reserve">
+        <div class="wrap">
+            <div style="max-width:700px;margin:0 auto">
+                <span class="lbl reveal">Reserve Your Spot</span>
+                <h2 class="ttl reveal">The Night Is <span>Waiting</span></h2>
+                <div class="div reveal"></div>
+                <p class="dsc reveal">Tables fill fast. Reserve yours tonight and walk straight in.</p>
+                <div class="reveal">
+                    <a href="https://wa.me/971551009235?text=Hi%2C+I'd+like+to+reserve+a+table+at+OVO+Club+Al+Nahda"
+                        target="_blank" class="wa-big">
+                        <span style="position:relative;z-index:1">
+                            <svg viewBox="0 0 24 24"
+                                style="width:22px;height:22px;fill:#000;display:inline-block;vertical-align:middle;margin-right:8px">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                                <path
+                                    d="M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.112 1.523 5.835L.044 23.956l6.282-1.449A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.358-.214-3.727.859.892-3.615-.234-.371A9.818 9.818 0 1112 21.818z" />
+                            </svg>
+                        </span>
+                        <span>Book Now &mdash; +971 55 100 9235</span>
+                    </a>
+                </div>
+                <div class="cgrid reveal">
+                    <div class="ci"><label>Address</label>
+                        <p>Seven Seas Hotel<br>Al Nahda 1, Dubai, UAE</p>
+                    </div>
+                    <div class="ci"><label>Email</label><a href="mailto:info@ovo-club.com">info@ovo-club.com</a></div>
+                    <div class="ci"><label>Phone / WhatsApp</label><a href="tel:+971551009235">+971 55 100 9235</a>
+                    </div>
+                    <div class="ci"><label>Website</label><a href="https://ovo-club.com"
+                            target="_blank">ovo-club.com</a></div>
+                </div>
+                <div class="mwrap reveal">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.56!2d55.3778!3d25.3013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSeven+Seas+Hotel%2C+Al+Nahda+Dubai!5e0!3m2!1sen!2sae!4v1700000000000"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Seven Seas Hotel Al Nahda"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="ftl">OVO</div>
+            <p class="ftby">Curated by Jacqueline Fernandez</p>
+            <div class="fdiv"></div>
+            <div class="ftg">
+                <div class="ftc">
+                    <h4>Al Nahda</h4>
+                    <p>Seven Seas Hotel<br>Al Nahda 1, Dubai, UAE</p><a href="tel:+971551009235">+971 55 100 9235</a>
+                </div>
+                <div class="ftc">
+                    <h4>Al Habtoor</h4>
+                    <p>OVO Restro Lounge<br>Al Habtoor, Dubai</p><a href="tel:+971545454354">+971 54 54 54 354</a>
+                </div>
+                <div class="ftc">
+                    <h4>Connect</h4>
+                    <a href="mailto:info@ovo-club.com">info@ovo-club.com</a>
+                    <a href="https://ovo-club.com" target="_blank">ovo-club.com</a>
+                    <div class="ftso">
+                        <a href="https://facebook.com/ovo.alnahda" target="_blank" class="si" title="Facebook">f</a>
+                        <a href="#" target="_blank" class="si" title="Instagram"><svg viewBox="0 0 24 24"
+                                style="width:13px;height:13px;fill:currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="ftc">
+                    <h4>Hours</h4>
+                    <p>Wed &ndash; Fri<br>9:00 PM &mdash; Late</p>
+                    <p style="margin-top:8px">Sat &ndash; Sun<br>9:00 PM &mdash; Late</p>
+                </div>
+            </div>
+            <div class="fdiv"></div>
+            <div class="ftloc">OVO Al Nahda &nbsp;&middot;&nbsp; OVO Al Habtoor</div>
+            <p class="ftcp">&copy; 2026 OVO Club Dubai. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/971551009235?text=Hi%2C+I'd+like+to+reserve+a+table+at+OVO+Club+Al+Nahda" target="_blank"
+        class="fwa" aria-label="WhatsApp OVO">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.112 1.523 5.835L.044 23.956l6.282-1.449A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.358-.214-3.727.859.892-3.615-.234-.371A9.818 9.818 0 1112 21.818z" />
+        </svg>
+    </a>
+
+    <script>
+        /* nav */
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+        function openM() { document.getElementById('mmenu').classList.add('open') }
+        function closeM() { document.getElementById('mmenu').classList.remove('open') }
+
+        /* reveal */
+        const revEls = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        revEls.forEach(el => obs.observe(el));
+
+        /* nightclub canvas */
+        (function () {
+            const canvas = document.getElementById('hc');
+            const ctx = canvas.getContext('2d');
+            function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+            resize();
+            window.addEventListener('resize', resize);
+            let tick = 0;
+
+            /* sweeping spotlights */
+            const spots = [
+                { px: .15, ang: -.3, spd: .004, ph: 0, w: .12, col: 'rgba(201,168,76,' },
+                { px: .5, ang: .1, spd: .006, ph: 1.6, w: .09, col: 'rgba(240,192,64,' },
+                { px: .85, ang: .4, spd: .005, ph: 3.1, w: .11, col: 'rgba(180,130,50,' },
+            ];
+            function drawSpot(s) {
+                const cx = canvas.width * s.px;
+                s.ang += s.spd;
+                const sw = Math.sin(s.ang + s.ph);
+                const ex = cx + sw * canvas.height * .75;
+                const ey = canvas.height;
+                const hw = canvas.width * s.w * .5;
+                const grd = ctx.createRadialGradient(cx, 0, 0, cx + (ex - cx) * .5, canvas.height * .45, canvas.height * .65);
+                grd.addColorStop(0, s.col + '.18)'); grd.addColorStop(.55, s.col + '.05)'); grd.addColorStop(1, s.col + '0)');
+                ctx.beginPath(); ctx.moveTo(cx - hw * .1, 0); ctx.lineTo(ex - hw, ey); ctx.lineTo(ex + hw, ey); ctx.lineTo(cx + hw * .1, 0); ctx.closePath(); ctx.fillStyle = grd; ctx.fill();
+                const ag = ctx.createRadialGradient(cx, 2, 0, cx, 2, 36);
+                ag.addColorStop(0, s.col + '.5)'); ag.addColorStop(.4, s.col + '.12)'); ag.addColorStop(1, s.col + '0)');
+                ctx.beginPath(); ctx.arc(cx, 2, 36, 0, Math.PI * 2); ctx.fillStyle = ag; ctx.fill();
+            }
+
+            /* lasers */
+            const lasers = [
+                { fx: .28, ang: .65, spd: .003, ph: 0, col: 'rgba(201,168,76,' },
+                { fx: .72, ang: -.6, spd: .004, ph: 2.2, col: 'rgba(240,192,64,' },
+            ];
+            function drawLaser(l) {
+                l.ph += l.spd;
+                const cx = canvas.width * l.fx;
+                const a = l.ang + Math.sin(l.ph) * .4;
+                const ln = canvas.height * 1.5;
+                ctx.save(); ctx.globalAlpha = .05 + Math.abs(Math.sin(l.ph)) * .07;
+                ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx + Math.sin(a) * ln, Math.cos(a) * ln);
+                ctx.strokeStyle = l.col + '1)'; ctx.lineWidth = 1.5; ctx.shadowColor = l.col + '1)'; ctx.shadowBlur = 10; ctx.stroke(); ctx.restore();
+            }
+
+            /* gold glitter */
+            const COLS = ['#C9A84C', '#F0C040', '#FFD700', '#E8C46A', '#FFFFFF', '#FFF8CC'];
+            function mkG(rand) { return { x: Math.random() * canvas.width, y: rand ? Math.random() * canvas.height : -8, r: Math.random() * 2.2 + .6, col: COLS[Math.floor(Math.random() * COLS.length)], vy: Math.random() * .55 + .12, vx: (Math.random() - .5) * .45, alpha: Math.random() * .65 + .15, rot: Math.random() * Math.PI * 2, rv: (Math.random() - .5) * .055, sq: Math.random() > .5 }; }
+            const glitter = Array.from({ length: 110 }, (_, i) => mkG(true));
+            function drawGlitter() {
+                glitter.forEach((g, i) => {
+                    g.y += g.vy; g.x += g.vx; g.rot += g.rv;
+                    if (g.y > canvas.height + 12) { glitter[i] = mkG(false); glitter[i].x = Math.random() * canvas.width; return; }
+                    const pulse = .5 + .5 * Math.abs(Math.sin(tick * .025 + i));
+                    ctx.save(); ctx.globalAlpha = g.alpha * pulse; ctx.translate(g.x, g.y); ctx.rotate(g.rot); ctx.fillStyle = g.col;
+                    if (g.sq) { ctx.fillRect(-g.r, -g.r * .45, g.r * 2, g.r); } else { ctx.beginPath(); ctx.arc(0, 0, g.r * .7, 0, Math.PI * 2); ctx.fill(); }
+                    ctx.restore();
+                });
+            }
+
+            /* floor glow pulse */
+            function drawFloor() {
+                const beat = .45 + .55 * Math.abs(Math.sin(tick * .045));
+                const grd = ctx.createLinearGradient(0, canvas.height * .65, 0, canvas.height);
+                grd.addColorStop(0, 'rgba(201,168,76,0)');
+                grd.addColorStop(.5, `rgba(201,168,76,${.03 * beat})`);
+                grd.addColorStop(1, `rgba(201,168,76,${.09 * beat})`);
+                ctx.fillStyle = grd; ctx.fillRect(0, canvas.height * .65, canvas.width, canvas.height * .35);
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); tick++;
+                spots.forEach(drawSpot); lasers.forEach(drawLaser); drawFloor(); drawGlitter();
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+    </script>
+</body>
+
+</html>
