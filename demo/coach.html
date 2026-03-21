@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcus Silva — Elite Football Coach</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --black: #080a0c;
+      --dark: #0f1317;
+      --card: #141820;
+      --border: #1e2530;
+      --lime: #c8f535;
+      --lime-dim: #9ab826;
+      --white: #f0f4e8;
+      --muted: #6b7685;
+      --accent2: #ff5533;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.5;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--black);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--lime);
+      border-radius: 2px;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: rgba(8, 10, 12, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--lime);
+    }
+
+    .nav-badge {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      padding-top: 60px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 80%, rgba(200, 245, 53, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(255, 85, 51, 0.05) 0%, transparent 60%),
+        linear-gradient(180deg, #060809 0%, var(--black) 100%);
+    }
+
+    .hero-field {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background:
+        repeating-linear-gradient(90deg, var(--lime) 0px, var(--lime) 1px, transparent 1px, transparent 70px),
+        repeating-linear-gradient(0deg, var(--lime) 0px, var(--lime) 1px, transparent 1px, transparent 70px);
+    }
+
+    .hero-circle {
+      position: absolute;
+      top: 8%;
+      right: -60px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 245, 53, 0.07);
+      pointer-events: none;
+    }
+
+    .hero-circle::before {
+      content: '';
+      position: absolute;
+      inset: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 245, 53, 0.04);
+    }
+
+    /* ── PHOTO BLOCK ── */
+    .hero-photo-block {
+      position: relative;
+      width: 100%;
+      height: 56vw;
+      min-height: 300px;
+      max-height: 460px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .hero-photo-block::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(6, 8, 9, 0.3) 0%, transparent 28%, transparent 52%, var(--black) 100%),
+        linear-gradient(to right, var(--black) 0%, transparent 20%, transparent 80%, var(--black) 100%);
+      z-index: 1;
+    }
+
+    .hero-photo-block::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200, 245, 53, 0.5), transparent);
+      z-index: 2;
+    }
+
+    .hero-coach-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      filter: contrast(1.08) saturate(0.88);
+    }
+
+    .hero-photo-tint {
+      position: absolute;
+      inset: 0;
+      background: rgba(200, 245, 53, 0.03);
+      mix-blend-mode: color;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── TEXT CONTENT ── */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px 22px 44px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: stretch;
+        min-height: 100svh;
+      }
+
+      .hero-photo-block {
+        width: 46%;
+        height: auto;
+        max-height: none;
+        min-height: 100svh;
+        order: 2;
+        flex-shrink: 0;
+      }
+
+      .hero-photo-block::after {
+        background:
+          linear-gradient(to bottom, rgba(6, 8, 9, 0.2) 0%, transparent 18%, transparent 72%, rgba(6, 8, 9, 0.5) 100%),
+          linear-gradient(to left, transparent 55%, var(--black) 100%);
+      }
+
+      .hero-coach-photo {
+        object-position: center top;
+      }
+
+      .hero-content {
+        width: 54%;
+        order: 1;
+        padding: 100px 48px 60px;
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero-photo-block {
+        width: 44%;
+      }
+
+      .hero-content {
+        padding: 120px 72px 80px;
+      }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 14px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--lime);
+    }
+
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(62px, 18vw, 90px);
+      line-height: 0.9;
+      letter-spacing: -1px;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .hero-name span {
+      color: var(--lime);
+      display: block;
+    }
+
+    .hero-role {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .tag.active {
+      background: var(--lime);
+      color: var(--black);
+      border-color: var(--lime);
+      font-weight: 700;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--lime);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #d4ff3d;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 13px 24px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 20px;
+      left: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 10;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--lime), transparent);
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 0.3;
+        transform: scaleY(0.5);
+      }
+    }
+
+    /* ── SECTION GLOBALS ── */
+    section {
+      padding: 64px 20px;
+      position: relative;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .section-label .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      color: var(--lime);
+      letter-spacing: 1px;
+    }
+
+    .section-label .line {
+      width: 32px;
+      height: 1px;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    .section-label .text {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 12vw, 64px);
+      line-height: 0.95;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .section-title .accent {
+      color: var(--lime);
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: var(--lime);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-item {
+      padding: 28px 20px;
+      border-right: 1px solid rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .stat-item:nth-child(2n) {
+      border-right: none;
+    }
+
+    .stat-item:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      line-height: 1;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .stat-num sup {
+      font-size: 22px;
+      vertical-align: super;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(240, 244, 232, 0.75);
+      margin-bottom: 28px;
+    }
+
+    .about-highlight {
+      color: var(--lime);
+      font-weight: 500;
+    }
+
+    .philosophy-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--lime);
+      padding: 24px 20px;
+      border-radius: 2px;
+      margin-top: 28px;
+    }
+
+    .philosophy-card .quote-mark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 60px;
+      line-height: 0.6;
+      color: var(--lime);
+      opacity: 0.3;
+      margin-bottom: 12px;
+    }
+
+    .philosophy-card p {
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.7;
+      color: rgba(240, 244, 232, 0.85);
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-section {
+      background: var(--dark);
+    }
+
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .exp-item {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .exp-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .exp-club {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .exp-role-title {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+
+    .exp-years {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+
+    .exp-body {
+      display: none;
+      margin-top: 16px;
+    }
+
+    .exp-item.open .exp-body {
+      display: block;
+    }
+
+    .exp-body p {
+      font-size: 14px;
+      color: rgba(240, 244, 232, 0.65);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .exp-achievements {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .exp-ach-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(240, 244, 232, 0.7);
+    }
+
+    .exp-ach-item::before {
+      content: '→';
+      color: var(--lime);
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .exp-toggle {
+      position: absolute;
+      right: 0;
+      top: 32px;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--lime);
+      font-size: 16px;
+      font-weight: 300;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+
+    .exp-item.open .exp-toggle {
+      background: var(--lime);
+      color: var(--black);
+      border-color: var(--lime);
+      transform: rotate(45deg);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 16px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: var(--lime);
+      width: var(--pct);
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .skill-card:hover {
+      border-color: rgba(200, 245, 53, 0.3);
+    }
+
+    .skill-icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .skill-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .skill-pct {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--lime);
+      line-height: 1;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 8px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: rgba(240, 244, 232, 0.7);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover,
+    .skill-tag.active {
+      background: rgba(200, 245, 53, 0.1);
+      border-color: rgba(200, 245, 53, 0.4);
+      color: var(--lime);
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .ach-section {
+      background: var(--dark);
+    }
+
+    .ach-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .ach-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.3s;
+    }
+
+    .ach-card:hover {
+      border-color: rgba(200, 245, 53, 0.25);
+      transform: translateX(4px);
+    }
+
+    .ach-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(200, 245, 53, 0.1);
+      border: 1px solid rgba(200, 245, 53, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .ach-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .ach-meta {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .ach-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: var(--lime);
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    /* ── LICENCES ── */
+    .certs-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cert-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cert-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 900;
+    }
+
+    .cert-badge.uefa {
+      background: #003087;
+      color: #fff;
+    }
+
+    .cert-badge.afc {
+      background: #c8102e;
+      color: #fff;
+    }
+
+    .cert-badge.fifa {
+      background: #1d4f91;
+      color: #fff;
+    }
+
+    .cert-badge.pro {
+      background: var(--lime);
+      color: var(--black);
+    }
+
+    .cert-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .cert-body {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .cert-status {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+
+    .cert-status.active {
+      background: rgba(200, 245, 53, 0.1);
+      color: var(--lime);
+    }
+
+    /* ── PHILOSOPHY ── */
+    .approach-section {
+      background: var(--black);
+      overflow: hidden;
+    }
+
+    .approach-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .approach-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .approach-card::before {
+      content: attr(data-num);
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      color: rgba(200, 245, 53, 0.04);
+      line-height: 1;
+    }
+
+    .approach-card-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .approach-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .approach-card p {
+      font-size: 14px;
+      color: rgba(240, 244, 232, 0.6);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--lime);
+      padding: 64px 20px;
+    }
+
+    .contact-section .section-label .text,
+    .contact-section .section-label .num {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-section .section-label .line {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-section .section-title {
+      color: var(--black);
+    }
+
+    .contact-sub {
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.6);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .contact-item {
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--black);
+      transition: all 0.2s;
+    }
+
+    .contact-item:hover {
+      background: rgba(0, 0, 0, 0.15);
+      transform: translateX(4px);
+    }
+
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--black);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.5);
+      margin-bottom: 2px;
+    }
+
+    .contact-item-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--black);
+      color: var(--lime);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      background: #0f1317;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px 24px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 4px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--lime);
+    }
+
+    .footer-div {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 0 auto 24px;
+    }
+
+    .footer-credit {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-credit a {
+      color: var(--lime);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(1) {
+      transition-delay: 0s;
+    }
+
+    .fade-up:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .fade-up:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    .fade-up:nth-child(4) {
+      transition-delay: 0.3s;
+    }
+
+    .fade-up:nth-child(5) {
+      transition-delay: 0.4s;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--border);
+      overflow: hidden;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 18s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 30px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .marquee-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">SILVA</div>
+    <div class="nav-badge">Available for Hire</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-field"></div>
+    <div class="hero-circle"></div>
+
+    <!-- TEXT LEFT -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">Elite Football Coach</div>
+      <h1 class="hero-name">MARCO<span>SILVA</span></h1>
+      <p class="hero-role">UEFA Pro Licence · Head Coach · Analyst</p>
+      <div class="hero-tags">
+        <span class="tag active">⚽ Football</span>
+        <span class="tag">Tactics</span>
+        <span class="tag">Youth Dev</span>
+        <span class="tag">Analytics</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Hire Me →</a>
+        <a href="#experience" class="btn-outline">My Journey</a>
+      </div>
+    </div>
+
+    <!-- PHOTO RIGHT (bottom on mobile, right on desktop) -->
+    <div class="hero-photo-block">
+      <img class="hero-coach-photo" src="./silva_ee87bd.webp" alt="Coach Marcus Silva" />
+      <div class="hero-photo-tint"></div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">14<sup>+</sup></div>
+        <div class="stat-label">Years Coaching</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Trophies Won</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">320<sup>+</sup></div>
+        <div class="stat-label">Players Developed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Countries Coached</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-dot"></span>TACTICAL ANALYSIS</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>SET PIECE DESIGN</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>YOUTH DEVELOPMENT</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>HIGH PRESSING</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>VIDEO SCOUTING</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>PLAYER WELFARE</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>4-3-3 SPECIALIST</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>UEFA PRO LICENCE</div>
+      <!-- duplicate for loop -->
+      <div class="marquee-item"><span class="marquee-dot"></span>TACTICAL ANALYSIS</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>SET PIECE DESIGN</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>YOUTH DEVELOPMENT</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>HIGH PRESSING</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>VIDEO SCOUTING</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>PLAYER WELFARE</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>4-3-3 SPECIALIST</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>UEFA PRO LICENCE</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="section-label">
+      <span class="num">01</span>
+      <span class="line"></span>
+      <span class="text">About Me</span>
+    </div>
+    <h2 class="section-title">THE <span class="accent">COACH</span></h2>
+    <p class="about-text">
+      A UEFA Pro Licence holder with <span class="about-highlight">14+ years of elite coaching experience</span> across
+      club football, national academies, and youth development programs. I combine tactical intelligence with modern
+      data analytics to build high-performing teams.
+    </p>
+    <p class="about-text">
+      From grassroots to senior professional football — I've led squads through relegation battles, title runs, and
+      international tournaments. My coaching identity is built on <span class="about-highlight">relentless pressing,
+        structured positional play</span>, and developing players beyond the pitch.
+    </p>
+    <div class="philosophy-card">
+      <div class="quote-mark">"</div>
+      <p>Football is not about 11 individuals — it's about one organism that breathes together, presses together, and
+        believes together.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section class="exp-section" id="experience">
+    <div class="section-label">
+      <span class="num">02</span>
+      <span class="line"></span>
+      <span class="text">Experience</span>
+    </div>
+    <h2 class="section-title">MY <span class="accent">JOURNEY</span></h2>
+
+    <div class="exp-list">
+
+      <div class="exp-item open">
+        <div class="exp-header">
+          <div>
+            <div class="exp-club">Al Nasr FC · Dubai</div>
+            <div class="exp-role-title">Head Coach — First Team</div>
+          </div>
+          <div class="exp-years">2022–Now</div>
+        </div>
+        <div class="exp-toggle">+</div>
+        <div class="exp-body">
+          <p>Led the senior squad to the UAE Pro League playoffs in the debut season, implementing a high-intensity
+            4-3-3 pressing system that reduced goals conceded by 34%.</p>
+          <div class="exp-achievements">
+            <div class="exp-ach-item">UAE Pro League Playoff Semi-Finals — 2023</div>
+            <div class="exp-ach-item">Integrated 6 academy graduates into first-team squad</div>
+            <div class="exp-ach-item">Implemented GPS + video analysis workflow across all sessions</div>
+            <div class="exp-ach-item">34% reduction in goals conceded season-on-season</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-club">FC Porto Academy</div>
+            <div class="exp-role-title">U21 Head Coach & Lead Developer</div>
+          </div>
+          <div class="exp-years">2019–22</div>
+        </div>
+        <div class="exp-toggle">+</div>
+        <div class="exp-body">
+          <p>Managed the U21 development pathway at Porto's world-renowned academy, overseeing transition from youth
+            football to senior professional environments.</p>
+          <div class="exp-achievements">
+            <div class="exp-ach-item">Promoted 4 players to B team; 2 to first team</div>
+            <div class="exp-ach-item">UEFA Youth League Quarter-Final — 2021</div>
+            <div class="exp-ach-item">Designed full 12-month periodization curriculum</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-club">Sporting Clube de Braga</div>
+            <div class="exp-role-title">Assistant Coach — First Team</div>
+          </div>
+          <div class="exp-years">2016–19</div>
+        </div>
+        <div class="exp-toggle">+</div>
+        <div class="exp-body">
+          <p>Assisted the head coach in tactical preparation, video analysis, set-piece design, and match day operations
+            for the Primeira Liga squad.</p>
+          <div class="exp-achievements">
+            <div class="exp-ach-item">Portuguese Cup Runner-Up — 2018</div>
+            <div class="exp-ach-item">Developed club's first structured pressing model</div>
+            <div class="exp-ach-item">Managed pre-season prep across 3 international tours</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-club">Portugal National U17</div>
+            <div class="exp-role-title">Assistant Coach — International</div>
+          </div>
+          <div class="exp-years">2014–16</div>
+        </div>
+        <div class="exp-toggle">+</div>
+        <div class="exp-body">
+          <p>Supported the national youth setup in talent ID, training delivery, and international tournament
+            preparation across European qualifiers.</p>
+          <div class="exp-achievements">
+            <div class="exp-ach-item">UEFA U17 Championship Group Stage — 2015</div>
+            <div class="exp-ach-item">Delivered opposition analysis for 18 international matches</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">
+      <span class="num">03</span>
+      <span class="line"></span>
+      <span class="text">Core Skills</span>
+    </div>
+    <h2 class="section-title">WHAT <span class="accent">I DO</span></h2>
+
+    <div class="skills-grid">
+      <div class="skill-card" style="--pct: 95%">
+        <span class="skill-icon">🎯</span>
+        <div class="skill-name">Tactics</div>
+        <div class="skill-pct">95%</div>
+      </div>
+      <div class="skill-card" style="--pct: 90%">
+        <span class="skill-icon">📊</span>
+        <div class="skill-name">Analysis</div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-card" style="--pct: 92%">
+        <span class="skill-icon">🌱</span>
+        <div class="skill-name">Youth Dev</div>
+        <div class="skill-pct">92%</div>
+      </div>
+      <div class="skill-card" style="--pct: 85%">
+        <span class="skill-icon">💪</span>
+        <div class="skill-name">Physical</div>
+        <div class="skill-pct">85%</div>
+      </div>
+      <div class="skill-card" style="--pct: 88%">
+        <span class="skill-icon">🗣️</span>
+        <div class="skill-name">Leadership</div>
+        <div class="skill-pct">88%</div>
+      </div>
+      <div class="skill-card" style="--pct: 80%">
+        <span class="skill-icon">🖥️</span>
+        <div class="skill-name">Tech & Data</div>
+        <div class="skill-pct">80%</div>
+      </div>
+    </div>
+
+    <div class="skills-tags">
+      <span class="skill-tag active">High Press</span>
+      <span class="skill-tag">4-3-3</span>
+      <span class="skill-tag">Positional Play</span>
+      <span class="skill-tag active">Set Pieces</span>
+      <span class="skill-tag">Video Analysis</span>
+      <span class="skill-tag">GPS Tracking</span>
+      <span class="skill-tag active">Wyscout</span>
+      <span class="skill-tag">Periodization</span>
+      <span class="skill-tag">Gegenpressing</span>
+      <span class="skill-tag">Squad Management</span>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="ach-section">
+    <div class="section-label">
+      <span class="num">04</span>
+      <span class="line"></span>
+      <span class="text">Achievements</span>
+    </div>
+    <h2 class="section-title">TROPHY <span class="accent">CABINET</span></h2>
+
+    <div class="ach-list">
+      <div class="ach-card">
+        <div class="ach-icon-wrap">🏆</div>
+        <div>
+          <div class="ach-title">UAE Pro League Playoffs</div>
+          <div class="ach-meta">Al Nasr FC · Semi-Finalist</div>
+        </div>
+        <div class="ach-year">2023</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon-wrap">🥈</div>
+        <div>
+          <div class="ach-title">Portuguese Cup Runner-Up</div>
+          <div class="ach-meta">Sporting Braga · Taça de Portugal</div>
+        </div>
+        <div class="ach-year">2018</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon-wrap">⭐</div>
+        <div>
+          <div class="ach-title">UEFA Youth League QF</div>
+          <div class="ach-meta">FC Porto U21 · Quarter-Finalist</div>
+        </div>
+        <div class="ach-year">2021</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon-wrap">🌍</div>
+        <div>
+          <div class="ach-title">UEFA U17 Championship</div>
+          <div class="ach-meta">Portugal National U17</div>
+        </div>
+        <div class="ach-year">2015</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon-wrap">📈</div>
+        <div>
+          <div class="ach-title">Best Defensive Record</div>
+          <div class="ach-meta">Al Nasr FC · UAE Pro League</div>
+        </div>
+        <div class="ach-year">2023</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon-wrap">🎓</div>
+        <div>
+          <div class="ach-title">UEFA Pro Licence Holder</div>
+          <div class="ach-meta">Highest Coaching Qualification</div>
+        </div>
+        <div class="ach-year">2020</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LICENCES & CERTS -->
+  <section>
+    <div class="section-label">
+      <span class="num">05</span>
+      <span class="line"></span>
+      <span class="text">Qualifications</span>
+    </div>
+    <h2 class="section-title">LICENCES & <span class="accent">CERTS</span></h2>
+
+    <div class="certs-grid">
+      <div class="cert-item">
+        <div class="cert-badge uefa">UEFA</div>
+        <div>
+          <div class="cert-name">UEFA Pro Licence</div>
+          <div class="cert-body">Football Association of Portugal</div>
+        </div>
+        <div class="cert-status active">Active</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge uefa">UEFA</div>
+        <div>
+          <div class="cert-name">UEFA A Licence</div>
+          <div class="cert-body">Senior & Youth Coaching</div>
+        </div>
+        <div class="cert-status active">Active</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge fifa">FIFA</div>
+        <div>
+          <div class="cert-name">FIFA Coaching Certificate</div>
+          <div class="cert-body">Grassroots & Methodology</div>
+        </div>
+        <div class="cert-status active">Active</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge pro">PRO</div>
+        <div>
+          <div class="cert-name">Wyscout Certified Analyst</div>
+          <div class="cert-body">Video Analysis & Scouting</div>
+        </div>
+        <div class="cert-status active">Active</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge pro">FIRST</div>
+        <div>
+          <div class="cert-name">Emergency First Aid</div>
+          <div class="cert-body">Sports Medicine — St John's</div>
+        </div>
+        <div class="cert-status active">Active</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACHING PHILOSOPHY -->
+  <section class="approach-section">
+    <div class="section-label">
+      <span class="num">06</span>
+      <span class="line"></span>
+      <span class="text">Philosophy</span>
+    </div>
+    <h2 class="section-title">MY <span class="accent">APPROACH</span></h2>
+
+    <div class="approach-cards">
+      <div class="approach-card" data-num="01">
+        <div class="approach-card-icon">⚡</div>
+        <h3>Intensity & Structure</h3>
+        <p>Every session is designed with purpose. High intensity, high repetition, high retention. Players leave
+          training better than they arrived — physically and mentally.</p>
+      </div>
+      <div class="approach-card" data-num="02">
+        <div class="approach-card-icon">🧠</div>
+        <h3>Intelligence Over Power</h3>
+        <p>Tactics win matches. I develop footballers who can read the game, make decisions under pressure, and exploit
+          space before others see it.</p>
+      </div>
+      <div class="approach-card" data-num="03">
+        <div class="approach-card-icon">📊</div>
+        <h3>Data-Informed Coaching</h3>
+        <p>GPS metrics, Wyscout analysis, heat maps, and pressing intensity data feed into every training design and
+          match preparation cycle.</p>
+      </div>
+      <div class="approach-card" data-num="04">
+        <div class="approach-card-icon">🌱</div>
+        <h3>Holistic Development</h3>
+        <p>A player's psychological resilience, nutrition habits, and off-pitch mindset are as important as their
+          technical and physical attributes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-label">
+      <span class="num">07</span>
+      <span class="line"></span>
+      <span class="text">Get In Touch</span>
+    </div>
+    <h2 class="section-title">WORK WITH<br>ME</h2>
+    <p class="contact-sub">Open to new coaching opportunities, consultancy roles, and academy partnerships. Let's build
+      something great together.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:marcus@silvacoach.com" class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-val">marcus@silvacoach.com</div>
+        </div>
+      </a>
+      <a href="tel:+971501234567" class="contact-item">
+        <div class="contact-item-icon">📱</div>
+        <div>
+          <div class="contact-item-label">Phone / WhatsApp</div>
+          <div class="contact-item-val">+971 50 123 4567</div>
+        </div>
+      </a>
+      <a href="#" class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div>
+          <div class="contact-item-label">Location</div>
+          <div class="contact-item-val">Dubai, UAE · Open to Relocation</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="social-row">
+      <a href="#" class="social-btn">in LinkedIn</a>
+      <a href="#" class="social-btn">𝕏 Twitter</a>
+      <a href="#" class="social-btn">▶ YouTube</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">MARCUS SILVA</div>
+    <div class="footer-tagline">UEFA Pro Licence Coach · Dubai, UAE</div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Download CV</a>
+    </div>
+    <div class="footer-div"></div>
+    <div class="footer-credit">
+      © 2025 Marcus Silva · Website designed by <a href="#">Ramees</a> — Web Design & SEO Dubai
+    </div>
+  </footer>
+
+  <script>
+    // Accordion toggle
+    document.querySelectorAll('.exp-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.exp-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Scroll fade-up
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.stat-item, .ach-card, .cert-item, .skill-card, .approach-card, .exp-item, .contact-item').forEach(el => {
+      el.classList.add('fade-up');
+      observer.observe(el);
+    });
+
+    // Skill bar animation on scroll
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const bars = e.target.querySelectorAll('.skill-card');
+          bars.forEach(b => b.style.setProperty('--pct', b.style.getPropertyValue('--pct')));
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const skillsSection = document.querySelector('.skills-grid');
+    if (skillsSection) skillObserver.observe(skillsSection);
+  </script>
+</body>
+
+</html>

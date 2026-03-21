@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicolo Cafe | Al Nahda Dubai — Shisha, Coffee & Late Night Vibes</title>
+    <meta name="description" content="Vicolo Cafe — شيشة، قهوة، وبريك فاست في النهدة دبي. Open 9AM–5AM. الجو عنا غير.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================
+   TOKENS & RESET
+========================================= */
+        :root {
+            --bg: #0a0a0c;
+            --bg2: #111116;
+            --bg3: #16161c;
+            --card: #13131a;
+            --card2: #1c1c24;
+            --border: rgba(255, 181, 71, 0.12);
+            --amber: #ffb547;
+            --amber2: #ff7b29;
+            --amber3: #ffd280;
+            --green: #25D366;
+            --text: #f0ede8;
+            --muted: rgba(240, 237, 232, 0.55);
+            --smoke: rgba(255, 181, 71, 0.04);
+
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-arabic: 'Cairo', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+
+            --radius: 14px;
+            --radius-lg: 22px;
+            --glow: 0 0 40px rgba(255, 181, 71, 0.15);
+            --glow-lg: 0 0 80px rgba(255, 181, 71, 0.2);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================================
+   NOISE TEXTURE OVERLAY
+========================================= */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* =========================================
+   FLOATING WHATSAPP
+========================================= */
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 58px;
+            height: 58px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.25s, box-shadow 0.25s;
+            animation: pulse-wa 3s infinite;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.12);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .float-wa svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+
+        @keyframes pulse-wa {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 4px 32px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        /* =========================================
+   HERO
+========================================= */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 24px 80px;
+            overflow: hidden;
+        }
+
+        /* Background layers */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 80%, rgba(255, 123, 41, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(255, 181, 71, 0.07) 0%, transparent 60%),
+                linear-gradient(180deg, #0a0a0c 0%, #0d0c10 40%, #0a0a0c 100%);
+            z-index: 0;
+        }
+
+        #smoke-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 181, 71, 0.1);
+            border: 1px solid rgba(255, 181, 71, 0.25);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--amber);
+            margin-bottom: 28px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-badge span {
+            font-size: 16px;
+        }
+
+        .hero-name-en {
+            font-family: var(--font-display);
+            font-size: clamp(72px, 14vw, 140px);
+            letter-spacing: 0.03em;
+            line-height: 0.9;
+            color: var(--text);
+            text-shadow: 0 0 60px rgba(255, 181, 71, 0.2);
+        }
+
+        .hero-name-ar {
+            font-family: var(--font-arabic);
+            font-size: clamp(22px, 4vw, 38px);
+            font-weight: 700;
+            color: var(--amber3);
+            direction: rtl;
+            margin: 10px 0 28px;
+            opacity: 0.85;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--amber), transparent);
+            margin: 0 auto 28px;
+        }
+
+        .hero-tagline-ar {
+            font-family: var(--font-arabic);
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 900;
+            direction: rtl;
+            color: var(--amber);
+            line-height: 1.2;
+            text-shadow: 0 0 40px rgba(255, 181, 71, 0.4);
+        }
+
+        .hero-tagline-en {
+            font-family: var(--font-display);
+            font-size: clamp(18px, 3vw, 28px);
+            letter-spacing: 0.08em;
+            color: var(--amber2);
+            margin: 4px 0 24px;
+        }
+
+        .hero-sub {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 40px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--amber), var(--amber2));
+            color: #0a0a0c;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 15px;
+            padding: 15px 28px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(255, 123, 41, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 123, 41, 0.5);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 1.5px solid rgba(255, 181, 71, 0.4);
+            color: var(--amber3);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 15px 28px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 181, 71, 0.1);
+            border-color: var(--amber);
+            color: var(--amber);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.4;
+            animation: scrollBounce 2s infinite;
+        }
+
+        .hero-scroll span {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--amber), transparent);
+        }
+
+        @keyframes scrollBounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(6px);
+            }
+        }
+
+        /* =========================================
+   SECTION BASE
+========================================= */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 90px 24px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .sec-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--amber2);
+            margin-bottom: 12px;
+        }
+
+        .sec-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 6vw, 64px);
+            letter-spacing: 0.03em;
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .sec-title-ar {
+            font-family: var(--font-arabic);
+            font-size: clamp(18px, 3vw, 26px);
+            font-weight: 700;
+            color: var(--amber3);
+            direction: rtl;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .sec-body {
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 560px;
+        }
+
+        .sec-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .sec-header .sec-body {
+            margin: 0 auto;
+        }
+
+        /* =========================================
+   MENU GRID
+========================================= */
+        .menu-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .menu-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(255, 181, 71, 0.07) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 181, 71, 0.35);
+            box-shadow: var(--glow);
+        }
+
+        .menu-card:hover::before {
+            opacity: 1;
+        }
+
+        .menu-icon {
+            font-size: 44px;
+            margin-bottom: 18px;
+            display: block;
+            filter: drop-shadow(0 0 12px rgba(255, 181, 71, 0.3));
+        }
+
+        .menu-card h3 {
+            font-family: var(--font-display);
+            font-size: 26px;
+            letter-spacing: 0.04em;
+            color: var(--amber3);
+            margin-bottom: 10px;
+        }
+
+        .menu-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* Featured card */
+        .menu-card.featured {
+            border-color: rgba(255, 123, 41, 0.3);
+            background: linear-gradient(145deg, #1a1510, #13120e);
+        }
+
+        .menu-card.featured::after {
+            content: 'مشهور';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--amber), var(--amber2));
+            color: #000;
+            font-family: var(--font-arabic);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        /* =========================================
+   WHY SECTION
+========================================= */
+        .why-wrapper {
+            display: grid;
+            gap: 32px;
+            align-items: center;
+        }
+
+        @media(min-width: 860px) {
+            .why-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .why-text {}
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .why-card {
+            background: var(--card2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            transition: all 0.25s;
+        }
+
+        .why-card:hover {
+            border-color: rgba(255, 181, 71, 0.3);
+            background: var(--card);
+        }
+
+        .why-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            letter-spacing: 0.04em;
+            color: var(--amber3);
+            margin-bottom: 6px;
+        }
+
+        .why-card p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+   HOURS STRIP
+========================================= */
+        .hours-strip {
+            background: linear-gradient(135deg, #100f0a, #1a150a);
+            border-top: 1px solid rgba(255, 181, 71, 0.1);
+            border-bottom: 1px solid rgba(255, 181, 71, 0.1);
+            padding: 40px 24px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hours-strip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(255, 123, 41, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hours-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--amber2);
+            margin-bottom: 8px;
+        }
+
+        .hours-time {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 8vw, 80px);
+            letter-spacing: 0.05em;
+            color: var(--amber);
+            text-shadow: 0 0 30px rgba(255, 181, 71, 0.4);
+        }
+
+        .hours-note {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* =========================================
+   VIBE SECTION
+========================================= */
+        .vibe-section {
+            padding: 90px 24px;
+            max-width: 100%;
+            background: var(--bg2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vibe-section::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(255, 181, 71, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .vibe-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media(min-width:900px) {
+            .vibe-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .vibe-text-block {}
+
+        .vibe-text-block .sec-title {
+            margin-bottom: 6px;
+        }
+
+        .vibe-quote {
+            border-left: 3px solid var(--amber);
+            padding-left: 20px;
+            margin: 28px 0;
+            font-size: 18px;
+            font-style: italic;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .vibe-stat-row {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .vibe-stat {}
+
+        .vibe-stat strong {
+            font-family: var(--font-display);
+            font-size: 40px;
+            letter-spacing: 0.04em;
+            color: var(--amber);
+            display: block;
+            line-height: 1;
+        }
+
+        .vibe-stat span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .vibe-insta {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .insta-header {
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .insta-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--amber), var(--amber2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .insta-handle {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .insta-sub {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3px;
+        }
+
+        .insta-cell {
+            aspect-ratio: 1;
+            background: var(--card2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insta-cell::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 181, 71, 0.08), transparent);
+        }
+
+        .insta-placeholder {
+            font-size: 28px;
+            opacity: 0.25;
+        }
+
+        .insta-cta {
+            padding: 16px 22px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .insta-cta a {
+            color: var(--amber);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+   CONTACT SECTION
+========================================= */
+        .contact-section {
+            background: var(--bg);
+            padding: 90px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            gap: 40px;
+        }
+
+        @media(min-width: 860px) {
+            .contact-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+        }
+
+        .wa-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--green);
+            color: #000;
+            font-weight: 800;
+            font-size: 17px;
+            padding: 18px 28px;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 28px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+            letter-spacing: 0.01em;
+        }
+
+        .wa-btn:hover {
+            background: #1db954;
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .wa-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #000;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .contact-row-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 181, 71, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-row-text strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--amber3);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 2px;
+        }
+
+        .contact-row-text span {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .map-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-card iframe {
+            width: 100%;
+            flex: 1;
+            min-height: 300px;
+            border: 0;
+            filter: invert(95%) hue-rotate(180deg) saturate(0.6) brightness(0.85);
+        }
+
+        .map-footer {
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .map-footer p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .directions-link {
+            background: rgba(255, 181, 71, 0.12);
+            border: 1px solid rgba(255, 181, 71, 0.25);
+            color: var(--amber);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .directions-link:hover {
+            background: rgba(255, 181, 71, 0.2);
+        }
+
+        /* =========================================
+   FOOTER
+========================================= */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid rgba(255, 181, 71, 0.08);
+            padding: 60px 24px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo-en {
+            font-family: var(--font-display);
+            font-size: 42px;
+            letter-spacing: 0.05em;
+            color: var(--amber);
+        }
+
+        .footer-logo-ar {
+            font-family: var(--font-arabic);
+            font-size: 20px;
+            font-weight: 700;
+            direction: rtl;
+            color: var(--amber3);
+            opacity: 0.7;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-pill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            transition: all 0.2s;
+        }
+
+        .footer-pill:hover {
+            color: var(--amber);
+            border-color: rgba(255, 181, 71, 0.3);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--muted);
+            opacity: 0.5;
+            margin-top: 24px;
+        }
+
+        /* =========================================
+   SECTION DIVIDER
+========================================= */
+        .divider {
+            max-width: 1180px;
+            margin: 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 181, 71, 0.12), transparent);
+        }
+
+        /* =========================================
+   SCROLL REVEAL
+========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .reveal-delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        /* =========================================
+   RESPONSIVE
+========================================= */
+        @media(max-width:600px) {
+            .hero-name-en {
+                font-size: 72px;
+            }
+
+            .hero-tagline-ar {
+                font-size: 32px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vibe-stat-row {
+                gap: 20px;
+            }
+
+            .contact-card {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/971544314441" class="float-wa" aria-label="WhatsApp Reservation">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- ===================== HERO ===================== -->
+    <div class="hero">
+        <canvas id="smoke-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge reveal"><span>📍</span> Al Nahda 1, Dubai</div>
+            <h1 class="hero-name-en reveal reveal-delay-1">VICOLO<br>CAFE</h1>
+            <p class="hero-name-ar reveal reveal-delay-2">فيكولو كافيه</p>
+            <div class="hero-divider reveal reveal-delay-2"></div>
+            <p class="hero-tagline-ar reveal reveal-delay-3">الجو عنا غير</p>
+            <p class="hero-tagline-en reveal reveal-delay-3">The Vibe Here Is Different</p>
+            <p class="hero-sub reveal reveal-delay-4">Shisha &nbsp;•&nbsp; Coffee &nbsp;•&nbsp; Breakfast &nbsp;•&nbsp;
+                Open 9AM – 5AM &nbsp;•&nbsp; Al Nahda, Dubai</p>
+            <div class="hero-ctas reveal reveal-delay-5">
+                <a href="https://wa.me/971544314441?text=Hi%2C%20I'd%20like%20to%20reserve%20a%20table%20at%20Vicolo%20Cafe"
+                    class="btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Reserve on WhatsApp
+                </a>
+                <a href="#location" class="btn-outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Find Us
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>scroll</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+    </div>
+
+    <!-- ===================== HOURS STRIP ===================== -->
+    <div class="hours-strip">
+        <p class="hours-label">We're Open</p>
+        <div class="hours-time">9AM — 5AM</div>
+        <p class="hours-note">7 Days a Week &nbsp;·&nbsp; Almost 24 Hours &nbsp;·&nbsp; Al Nahda 1, Dubai</p>
+    </div>
+
+    <!-- ===================== MENU ===================== -->
+    <section>
+        <div class="sec-header">
+            <p class="sec-label reveal">What We Serve</p>
+            <h2 class="sec-title reveal reveal-delay-1">FOOD. COFFEE.<br>SHISHA. VIBES.</h2>
+            <p class="sec-title-ar reveal reveal-delay-2">طعام، قهوة، شيشة</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card featured reveal">
+                <span class="menu-icon">💨</span>
+                <h3>Shisha</h3>
+                <p>Premium flavours, relaxed atmosphere — the real reason people come back. Again and again.</p>
+            </div>
+            <div class="menu-card reveal reveal-delay-1">
+                <span class="menu-icon">☕</span>
+                <h3>Coffee & Hot Drinks</h3>
+                <p>From rich espresso to Arabic coffee — your perfect cup, anytime of day or night.</p>
+            </div>
+            <div class="menu-card reveal reveal-delay-2">
+                <span class="menu-icon">🍳</span>
+                <h3>Breakfast</h3>
+                <p>Start your morning right — served fresh from 9AM every single day.</p>
+            </div>
+            <div class="menu-card reveal reveal-delay-3">
+                <span class="menu-icon">🍔</span>
+                <h3>Burgers & Snacks</h3>
+                <p>Proper burgers, crispy fries, loaded sandwiches. Satisfying every time.</p>
+            </div>
+            <div class="menu-card reveal reveal-delay-4">
+                <span class="menu-icon">🧃</span>
+                <h3>Fresh Juice</h3>
+                <p>Cold, fresh, made to order. Avg AED 30 per person — real value, real taste.</p>
+            </div>
+            <div class="menu-card reveal reveal-delay-5">
+                <span class="menu-icon">🌙</span>
+                <h3>Late Night Vibes</h3>
+                <p>Open till 5AM — when everywhere else is dark, our lights are still on for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ===================== WHY VICOLO ===================== -->
+    <section>
+        <div class="why-wrapper">
+            <div class="why-text reveal">
+                <p class="sec-label">Why Vicolo</p>
+                <h2 class="sec-title">THE SPOT<br>YOU ALWAYS<br>COME BACK TO</h2>
+                <div style="height:20px"></div>
+                <p class="sec-body">No rush. No judgment. Just a place that feels right — whether you're here at 9AM for
+                    breakfast or 3AM for shisha with your people.</p>
+            </div>
+            <div class="why-grid reveal reveal-delay-2">
+                <div class="why-card">
+                    <span class="why-icon">🕐</span>
+                    <h3>9AM – 5AM</h3>
+                    <p>Almost 24 hours. We're here when you need us.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-icon">📶</span>
+                    <h3>Free Wi-Fi</h3>
+                    <p>Work, chill, scroll — stay as long as you want.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-icon">💳</span>
+                    <h3>Card & Cash</h3>
+                    <p>Pay however you like. No hassle.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-icon">💰</span>
+                    <h3>Avg AED 30</h3>
+                    <p>Good food, good vibes, honest prices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== VIBE SECTION ===================== -->
+    <div class="vibe-section">
+        <div class="vibe-inner">
+            <div class="vibe-text-block reveal">
+                <p class="sec-label">The Feeling</p>
+                <h2 class="sec-title">IT HITS<br>DIFFERENT<br>HERE</h2>
+                <p class="sec-title-ar">الجو عنا غير</p>
+                <div class="vibe-quote">
+                    Whether you're catching up with friends over shisha, grabbing a quick coffee before work, or just
+                    somewhere to be at 3AM — Vicolo is that place. No rush. Just good vibes.
+                </div>
+                <div class="vibe-stat-row">
+                    <div class="vibe-stat">
+                        <strong>2,300+</strong>
+                        <span>Instagram Followers</span>
+                    </div>
+                    <div class="vibe-stat">
+                        <strong>9AM</strong>
+                        <span>Opens Every Day</span>
+                    </div>
+                    <div class="vibe-stat">
+                        <strong>5AM</strong>
+                        <span>Last Seating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="vibe-insta reveal reveal-delay-2">
+                <div class="insta-header">
+                    <div class="insta-avatar">V</div>
+                    <div>
+                        <div class="insta-handle">@vicolocafe.ae</div>
+                        <div class="insta-sub">2,300+ followers · Al Nahda, Dubai</div>
+                    </div>
+                </div>
+                <div class="insta-grid">
+                    <div class="insta-cell"><span class="insta-placeholder">💨</span></div>
+                    <div class="insta-cell"><span class="insta-placeholder">☕</span></div>
+                    <div class="insta-cell"><span class="insta-placeholder">🌙</span></div>
+                    <div class="insta-cell"><span class="insta-placeholder">🍳</span></div>
+                    <div class="insta-cell"><span class="insta-placeholder">🍔</span></div>
+                    <div class="insta-cell"><span class="insta-placeholder">🧃</span></div>
+                </div>
+                <div class="insta-cta">
+                    <a href="https://instagram.com/vicolocafe.ae" target="_blank">Follow us on Instagram →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== CONTACT ===================== -->
+    <div class="contact-section" id="location">
+        <div style="max-width:1180px; margin:0 auto; margin-bottom:52px;">
+            <p class="sec-label reveal">Reserve / Contact</p>
+            <h2 class="sec-title reveal reveal-delay-1">COME SIT<br>WITH US</h2>
+            <p class="sec-title-ar reveal reveal-delay-2"
+                style="direction:rtl; font-family:var(--font-arabic); font-size:22px; color:var(--amber3); opacity:0.8;">
+                احجز طاولتك الآن</p>
+        </div>
+        <div class="contact-inner">
+            <div class="contact-card reveal">
+                <a href="https://wa.me/971544314441?text=Hi%2C%20I'd%20like%20to%20reserve%20a%20table%20at%20Vicolo%20Cafe"
+                    class="wa-btn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Reserve Your Table — +971 54 431 4441
+                </a>
+                <div class="contact-details">
+                    <div class="contact-row">
+                        <div class="contact-row-icon">📍</div>
+                        <div class="contact-row-text">
+                            <strong>Address</strong>
+                            <span>Ground Floor, Sama Residence, 32 Al Ittihad Road<br>Al Nahda 1, Dubai, UAE</span>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-row-icon">🕐</div>
+                        <div class="contact-row-text">
+                            <strong>Hours</strong>
+                            <span>9:00 AM – 5:00 AM &nbsp;·&nbsp; Daily</span>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-row-icon">📞</div>
+                        <div class="contact-row-text">
+                            <strong>Phone</strong>
+                            <span><a href="tel:+971544314441" style="color:var(--amber)">+971 54 431 4441</a></span>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-row-icon">📱</div>
+                        <div class="contact-row-text">
+                            <strong>Social</strong>
+                            <span>
+                                <a href="https://instagram.com/vicolocafe.ae" target="_blank"
+                                    style="color:var(--amber)">@vicolocafe.ae</a>
+                                &nbsp;·&nbsp;
+                                <a href="https://tiktok.com/@vicolocafe" target="_blank"
+                                    style="color:var(--amber)">@vicolocafe</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-card reveal reveal-delay-2">
+                <iframe src="https://www.google.com/maps?q=25.2865,55.3697&z=17&output=embed"
+                    title="Vicolo Cafe Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="map-footer">
+                    <p>Ground Floor, Sama Residence, Al Nahda 1</p>
+                    <a href="https://maps.google.com/?q=Sama+Residence+Al+Nahda+1+Dubai" target="_blank"
+                        class="directions-link">Get Directions →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <div class="footer-logo-en">VICOLO CAFE</div>
+        <div class="footer-logo-ar">فيكولو كافيه</div>
+        <div class="footer-links">
+            <span class="footer-pill">Ground Floor, Sama Residence</span>
+            <span class="footer-pill">32 Al Ittihad Road, Al Nahda 1</span>
+            <a href="tel:+971544314441" class="footer-pill">+971 54 431 4441</a>
+            <a href="https://instagram.com/vicolocafe.ae" target="_blank" class="footer-pill">@vicolocafe.ae</a>
+            <a href="https://tiktok.com/@vicolocafe" target="_blank" class="footer-pill">TikTok: @vicolocafe</a>
+            <span class="footer-pill">Open 9AM – 5AM Daily</span>
+        </div>
+        <p class="footer-copy">© 2026 Vicolo Cafe · Al Nahda 1, Dubai · الجو عنا غير</p>
+    </footer>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+        /* ---- Smoke Canvas ---- */
+        (function () {
+            const canvas = document.getElementById('smoke-canvas');
+            const ctx = canvas.getContext('2d');
+            let W, H, particles = [];
+
+            function resize() {
+                W = canvas.width = canvas.offsetWidth;
+                H = canvas.height = canvas.offsetHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            class Particle {
+                constructor() { this.reset(true); }
+                reset(init) {
+                    this.x = W * 0.3 + Math.random() * W * 0.4;
+                    this.y = init ? Math.random() * H : H + 20;
+                    this.vx = (Math.random() - 0.5) * 0.3;
+                    this.vy = -(0.3 + Math.random() * 0.5);
+                    this.r = 40 + Math.random() * 80;
+                    this.alpha = 0;
+                    this.maxAlpha = 0.04 + Math.random() * 0.06;
+                    this.life = 0;
+                    this.maxLife = 200 + Math.random() * 200;
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vx += (Math.random() - 0.5) * 0.02;
+                    this.life++;
+                    const t = this.life / this.maxLife;
+                    this.alpha = t < 0.2
+                        ? (t / 0.2) * this.maxAlpha
+                        : t > 0.8
+                            ? ((1 - t) / 0.2) * this.maxAlpha
+                            : this.maxAlpha;
+                    this.r += 0.15;
+                    if (this.life >= this.maxLife || this.y < -this.r) this.reset(false);
+                }
+                draw() {
+                    const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+                    g.addColorStop(0, `rgba(255,181,71,${this.alpha})`);
+                    g.addColorStop(1, `rgba(255,181,71,0)`);
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                    ctx.fillStyle = g;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 18; i++) particles.push(new Particle());
+
+            function loop() {
+                ctx.clearRect(0, 0, W, H);
+                particles.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(loop);
+            }
+            loop();
+        })();
+
+        /* ---- Scroll Reveal ---- */
+        (function () {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+            // Also trigger hero reveals on load
+            window.addEventListener('load', () => {
+                document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('visible'), i * 120);
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
