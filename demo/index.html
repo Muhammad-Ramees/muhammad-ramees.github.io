@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Demo Showcase — Muhammad Ramees</title>
-  <meta name="description" content="A curated collection of premium website demos crafted by Muhammad Ramees — restaurants, nightlife, cafes, coaches and more." />
+  <meta name="description"
+    content="A curated collection of premium website demos crafted by Muhammad Ramees — restaurants, nightlife, cafes, coaches and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:        #07070f;
-      --surface:   rgba(255,255,255,0.045);
-      --border:    rgba(255,255,255,0.09);
-      --gold:      #f5c842;
-      --gold2:     #e0a020;
-      --purple:    #a259ff;
-      --cyan:      #38bdf8;
-      --green:     #34d399;
-      --pink:      #f472b6;
-      --orange:    #fb923c;
-      --text:      #f1f1f1;
-      --muted:     #8a8a9a;
-      --radius:    18px;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #07070f;
+      --surface: rgba(255, 255, 255, 0.045);
+      --border: rgba(255, 255, 255, 0.09);
+      --gold: #f5c842;
+      --gold2: #e0a020;
+      --purple: #a259ff;
+      --cyan: #38bdf8;
+      --green: #34d399;
+      --pink: #f472b6;
+      --orange: #fb923c;
+      --text: #f1f1f1;
+      --muted: #8a8a9a;
+      --radius: 18px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Outfit', sans-serif;
@@ -44,26 +56,33 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 700px 500px at 15% 10%, rgba(162,89,255,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 600px 400px at 85% 80%, rgba(245,200,66,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 500px 400px at 60% 30%, rgba(56,189,248,0.07) 0%, transparent 70%);
+        radial-gradient(ellipse 700px 500px at 15% 10%, rgba(162, 89, 255, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 400px at 85% 80%, rgba(245, 200, 66, 0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 400px at 60% 30%, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
     /* ── Particle canvas ── */
-    #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
 
     /* ── Nav ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       padding: 18px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(7,7,15,0.7);
+      background: rgba(7, 7, 15, 0.7);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -107,14 +126,17 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gold);
-      background: rgba(245,200,66,0.1);
-      border: 1px solid rgba(245,200,66,0.25);
+      background: rgba(245, 200, 66, 0.1);
+      border: 1px solid rgba(245, 200, 66, 0.25);
       padding: 6px 18px;
       border-radius: 99px;
       margin-bottom: 28px;
     }
 
-    .hero-eyebrow::before { content: '✦'; font-size: 0.65rem; }
+    .hero-eyebrow::before {
+      content: '✦';
+      font-size: 0.65rem;
+    }
 
     .hero h1 {
       font-size: clamp(2.6rem, 6vw, 5rem);
@@ -122,7 +144,7 @@
       line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 20px;
-      background: linear-gradient(160deg, #ffffff 30%, rgba(162,89,255,0.7) 70%, var(--gold) 100%);
+      background: linear-gradient(160deg, #ffffff 30%, rgba(162, 89, 255, 0.7) 70%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -147,7 +169,10 @@
       margin-bottom: 56px;
     }
 
-    .stat { text-align: center; }
+    .stat {
+      text-align: center;
+    }
+
     .stat-num {
       font-size: 1.8rem;
       font-weight: 800;
@@ -156,8 +181,20 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 2px; font-weight: 500; letter-spacing: 0.05em; }
-    .stat-divider { width: 1px; height: 36px; background: var(--border); }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+    }
 
     /* ── Filter pills ── */
     .filters {
@@ -190,8 +227,8 @@
     .filter-pill.active {
       color: #fff;
       border-color: var(--gold);
-      background: rgba(245,200,66,0.12);
-      box-shadow: 0 0 18px rgba(245,200,66,0.15);
+      background: rgba(245, 200, 66, 0.12);
+      box-shadow: 0 0 18px rgba(245, 200, 66, 0.15);
     }
 
     /* ── Grid ── */
@@ -217,7 +254,7 @@
       background: var(--surface);
       backdrop-filter: blur(16px);
       overflow: hidden;
-      transition: transform 0.35s cubic-bezier(.22,.68,0,1.25), box-shadow 0.35s, border-color 0.35s;
+      transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.25), box-shadow 0.35s, border-color 0.35s;
       cursor: pointer;
       text-decoration: none;
       display: block;
@@ -226,25 +263,58 @@
 
     .card:hover {
       transform: translateY(-8px) scale(1.01);
-      border-color: rgba(255,255,255,0.18);
+      border-color: rgba(255, 255, 255, 0.18);
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0);    }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Stagger */
-    .card:nth-child(1)  { animation-delay: 0.05s; }
-    .card:nth-child(2)  { animation-delay: 0.10s; }
-    .card:nth-child(3)  { animation-delay: 0.15s; }
-    .card:nth-child(4)  { animation-delay: 0.20s; }
-    .card:nth-child(5)  { animation-delay: 0.25s; }
-    .card:nth-child(6)  { animation-delay: 0.30s; }
-    .card:nth-child(7)  { animation-delay: 0.35s; }
+    .card:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.10s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 0.15s;
+    }
+
+    .card:nth-child(4) {
+      animation-delay: 0.20s;
+    }
+
+    .card:nth-child(5) {
+      animation-delay: 0.25s;
+    }
+
+    .card:nth-child(6) {
+      animation-delay: 0.30s;
+    }
+
+    .card:nth-child(7) {
+      animation-delay: 0.35s;
+    }
+
+    .card:nth-child(8) {
+      animation-delay: 0.40s;
+    }
 
     /* Glow per accent colour */
-    .card:hover { box-shadow: 0 24px 60px var(--card-glow, rgba(162,89,255,0.2)); }
+    .card:hover {
+      box-shadow: 0 24px 60px var(--card-glow, rgba(162, 89, 255, 0.2));
+    }
 
     /* ── Card thumb ── */
     .card-thumb {
@@ -265,7 +335,9 @@
       transition: transform 0.5s ease;
     }
 
-    .card:hover .card-thumb-inner { transform: scale(1.08); }
+    .card:hover .card-thumb-inner {
+      transform: scale(1.08);
+    }
 
     /* Screen mockup lines */
     .card-thumb-inner::before {
@@ -273,32 +345,43 @@
       position: absolute;
       inset: 0;
       background:
-        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255,255,255,0.025) 30px, rgba(255,255,255,0.025) 31px),
-        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,0.015) 50px, rgba(255,255,255,0.015) 51px);
+        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255, 255, 255, 0.025) 30px, rgba(255, 255, 255, 0.025) 31px),
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255, 255, 255, 0.015) 50px, rgba(255, 255, 255, 0.015) 51px);
     }
 
     /* Top bar of thumb */
     .thumb-topbar {
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 28px;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       gap: 6px;
       padding: 0 12px;
     }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
     .url-bar {
       flex: 1;
       height: 14px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 4px;
       margin: 0 8px;
     }
 
     /* ── Card body ── */
-    .card-body { padding: 22px 24px 24px; }
+    .card-body {
+      padding: 22px 24px 24px;
+    }
 
     .card-top {
       display: flex;
@@ -314,21 +397,25 @@
       text-transform: uppercase;
       padding: 4px 12px;
       border-radius: 99px;
-      background: var(--badge-bg, rgba(162,89,255,0.15));
+      background: var(--badge-bg, rgba(162, 89, 255, 0.15));
       color: var(--badge-color, var(--purple));
-      border: 1px solid var(--badge-border, rgba(162,89,255,0.3));
+      border: 1px solid var(--badge-border, rgba(162, 89, 255, 0.3));
     }
 
     .card-arrow {
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--muted);
       font-size: 1rem;
       transition: all 0.3s;
       flex-shrink: 0;
     }
+
     .card:hover .card-arrow {
       background: var(--accent, var(--gold));
       border-color: var(--accent, var(--gold));
@@ -365,7 +452,7 @@
       font-size: 0.72rem;
       font-weight: 500;
       color: var(--muted);
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       padding: 3px 10px;
       border-radius: 6px;
     }
@@ -394,18 +481,37 @@
       text-decoration: none;
       font-weight: 600;
     }
-    footer a:hover { text-decoration: underline; }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      .hero { padding: 120px 20px 60px; }
-      .stats { gap: 24px; }
-      .stat-divider { display: none; }
-      .cards-grid { grid-template-columns: 1fr; gap: 20px; }
+      nav {
+        padding: 14px 20px;
+      }
+
+      .hero {
+        padding: 120px 20px 60px;
+      }
+
+      .stats {
+        gap: 24px;
+      }
+
+      .stat-divider {
+        display: none;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <canvas id="particles"></canvas>
@@ -424,7 +530,7 @@
 
     <div class="stats">
       <div class="stat">
-        <div class="stat-num">7</div>
+        <div class="stat-num">8</div>
         <div class="stat-label">Projects</div>
       </div>
       <div class="stat-divider"></div>
@@ -443,7 +549,8 @@
   <!-- Filters -->
   <div class="filters">
     <button class="filter-pill active" data-filter="all" onclick="filterCards(this, 'all')">All Projects</button>
-    <button class="filter-pill" data-filter="restaurant" onclick="filterCards(this, 'restaurant')">🍽 Restaurant</button>
+    <button class="filter-pill" data-filter="restaurant" onclick="filterCards(this, 'restaurant')">🍽
+      Restaurant</button>
     <button class="filter-pill" data-filter="nightlife" onclick="filterCards(this, 'nightlife')">🎶 Nightlife</button>
     <button class="filter-pill" data-filter="cafe" onclick="filterCards(this, 'cafe')">☕ Café</button>
     <button class="filter-pill" data-filter="coach" onclick="filterCards(this, 'coach')">⚽ Coach</button>
@@ -453,26 +560,60 @@
   <section class="grid-section">
     <div class="cards-grid" id="cardsGrid">
 
-      <!-- OVO Club -->
-      <a href="ovo.html" class="card"
-         data-category="nightlife"
-         style="--card-glow: rgba(162,89,255,0.25); --accent: var(--purple);">
+      <!-- Mandarin Oak -->
+      <a href="mandarin-oak.html" class="card" data-category="restaurant"
+        style="--card-glow: rgba(201,168,76,0.25); --accent: var(--gold);">
         <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d0020, #2d0068, #6600cc);">
-            🎧
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d2818, #142e1e, #1a3a26);">
+            🥢
             <div class="thumb-topbar">
-              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
               <div class="url-bar"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge" style="--badge-bg: rgba(162,89,255,0.15); --badge-color: #c084fc; --badge-border: rgba(162,89,255,0.3);">Nightlife</span>
+            <span class="card-badge"
+              style="--badge-bg: rgba(245,200,66,0.12); --badge-color: var(--gold); --badge-border: rgba(245,200,66,0.3);">Restaurant</span>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h2>Mandarin Oak</h2>
+          <p>Dubai's beloved Chinese chain — premium dark forest green & gold aesthetic with an interactive wok box
+            builder.</p>
+          <div class="card-footer">
+            <span class="card-tag">Asian Cuisine</span>
+            <span class="card-tag">Dark Luxury</span>
+            <span class="card-tag">Delivery</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- OVO Club -->
+      <a href="ovo.html" class="card" data-category="nightlife"
+        style="--card-glow: rgba(162,89,255,0.25); --accent: var(--purple);">
+        <div class="card-thumb">
+          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d0020, #2d0068, #6600cc);">
+            🎧
+            <div class="thumb-topbar">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="url-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-badge"
+              style="--badge-bg: rgba(162,89,255,0.15); --badge-color: #c084fc; --badge-border: rgba(162,89,255,0.3);">Nightlife</span>
             <div class="card-arrow">↗</div>
           </div>
           <h2>OVO Club Al Nahda</h2>
-          <p>Dubai's premier nightlife destination — immersive dark design with neon glow effects and event listings.</p>
+          <p>Dubai's premier nightlife destination — immersive dark design with neon glow effects and event listings.
+          </p>
           <div class="card-footer">
             <span class="card-tag">Dark Theme</span>
             <span class="card-tag">Nightclub</span>
@@ -482,25 +623,28 @@
       </a>
 
       <!-- JJ Jalebi -->
-      <a href="jj-jalebi.html" class="card"
-         data-category="restaurant"
-         style="--card-glow: rgba(251,146,60,0.25); --accent: var(--orange);">
+      <a href="jj-jalebi.html" class="card" data-category="restaurant"
+        style="--card-glow: rgba(251,146,60,0.25); --accent: var(--orange);">
         <div class="card-thumb">
           <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #1c0a00, #5c1c00, #a33000);">
             🍡
             <div class="thumb-topbar">
-              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
               <div class="url-bar"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge" style="--badge-bg: rgba(251,146,60,0.15); --badge-color: var(--orange); --badge-border: rgba(251,146,60,0.3);">Restaurant</span>
+            <span class="card-badge"
+              style="--badge-bg: rgba(251,146,60,0.15); --badge-color: var(--orange); --badge-border: rgba(251,146,60,0.3);">Restaurant</span>
             <div class="card-arrow">↗</div>
           </div>
           <h2>JJ Jalebi Dubai</h2>
-          <p>Since 1947 — Mohammed Ali Road Mumbai heritage brand at Al Karama Dubai. Rich, warm Indian street food vibes.</p>
+          <p>Since 1947 — Mohammed Ali Road Mumbai heritage brand at Al Karama Dubai. Rich, warm Indian street food
+            vibes.</p>
           <div class="card-footer">
             <span class="card-tag">Indian Food</span>
             <span class="card-tag">Heritage Brand</span>
@@ -510,21 +654,23 @@
       </a>
 
       <!-- Bombay Dhaba -->
-      <a href="bombay-dhaba.html" class="card"
-         data-category="restaurant"
-         style="--card-glow: rgba(245,200,66,0.25); --accent: var(--gold);">
+      <a href="bombay-dhaba.html" class="card" data-category="restaurant"
+        style="--card-glow: rgba(245,200,66,0.25); --accent: var(--gold);">
         <div class="card-thumb">
           <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #1a1200, #3d2d00, #7a5c00);">
             🍛
             <div class="thumb-topbar">
-              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
               <div class="url-bar"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge" style="--badge-bg: rgba(245,200,66,0.12); --badge-color: var(--gold); --badge-border: rgba(245,200,66,0.3);">Restaurant</span>
+            <span class="card-badge"
+              style="--badge-bg: rgba(245,200,66,0.12); --badge-color: var(--gold); --badge-border: rgba(245,200,66,0.3);">Restaurant</span>
             <div class="card-arrow">↗</div>
           </div>
           <h2>Bombay Dhaba</h2>
@@ -538,25 +684,28 @@
       </a>
 
       <!-- Saffron & Smoke (hotel.html) -->
-      <a href="hotel.html" class="card"
-         data-category="restaurant"
-         style="--card-glow: rgba(52,211,153,0.22); --accent: var(--green);">
+      <a href="hotel.html" class="card" data-category="restaurant"
+        style="--card-glow: rgba(52,211,153,0.22); --accent: var(--green);">
         <div class="card-thumb">
           <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #001a10, #003d22, #006b3c);">
             🔥
             <div class="thumb-topbar">
-              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
               <div class="url-bar"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge" style="--badge-bg: rgba(52,211,153,0.12); --badge-color: var(--green); --badge-border: rgba(52,211,153,0.3);">Restaurant</span>
+            <span class="card-badge"
+              style="--badge-bg: rgba(52,211,153,0.12); --badge-color: var(--green); --badge-border: rgba(52,211,153,0.3);">Restaurant</span>
             <div class="card-arrow">↗</div>
           </div>
           <h2>Saffron & Smoke</h2>
-          <p>Contemporary Arabic Fusion dining at Downtown Dubai — elegant fine-dining experience with rich cultural aesthetics.</p>
+          <p>Contemporary Arabic Fusion dining at Downtown Dubai — elegant fine-dining experience with rich cultural
+            aesthetics.</p>
           <div class="card-footer">
             <span class="card-tag">Arabic Fusion</span>
             <span class="card-tag">Fine Dining</span>
@@ -566,21 +715,23 @@
       </a>
 
       <!-- Vicolo Cafe -->
-      <a href="vicolo.html" class="card"
-         data-category="cafe"
-         style="--card-glow: rgba(56,189,248,0.22); --accent: var(--cyan);">
+      <a href="vicolo.html" class="card" data-category="cafe"
+        style="--card-glow: rgba(56,189,248,0.22); --accent: var(--cyan);">
         <div class="card-thumb">
           <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #001520, #002d40, #004d6b);">
             💨
             <div class="thumb-topbar">
-              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
               <div class="url-bar"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge" style="--badge-bg: rgba(56,189,248,0.12); --badge-color: var(--cyan); --badge-border: rgba(56,189,248,0.3);">Café</span>
+            <span class="card-badge"
+              style="--badge-bg: rgba(56,189,248,0.12); --badge-color: var(--cyan); --badge-border: rgba(56,189,248,0.3);">Café</span>
             <div class="card-arrow">↗</div>
           </div>
           <h2>Vicolo Cafe</h2>
@@ -594,25 +745,28 @@
       </a>
 
       <!-- Marcus Silva – Coach -->
-      <a href="coach.html" class="card"
-         data-category="coach"
-         style="--card-glow: rgba(244,114,182,0.22); --accent: var(--pink);">
+      <a href="coach.html" class="card" data-category="coach"
+        style="--card-glow: rgba(244,114,182,0.22); --accent: var(--pink);">
         <div class="card-thumb">
           <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d001a, #2a0044, #4a0080);">
             ⚽
             <div class="thumb-topbar">
-              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
               <div class="url-bar"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge" style="--badge-bg: rgba(244,114,182,0.12); --badge-color: var(--pink); --badge-border: rgba(244,114,182,0.3);">Coach</span>
+            <span class="card-badge"
+              style="--badge-bg: rgba(244,114,182,0.12); --badge-color: var(--pink); --badge-border: rgba(244,114,182,0.3);">Coach</span>
             <div class="card-arrow">↗</div>
           </div>
           <h2>Marcus Silva</h2>
-          <p>Elite Football Coach — professional personal branding page with training programs, highlights, and client booking.</p>
+          <p>Elite Football Coach — professional personal branding page with training programs, highlights, and client
+            booking.</p>
           <div class="card-footer">
             <span class="card-tag">Football</span>
             <span class="card-tag">Personal Brand</span>
@@ -626,7 +780,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>Built with ❤️ by <a href="https://muhammad-ramees.github.io" target="_blank">Muhammad Ramees</a> &mdash; All demos are custom-coded, pixel-perfect websites.</p>
+    <p>Built with ❤️ by <a href="https://muhammad-ramees.github.io" target="_blank">Muhammad Ramees</a> &mdash; All
+      demos are custom-coded, pixel-perfect websites.</p>
   </footer>
 
   <script>
@@ -673,7 +828,7 @@
         ctx.fill();
         p.x += p.dx;
         p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
       });
       requestAnimationFrame(drawParticles);
@@ -682,4 +837,5 @@
   </script>
 
 </body>
+
 </html>
