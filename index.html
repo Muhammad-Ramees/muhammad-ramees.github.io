@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Muhammad Ramees — Web & SEO Specialist | Dubai</title>
+    <title>Muhammad Ramees, Web & SEO Specialist | Dubai</title>
     <meta name="description"
         content="Muhammad Ramees is a Web & SEO Specialist and Frontend Developer in Dubai with 4+ years of experience in technical SEO, web development, and digital growth strategies.">
     <meta name="keywords"
@@ -15,7 +15,7 @@
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Muhammad Ramees — Web & SEO Specialist | Dubai">
+    <meta property="og:title" content="Muhammad Ramees, Web & SEO Specialist | Dubai">
     <meta property="og:description"
         content="Building high-performance websites and SEO-driven growth strategies in Dubai.">
     <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google Fonts — Inter (clean, modern, universally readable) -->
+    <!-- Google Fonts, Inter (clean, modern, universally readable) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
 
     <style>
         /* ==============================
-       DESIGN TOKENS — LIGHT THEME
+       DESIGN TOKENS, LIGHT THEME
     ============================== */
         :root {
             --sky-50: #f0f9ff;
@@ -473,10 +473,9 @@
         }
 
         .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
+            display: block;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .about-text .section-title {
@@ -982,6 +981,93 @@
             transform: translateY(-3px);
         }
 
+        /* ============================== TESTIMONIALS ============================== */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testi-card {
+            background: var(--bg-page);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            transition: var(--transition);
+        }
+
+        .testi-card:hover {
+            border-color: var(--sky-300);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .testi-quote {
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.75;
+            font-style: italic;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .testi-quote::before {
+            content: '\201C';
+            position: absolute;
+            left: 0;
+            top: -4px;
+            font-size: 32px;
+            color: var(--sky-300);
+            font-style: normal;
+            line-height: 1;
+        }
+
+        .testi-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        /* Pricing bar */
+        .pricing-bar {
+            background: var(--sky-50);
+            border-top: 1px solid var(--sky-100);
+            border-bottom: 1px solid var(--sky-100);
+            padding: 14px 0;
+            text-align: center;
+        }
+
+        .pricing-bar p {
+            font-size: 14px;
+            color: var(--slate-600);
+            font-weight: 500;
+        }
+
+        .pricing-bar strong {
+            color: var(--sky-700);
+        }
+
+        /* btn-outline variant */
+        .btn-outline {
+            background: transparent;
+            color: var(--slate-700);
+            border: 1.5px solid var(--slate-300);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--sky-400);
+            color: var(--sky-600);
+            background: var(--sky-50);
+            transform: translateY(-2px);
+        }
+
         /* ============================== FOOTER ============================== */
         footer {
             background: var(--slate-900);
@@ -1210,7 +1296,7 @@
                 <p class="hero-subtitle">
                     I build <strong>fast, clean websites</strong> and drive real SEO results.
                     Ranked Touchline Football Academy <strong>#1 on Google</strong> for
-                    "Best Adult Football Academy in Dubai" — with measurable traffic and leads to prove it.
+                    "Best Adult Football Academy in Dubai", with measurable traffic and leads to prove it.
                 </p>
 
                 <div class="cta-row">
@@ -1219,6 +1305,9 @@
                     </a>
                     <a href="#contact" class="btn btn-secondary">
                         Get in Touch <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="./Muhammad_ramees_2026.pdf.pdf" download class="btn btn-outline">
+                        <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
 
@@ -1231,7 +1320,7 @@
 
             <div class="hero-photo">
                 <div class="hero-photo-wrap">
-                    <img src="./ramees photo.jpg" alt="Muhammad Ramees — Web & SEO Specialist" loading="eager">
+                    <img src="./ramees photo.jpg" alt="Muhammad Ramees, Web & SEO Specialist" loading="eager">
                 </div>
             </div>
         </div>
@@ -1250,7 +1339,7 @@
                     <p>
                         I'm Muhammad Ramees, a Web &amp; SEO Specialist based in Dubai with 4+ years of hands-on
                         experience.
-                        I don't just build websites — I build websites that rank, load fast, and turn visitors into real
+                        I don't just build websites, I build websites that rank, load fast, and turn visitors into real
                         customers.
                     </p>
                     <p>
@@ -1263,7 +1352,7 @@
                         <div class="highlight-item">
                             <div class="highlight-icon"><i class="fas fa-trophy"></i></div>
                             <div class="highlight-text">
-                                <strong>Google #1 Ranking — Best Adult Football Academy in Dubai</strong>
+                                <strong>Google #1 Ranking, Best Adult Football Academy in Dubai</strong>
                                 <span>Achieved for Touchline Sport Academy through technical SEO &amp; AI
                                     optimization</span>
                             </div>
@@ -1278,20 +1367,10 @@
                         <div class="highlight-item">
                             <div class="highlight-icon"><i class="fas fa-robot"></i></div>
                             <div class="highlight-text">
-                                <strong>AI Search Optimization — Visible on ChatGPT &amp; Perplexity</strong>
+                                <strong>AI Search Optimization, Visible on ChatGPT &amp; Perplexity</strong>
                                 <span>One of the first specialists applying AI-era SEO techniques in the UAE</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="about-photo">
-                    <div class="about-photo-wrap">
-                        <img src="./ramees photo.jpg" alt="Muhammad Ramees">
-                    </div>
-                    <div class="exp-badge">
-                        <span class="big">4+</span>
-                        <div class="label">Years Experience</div>
                     </div>
                 </div>
             </div>
@@ -1306,7 +1385,7 @@
             <div class="section-header fade-up">
                 <span class="section-label">Skills &amp; Expertise</span>
                 <h2 class="section-title">What I Can Do For You</h2>
-                <p class="section-desc">From building your website to ranking it on Google — I handle the full picture.
+                <p class="section-desc">From building your website to ranking it on Google, I handle the full picture.
                 </p>
             </div>
 
@@ -1378,7 +1457,7 @@
                 <div class="tl-item fade-up">
                     <div class="tl-dot"><i class="fas fa-futbol"></i></div>
                     <div class="tl-content">
-                        <span class="tl-date">Feb 2025 — Present</span>
+                        <span class="tl-date">Feb 2025, Present</span>
                         <h3>SEO &amp; Digital Growth Lead</h3>
                         <div class="tl-company">Touchline Sport Academy · Dubai</div>
                         <p>
@@ -1394,11 +1473,11 @@
                 <div class="tl-item fade-up">
                     <div class="tl-dot"><i class="fas fa-laptop-code"></i></div>
                     <div class="tl-content">
-                        <span class="tl-date">Nov 2020 — Present</span>
+                        <span class="tl-date">Nov 2020, Present</span>
                         <h3>Freelance SEO &amp; Web Specialist</h3>
                         <div class="tl-company">Independent · UAE &amp; Remote</div>
                         <p>
-                            Delivered end-to-end SEO and web solutions for clients across diverse industries —
+                            Delivered end-to-end SEO and web solutions for clients across diverse industries,
                             achieving meaningful ranking improvements, improving local search visibility across
                             UAE businesses, and building custom web tools that automate daily operations.
                         </p>
@@ -1408,7 +1487,7 @@
                 <div class="tl-item fade-up">
                     <div class="tl-dot"><i class="fas fa-building"></i></div>
                     <div class="tl-content">
-                        <span class="tl-date">May 2024 — Sep 2024</span>
+                        <span class="tl-date">May 2024, Sep 2024</span>
                         <h3>Frontend Developer &amp; Digital Solutions</h3>
                         <div class="tl-company">Glaube International Pvt Ltd</div>
                         <p>
@@ -1422,7 +1501,7 @@
                 <div class="tl-item fade-up">
                     <div class="tl-dot"><i class="fas fa-users"></i></div>
                     <div class="tl-content">
-                        <span class="tl-date">Aug 2022 — Jan 2024</span>
+                        <span class="tl-date">Aug 2022, Jan 2024</span>
                         <h3>Junior Software Engineer</h3>
                         <div class="tl-company">Brototype</div>
                         <p>
@@ -1446,7 +1525,7 @@
                 <span class="section-label">Portfolio</span>
                 <h2 class="section-title">Real Work, Real Results</h2>
                 <p class="section-desc">
-                    Every project here has a real outcome — not just a design, but measurable business impact.
+                    Every project here has a real outcome, not just a design, but measurable business impact.
                 </p>
             </div>
 
@@ -1462,9 +1541,14 @@
                         </div>
                         <h3>Touchline Football Academy</h3>
                         <p>
-                            Ranked #1 on Google for "Best Adult Football Academy in Dubai",
-                            generating 12,612 profile views and 1,580 high-intent actions
-                            through SEO, Google Business optimization, and paid ads.
+                            Ranked <strong>#1 on Google</strong> for "Best Adult Football Academy in Dubai".
+                            Visible on <strong>ChatGPT, Perplexity &amp; Google AI Overviews</strong>.
+                            Generated <strong>12,612 profile views</strong> and <strong>1,580 high-intent
+                                actions</strong>.
+                            Students acquired through the website and ChatGPT.
+                            Leads generated via Instagram Reels and Meta Ads.
+                            Also built <strong>5 internal tools</strong>: Daily Report System, Poster Generator,
+                            Assessment Portal, Progress Reports, and a full ERP.
                         </p>
                         <a href="./case-study-growth.html" class="project-link">
                             View Case Study <i class="fas fa-arrow-right"></i>
@@ -1512,45 +1596,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-up">
-                    <div class="project-thumb">🧾</div>
-                    <div class="project-body">
-                        <div class="project-tags">
-                            <span class="tag">Internal Tool</span>
-                            <span class="tag">Web App</span>
-                            <span class="tag">Generator</span>
-                        </div>
-                        <h3>Business Operations Toolkit</h3>
-                        <p>
-                            A custom web-based generator for invoices, quotations, and letterheads —
-                            streamlining daily corporate workflows and ensuring consistent brand identity
-                            across every document.
-                        </p>
-                        <span class="project-link locked">
-                            Private Tool <i class="fas fa-lock"></i>
-                        </span>
-                    </div>
-                </div>
 
-                <div class="project-card fade-up">
-                    <div class="project-thumb">🗓️</div>
-                    <div class="project-body">
-                        <div class="project-tags">
-                            <span class="tag">Full-Stack ERP</span>
-                            <span class="tag">Booking</span>
-                            <span class="tag">Management</span>
-                        </div>
-                        <h3>Ground Booking Platform &amp; ERP</h3>
-                        <p>
-                            A comprehensive web application with a public booking site and secure admin
-                            dashboard to manage VAT, accounting, inventory, customers, and advanced
-                            dynamic reports.
-                        </p>
-                        <span class="project-link locked">
-                            Private Tool <i class="fas fa-lock"></i>
-                        </span>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -1565,8 +1611,8 @@
                 <div class="emoji">🖥️</div>
                 <h2>Want to See What I Can Build?</h2>
                 <p>
-                    Browse my demo showcase — fully functional websites I built from scratch for restaurants,
-                    cafes, nightlife venues, and coaching brands. No templates, no page builders — 100% custom code.
+                    Browse my demo showcase, fully functional websites I built from scratch for restaurants,
+                    cafes, nightlife venues, and coaching brands. No templates, no page builders, 100% custom code.
                 </p>
                 <a href="./demo/index.html" class="btn btn-primary">
                     View Demo Gallery <i class="fas fa-arrow-right"></i>
@@ -1576,15 +1622,53 @@
     </section>
 
     <!-- ==============================
+       TESTIMONIALS
+   ============================== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-label">Client Feedback</span>
+                <h2 class="section-title">What Clients Say</h2>
+                <p class="section-desc">Real words from people I've worked with directly.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testi-card fade-up">
+                    <p class="testi-quote">The website was so good, we liked it.</p>
+                    <div class="testi-name">Fineway Travels</div>
+                </div>
+                <div class="testi-card fade-up">
+                    <p class="testi-quote">The website, marketing support, domain and Google profile setup was very
+                        helpful and great value.</p>
+                    <div class="testi-name">BYD Corporate Services</div>
+                </div>
+                <div class="testi-card fade-up">
+                    <p class="testi-quote">Ramees built our website, internal tools, and SEO strategy from scratch. We
+                        ranked #1 on Google and started getting students through website, ChatGPT and Instagram, results
+                        we
+                        didn't expect this fast.</p>
+                    <div class="testi-name">Touchline Sport Academy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing bar -->
+    <div class="pricing-bar">
+        <p><strong>Websites starting from AED 799</strong> &nbsp;·&nbsp; <strong>SEO packages from AED
+                500/month</strong></p>
+    </div>
+
+    <!-- ==============================
        CONTACT
-  ============================== -->
+   ============================== -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header fade-up">
                 <span class="section-label">Get In Touch</span>
                 <h2 class="section-title">Let's Work Together</h2>
                 <p class="section-desc">
-                    Have a project in mind? Whether it's a new website, SEO, or a digital growth strategy —
+                    Have a project in mind? Whether it's a new website, SEO, or a digital growth strategy,
                     drop me a message and let's talk.
                 </p>
             </div>
