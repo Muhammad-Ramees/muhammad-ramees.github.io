@@ -6,381 +6,322 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Demo Showcase — Muhammad Ramees</title>
   <meta name="description"
-    content="A curated collection of premium website demos crafted by Muhammad Ramees — restaurants, nightlife, cafes, coaches and more." />
+    content="A curated collection of website demos built by Muhammad Ramees — restaurants, nightlife, cafes, coaches and more. 100% custom-coded, no templates." />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* ==============================
+       TOKENS
+    ============================== */
     :root {
-      --bg: #07070f;
-      --surface: rgba(255, 255, 255, 0.045);
-      --border: rgba(255, 255, 255, 0.09);
-      --gold: #f5c842;
-      --gold2: #e0a020;
-      --purple: #a259ff;
-      --cyan: #38bdf8;
-      --green: #34d399;
-      --pink: #f472b6;
-      --orange: #fb923c;
-      --text: #f1f1f1;
-      --muted: #8a8a9a;
-      --radius: 18px;
+      --sky-50:  #f0f9ff;
+      --sky-100: #e0f2fe;
+      --sky-200: #bae6fd;
+      --sky-300: #7dd3fc;
+      --sky-400: #38bdf8;
+      --sky-500: #0ea5e9;
+      --sky-600: #0284c7;
+      --sky-700: #0369a1;
+
+      --slate-50:  #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+
+      --white: #ffffff;
+
+      --accent:       var(--sky-500);
+      --accent-dark:  var(--sky-600);
+      --accent-light: var(--sky-100);
+
+      --bg-page:  var(--slate-50);
+      --bg-card:  var(--white);
+      --bg-alt:   var(--sky-50);
+      --border:   var(--slate-200);
+
+      --text-h:    var(--slate-900);
+      --text-body: var(--slate-600);
+      --text-muted:var(--slate-400);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      --shadow-sm: 0 1px 3px rgba(15,23,42,.06);
+      --shadow-md: 0 4px 16px rgba(15,23,42,.08);
+      --shadow-lg: 0 12px 32px rgba(14,165,233,.12);
+
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* RESET */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      font-family: var(--font);
+      background: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    /* ── Background blobs ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 700px 500px at 15% 10%, rgba(162, 89, 255, 0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 600px 400px at 85% 80%, rgba(245, 200, 66, 0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 500px 400px at 60% 30%, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── Particle canvas ── */
-    #particles {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* ── Nav ── */
+    /* ============================== NAV ============================== */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 18px 48px;
+      padding: 14px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(7, 7, 15, 0.7);
-      backdrop-filter: blur(20px);
+      background: rgba(248,250,252,.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      background: linear-gradient(135deg, var(--gold), var(--purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--sky-600);
+      letter-spacing: -.02em;
     }
 
-    .nav-badge {
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 5px 14px;
-      border-radius: 99px;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
+    .nav-logo span { color: var(--slate-800); }
 
-    /* ── Hero ── */
-    .hero {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 160px 24px 80px;
-    }
-
-    .hero-eyebrow {
+    .nav-back {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
+      gap: 7px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(245, 200, 66, 0.1);
-      border: 1px solid rgba(245, 200, 66, 0.25);
-      padding: 6px 18px;
+      color: var(--sky-600);
+      background: var(--sky-50);
+      border: 1px solid var(--sky-200);
+      padding: 7px 16px;
       border-radius: 99px;
-      margin-bottom: 28px;
+      transition: all .2s;
     }
 
-    .hero-eyebrow::before {
-      content: '✦';
-      font-size: 0.65rem;
+    .nav-back:hover {
+      background: var(--sky-100);
+    }
+
+    /* ============================== HERO ============================== */
+    .hero {
+      padding: 130px 24px 60px;
+      text-align: center;
+      background: linear-gradient(160deg, var(--sky-50) 0%, var(--white) 60%, var(--sky-50) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(14,165,233,.10) 0%, transparent 70%);
+      top: -150px; right: -150px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--sky-600);
+      background: var(--sky-100);
+      border: 1px solid var(--sky-200);
+      padding: 5px 16px;
+      border-radius: 99px;
+      margin-bottom: 22px;
     }
 
     .hero h1 {
-      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-size: clamp(28px, 6vw, 48px);
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-      background: linear-gradient(160deg, #ffffff 30%, rgba(162, 89, 255, 0.7) 70%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--text-h);
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
+
+    .hero h1 .accent { color: var(--sky-500); }
 
     .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
+      font-size: 16px;
+      color: var(--text-body);
       max-width: 520px;
-      margin: 0 auto 48px;
-      line-height: 1.7;
-      font-weight: 400;
+      margin: 0 auto 36px;
+      line-height: 1.75;
     }
 
-    /* Stats bar */
-    .stats {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-num {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--gold), var(--purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 2px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-    }
-
-    .stat-divider {
-      width: 1px;
-      height: 36px;
-      background: var(--border);
-    }
-
-    /* ── Filter pills ── */
-    .filters {
-      position: relative;
-      z-index: 1;
+    /* Info chips */
+    .chips {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 60px;
-      padding: 0 24px;
+      margin-bottom: 48px;
     }
 
-    .filter-pill {
-      cursor: pointer;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 8px 22px;
-      border-radius: 99px;
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate-600);
+      background: var(--white);
       border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--muted);
-      transition: all 0.25s;
-      letter-spacing: 0.03em;
+      padding: 7px 16px;
+      border-radius: 99px;
+      box-shadow: var(--shadow-sm);
     }
 
-    .filter-pill:hover,
-    .filter-pill.active {
-      color: #fff;
-      border-color: var(--gold);
-      background: rgba(245, 200, 66, 0.12);
-      box-shadow: 0 0 18px rgba(245, 200, 66, 0.15);
+    .chip i { color: var(--sky-500); font-size: 13px; }
+
+    /* ============================== FILTERS ============================== */
+    .filters-wrap {
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
     }
 
-    /* ── Grid ── */
+    .pill {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--text-body);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .pill:hover, .pill.active {
+      background: var(--sky-500);
+      border-color: var(--sky-500);
+      color: var(--white);
+      box-shadow: 0 3px 12px rgba(14,165,233,.3);
+    }
+
+    /* ============================== GRID ============================== */
     .grid-section {
-      position: relative;
-      z-index: 1;
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px 120px;
+      padding: 0 24px 96px;
     }
 
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 28px;
+      gap: 24px;
     }
 
-    /* ── Card ── */
+    /* ============================== CARD ============================== */
     .card {
-      position: relative;
-      border-radius: var(--radius);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      background: var(--surface);
-      backdrop-filter: blur(16px);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.25), box-shadow 0.35s, border-color 0.35s;
-      cursor: pointer;
-      text-decoration: none;
       display: block;
-      animation: fadeUp 0.6s ease both;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s;
     }
 
     .card:hover {
-      transform: translateY(-8px) scale(1.01);
-      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-6px);
+      border-color: var(--sky-200);
+      box-shadow: var(--shadow-lg);
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
+    .card.hidden { display: none; }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Stagger */
-    .card:nth-child(1) {
-      animation-delay: 0.05s;
-    }
-
-    .card:nth-child(2) {
-      animation-delay: 0.10s;
-    }
-
-    .card:nth-child(3) {
-      animation-delay: 0.15s;
-    }
-
-    .card:nth-child(4) {
-      animation-delay: 0.20s;
-    }
-
-    .card:nth-child(5) {
-      animation-delay: 0.25s;
-    }
-
-    .card:nth-child(6) {
-      animation-delay: 0.30s;
-    }
-
-    .card:nth-child(7) {
-      animation-delay: 0.35s;
-    }
-
-    .card:nth-child(8) {
-      animation-delay: 0.40s;
-    }
-
-    /* Glow per accent colour */
-    .card:hover {
-      box-shadow: 0 24px 60px var(--card-glow, rgba(162, 89, 255, 0.2));
-    }
-
-    /* ── Card thumb ── */
+    /* Thumb */
     .card-thumb {
-      position: relative;
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .card-thumb-inner {
-      width: 100%;
-      height: 100%;
+      height: 190px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 5rem;
-      background: var(--thumb-bg, linear-gradient(135deg, #1e1b4b, #312e81));
-      transition: transform 0.5s ease;
+      font-size: 56px;
+      background: var(--card-bg, linear-gradient(135deg, var(--sky-100), var(--sky-50)));
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover .card-thumb-inner {
-      transform: scale(1.08);
-    }
-
-    /* Screen mockup lines */
-    .card-thumb-inner::before {
+    /* Subtle grid overlay */
+    .card-thumb::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255, 255, 255, 0.025) 30px, rgba(255, 255, 255, 0.025) 31px),
-        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255, 255, 255, 0.015) 50px, rgba(255, 255, 255, 0.015) 51px);
+        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(14,165,233,.04) 28px, rgba(14,165,233,.04) 29px),
+        repeating-linear-gradient(90deg, transparent, transparent 44px, rgba(14,165,233,.03) 44px, rgba(14,165,233,.03) 45px);
     }
 
-    /* Top bar of thumb */
-    .thumb-topbar {
+    /* Fake browser bar */
+    .thumb-bar {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 28px;
-      background: rgba(0, 0, 0, 0.35);
+      top: 0; left: 0; right: 0;
+      height: 26px;
+      background: rgba(255,255,255,.7);
+      border-bottom: 1px solid rgba(0,0,0,.05);
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 0 12px;
+      gap: 5px;
+      padding: 0 10px;
+      backdrop-filter: blur(4px);
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
+    .dot-b {
+      width: 7px; height: 7px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
     }
 
-    .url-bar {
+    .dot-b.r { background: #fc5f57; }
+    .dot-b.y { background: #fdbc2c; }
+    .dot-b.g { background: #33c948; }
+
+    .url-pill {
       flex: 1;
-      height: 14px;
-      background: rgba(255, 255, 255, 0.08);
+      height: 12px;
+      background: var(--slate-100);
       border-radius: 4px;
       margin: 0 8px;
     }
 
-    /* ── Card body ── */
+    /* Card body */
     .card-body {
-      padding: 22px 24px 24px;
+      padding: 20px 22px 22px;
     }
 
     .card-top {
@@ -390,199 +331,154 @@
       margin-bottom: 10px;
     }
 
-    .card-badge {
-      font-size: 0.68rem;
+    .badge {
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: .06em;
       text-transform: uppercase;
       padding: 4px 12px;
       border-radius: 99px;
-      background: var(--badge-bg, rgba(162, 89, 255, 0.15));
-      color: var(--badge-color, var(--purple));
-      border: 1px solid var(--badge-border, rgba(162, 89, 255, 0.3));
+      background: var(--badge-bg, var(--sky-50));
+      color: var(--badge-c, var(--sky-600));
+      border: 1px solid var(--badge-bd, var(--sky-100));
     }
 
-    .card-arrow {
-      width: 32px;
-      height: 32px;
+    .arrow-btn {
+      width: 30px; height: 30px;
       border-radius: 50%;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--muted);
-      font-size: 1rem;
-      transition: all 0.3s;
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: all .25s;
       flex-shrink: 0;
     }
 
-    .card:hover .card-arrow {
-      background: var(--accent, var(--gold));
-      border-color: var(--accent, var(--gold));
-      color: #000;
+    .card:hover .arrow-btn {
+      background: var(--sky-500);
+      border-color: var(--sky-500);
+      color: var(--white);
       transform: rotate(45deg);
     }
 
-    .card h2 {
-      font-size: 1.15rem;
+    .card-body h2 {
+      font-size: 16px;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-h);
       margin-bottom: 6px;
-      letter-spacing: -0.01em;
       line-height: 1.3;
     }
 
-    .card p {
-      font-size: 0.83rem;
-      color: var(--muted);
-      line-height: 1.6;
-      font-family: 'Inter', sans-serif;
+    .card-body p {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.65;
     }
 
     .card-footer {
-      margin-top: 16px;
-      padding-top: 16px;
+      margin-top: 14px;
+      padding-top: 14px;
       border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
     .card-tag {
-      font-size: 0.72rem;
+      font-size: 11px;
       font-weight: 500;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 3px 10px;
+      color: var(--text-muted);
+      background: var(--slate-100);
+      padding: 3px 9px;
       border-radius: 6px;
     }
 
-    /* ── Hidden class for filter ── */
-    .card.hidden {
-      display: none;
-    }
-
-    /* ── Footer ── */
+    /* ============================== FOOTER ============================== */
     footer {
-      position: relative;
-      z-index: 1;
       text-align: center;
-      padding: 40px 24px;
+      padding: 32px 24px;
       border-top: 1px solid var(--border);
+      background: var(--white);
     }
 
-    footer p {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
+    footer p { font-size: 13px; color: var(--text-muted); }
+    footer a { color: var(--sky-600); font-weight: 600; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* ── Responsive ── */
+    /* ============================== RESPONSIVE ============================== */
     @media (max-width: 768px) {
-      nav {
-        padding: 14px 20px;
-      }
-
-      .hero {
-        padding: 120px 20px 60px;
-      }
-
-      .stats {
-        gap: 24px;
-      }
-
-      .stat-divider {
-        display: none;
-      }
+      nav { padding: 12px 16px; }
+      .hero { padding: 110px 16px 48px; }
 
       .cards-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
       }
+
+      .grid-section { padding: 0 16px 72px; }
     }
   </style>
 </head>
 
 <body>
 
-  <canvas id="particles"></canvas>
-
-  <!-- Nav -->
+  <!-- NAV -->
   <nav>
-    <a href="../index.html" class="nav-logo">Muhammad Ramees</a>
-    <span class="nav-badge">✦ Demo Projects</span>
+    <a href="../index.html" class="nav-logo">RMS<span>.</span></a>
+    <a href="../index.html" class="nav-back">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
   </nav>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow">Crafted with precision</div>
-    <h1>Demo Showcase</h1>
-    <p>A curated collection of premium website demos spanning restaurants, nightlife, cafes, and coaching brands.</p>
+    <span class="eyebrow">✦ Custom-Coded Demos</span>
+    <h1>Demo <span class="accent">Showcase</span></h1>
+    <p>
+      Real websites I built from scratch — no templates, no page builders.
+      Each one is custom-coded for a specific business type and audience.
+    </p>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">8</div>
-        <div class="stat-label">Projects</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Categories</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Custom Code</div>
-      </div>
+    <div class="chips">
+      <span class="chip"><i class="fas fa-code"></i> 100% Custom Code</span>
+      <span class="chip"><i class="fas fa-mobile-alt"></i> Mobile Friendly</span>
+      <span class="chip"><i class="fas fa-search"></i> SEO Optimised</span>
+      <span class="chip"><i class="fas fa-bolt"></i> Fast-Loading</span>
     </div>
   </section>
 
-  <!-- Filters -->
-  <div class="filters">
-    <button class="filter-pill active" data-filter="all" onclick="filterCards(this, 'all')">All Projects</button>
-    <button class="filter-pill" data-filter="restaurant" onclick="filterCards(this, 'restaurant')">🍽
-      Restaurant</button>
-    <button class="filter-pill" data-filter="nightlife" onclick="filterCards(this, 'nightlife')">🎶 Nightlife</button>
-    <button class="filter-pill" data-filter="cafe" onclick="filterCards(this, 'cafe')">☕ Café</button>
-    <button class="filter-pill" data-filter="coach" onclick="filterCards(this, 'coach')">⚽ Coach</button>
+  <!-- FILTERS -->
+  <div class="filters-wrap">
+    <button class="pill active" onclick="filterCards(this,'all')">All</button>
+    <button class="pill" onclick="filterCards(this,'restaurant')">🍽️ Restaurant</button>
+    <button class="pill" onclick="filterCards(this,'nightlife')">🎶 Nightlife</button>
+    <button class="pill" onclick="filterCards(this,'cafe')">☕ Café</button>
+    <button class="pill" onclick="filterCards(this,'coach')">⚽ Coach</button>
   </div>
 
-  <!-- Cards Grid -->
+  <!-- CARDS GRID -->
   <section class="grid-section">
     <div class="cards-grid" id="cardsGrid">
 
       <!-- Mandarin Oak -->
-      <a href="mandarin-oak.html" class="card" data-category="restaurant"
-        style="--card-glow: rgba(201,168,76,0.25); --accent: var(--gold);">
-        <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d2818, #142e1e, #1a3a26);">
-            🥢
-            <div class="thumb-topbar">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="url-bar"></div>
-            </div>
+      <a href="mandarin-oak.html" class="card" data-category="restaurant">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#d4f1c0,#a8e6cf);">
+          🥢
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge"
-              style="--badge-bg: rgba(245,200,66,0.12); --badge-color: var(--gold); --badge-border: rgba(245,200,66,0.3);">Restaurant</span>
-            <div class="card-arrow">↗</div>
+            <span class="badge" style="--badge-bg:#fef9c3;--badge-c:#a16207;--badge-bd:#fde68a;">Restaurant</span>
+            <div class="arrow-btn">↗</div>
           </div>
           <h2>Mandarin Oak</h2>
-          <p>Dubai's beloved Chinese chain — premium dark forest green & gold aesthetic with an interactive wok box
-            builder.</p>
+          <p>Dubai's beloved Chinese chain — premium aesthetic with an interactive wok box builder.</p>
           <div class="card-footer">
             <span class="card-tag">Asian Cuisine</span>
             <span class="card-tag">Dark Luxury</span>
@@ -592,28 +488,21 @@
       </a>
 
       <!-- OVO Club -->
-      <a href="ovo.html" class="card" data-category="nightlife"
-        style="--card-glow: rgba(162,89,255,0.25); --accent: var(--purple);">
-        <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d0020, #2d0068, #6600cc);">
-            🎧
-            <div class="thumb-topbar">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="url-bar"></div>
-            </div>
+      <a href="ovo.html" class="card" data-category="nightlife">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#e9d5ff,#c4b5fd);">
+          🎧
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge"
-              style="--badge-bg: rgba(162,89,255,0.15); --badge-color: #c084fc; --badge-border: rgba(162,89,255,0.3);">Nightlife</span>
-            <div class="card-arrow">↗</div>
+            <span class="badge" style="--badge-bg:#f5f3ff;--badge-c:#7c3aed;--badge-bd:#ddd6fe;">Nightlife</span>
+            <div class="arrow-btn">↗</div>
           </div>
           <h2>OVO Club Al Nahda</h2>
-          <p>Dubai's premier nightlife destination — immersive dark design with neon glow effects and event listings.
-          </p>
+          <p>Dubai's premier nightlife destination — immersive design with neon glow effects and event listings.</p>
           <div class="card-footer">
             <span class="card-tag">Dark Theme</span>
             <span class="card-tag">Nightclub</span>
@@ -623,28 +512,21 @@
       </a>
 
       <!-- JJ Jalebi -->
-      <a href="jj-jalebi.html" class="card" data-category="restaurant"
-        style="--card-glow: rgba(251,146,60,0.25); --accent: var(--orange);">
-        <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #1c0a00, #5c1c00, #a33000);">
-            🍡
-            <div class="thumb-topbar">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="url-bar"></div>
-            </div>
+      <a href="jj-jalebi.html" class="card" data-category="restaurant">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#fed7aa,#fdba74);">
+          🍡
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge"
-              style="--badge-bg: rgba(251,146,60,0.15); --badge-color: var(--orange); --badge-border: rgba(251,146,60,0.3);">Restaurant</span>
-            <div class="card-arrow">↗</div>
+            <span class="badge" style="--badge-bg:#fff7ed;--badge-c:#c2410c;--badge-bd:#fed7aa;">Restaurant</span>
+            <div class="arrow-btn">↗</div>
           </div>
           <h2>JJ Jalebi Dubai</h2>
-          <p>Since 1947 — Mohammed Ali Road Mumbai heritage brand at Al Karama Dubai. Rich, warm Indian street food
-            vibes.</p>
+          <p>Since 1947 — Mohammed Ali Road Mumbai heritage brand at Al Karama Dubai. Warm Indian street food vibes.</p>
           <div class="card-footer">
             <span class="card-tag">Indian Food</span>
             <span class="card-tag">Heritage Brand</span>
@@ -654,27 +536,21 @@
       </a>
 
       <!-- Bombay Dhaba -->
-      <a href="bombay-dhaba.html" class="card" data-category="restaurant"
-        style="--card-glow: rgba(245,200,66,0.25); --accent: var(--gold);">
-        <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #1a1200, #3d2d00, #7a5c00);">
-            🍛
-            <div class="thumb-topbar">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="url-bar"></div>
-            </div>
+      <a href="bombay-dhaba.html" class="card" data-category="restaurant">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#fef3c7,#fde68a);">
+          🍛
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge"
-              style="--badge-bg: rgba(245,200,66,0.12); --badge-color: var(--gold); --badge-border: rgba(245,200,66,0.3);">Restaurant</span>
-            <div class="card-arrow">↗</div>
+            <span class="badge" style="--badge-bg:#fef9c3;--badge-c:#a16207;--badge-bd:#fde68a;">Restaurant</span>
+            <div class="arrow-btn">↗</div>
           </div>
           <h2>Bombay Dhaba</h2>
-          <p>Restaurant & Cafeteria in Al Nahda, Dubai — authentic Bombay flavours with a warm, welcoming identity.</p>
+          <p>Restaurant &amp; Cafeteria in Al Nahda, Dubai — authentic Bombay flavours with a warm, welcoming identity.</p>
           <div class="card-footer">
             <span class="card-tag">Indian Cuisine</span>
             <span class="card-tag">Cafeteria</span>
@@ -683,29 +559,22 @@
         </div>
       </a>
 
-      <!-- Saffron & Smoke (hotel.html) -->
-      <a href="hotel.html" class="card" data-category="restaurant"
-        style="--card-glow: rgba(52,211,153,0.22); --accent: var(--green);">
-        <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #001a10, #003d22, #006b3c);">
-            🔥
-            <div class="thumb-topbar">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="url-bar"></div>
-            </div>
+      <!-- Saffron & Smoke -->
+      <a href="hotel.html" class="card" data-category="restaurant">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#d1fae5,#a7f3d0);">
+          🔥
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge"
-              style="--badge-bg: rgba(52,211,153,0.12); --badge-color: var(--green); --badge-border: rgba(52,211,153,0.3);">Restaurant</span>
-            <div class="card-arrow">↗</div>
+            <span class="badge" style="--badge-bg:#ecfdf5;--badge-c:#065f46;--badge-bd:#a7f3d0;">Restaurant</span>
+            <div class="arrow-btn">↗</div>
           </div>
-          <h2>Saffron & Smoke</h2>
-          <p>Contemporary Arabic Fusion dining at Downtown Dubai — elegant fine-dining experience with rich cultural
-            aesthetics.</p>
+          <h2>Saffron &amp; Smoke</h2>
+          <p>Contemporary Arabic Fusion dining at Downtown Dubai — elegant fine-dining with rich cultural aesthetics.</p>
           <div class="card-footer">
             <span class="card-tag">Arabic Fusion</span>
             <span class="card-tag">Fine Dining</span>
@@ -715,27 +584,21 @@
       </a>
 
       <!-- Vicolo Cafe -->
-      <a href="vicolo.html" class="card" data-category="cafe"
-        style="--card-glow: rgba(56,189,248,0.22); --accent: var(--cyan);">
-        <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #001520, #002d40, #004d6b);">
-            💨
-            <div class="thumb-topbar">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="url-bar"></div>
-            </div>
+      <a href="vicolo.html" class="card" data-category="cafe">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#e0f2fe,#bae6fd);">
+          ☕
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge"
-              style="--badge-bg: rgba(56,189,248,0.12); --badge-color: var(--cyan); --badge-border: rgba(56,189,248,0.3);">Café</span>
-            <div class="card-arrow">↗</div>
+            <span class="badge" style="--badge-bg:#f0f9ff;--badge-c:#0369a1;--badge-bd:#bae6fd;">Café</span>
+            <div class="arrow-btn">↗</div>
           </div>
           <h2>Vicolo Cafe</h2>
-          <p>Al Nahda Dubai — Shisha, Coffee & Late Night Vibes. Open 9AM–5AM. الجو عنا غير. Bilingual design.</p>
+          <p>Al Nahda Dubai — Shisha, Coffee &amp; Late Night Vibes. Open 9AM–5AM. Bilingual design.</p>
           <div class="card-footer">
             <span class="card-tag">Shisha</span>
             <span class="card-tag">Coffee</span>
@@ -744,29 +607,22 @@
         </div>
       </a>
 
-      <!-- Marcus Silva – Coach -->
-      <a href="coach.html" class="card" data-category="coach"
-        style="--card-glow: rgba(244,114,182,0.22); --accent: var(--pink);">
-        <div class="card-thumb">
-          <div class="card-thumb-inner" style="--thumb-bg: linear-gradient(135deg, #0d001a, #2a0044, #4a0080);">
-            ⚽
-            <div class="thumb-topbar">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="url-bar"></div>
-            </div>
+      <!-- Marcus Silva Coach -->
+      <a href="coach.html" class="card" data-category="coach">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#fce7f3,#fbcfe8);">
+          ⚽
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <span class="card-badge"
-              style="--badge-bg: rgba(244,114,182,0.12); --badge-color: var(--pink); --badge-border: rgba(244,114,182,0.3);">Coach</span>
-            <div class="card-arrow">↗</div>
+            <span class="badge" style="--badge-bg:#fdf2f8;--badge-c:#9d174d;--badge-bd:#fbcfe8;">Coach</span>
+            <div class="arrow-btn">↗</div>
           </div>
           <h2>Marcus Silva</h2>
-          <p>Elite Football Coach — professional personal branding page with training programs, highlights, and client
-            booking.</p>
+          <p>Elite Football Coach — professional personal branding page with training programs, highlights, and client booking.</p>
           <div class="card-footer">
             <span class="card-tag">Football</span>
             <span class="card-tag">Personal Brand</span>
@@ -775,22 +631,43 @@
         </div>
       </a>
 
+      <!-- Gym -->
+      <a href="gym.html" class="card" data-category="coach">
+        <div class="card-thumb" style="--card-bg: linear-gradient(135deg,#dcfce7,#bbf7d0);">
+          💪
+          <div class="thumb-bar">
+            <div class="dot-b r"></div><div class="dot-b y"></div><div class="dot-b g"></div>
+            <div class="url-pill"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="badge" style="--badge-bg:#f0fdf4;--badge-c:#15803d;--badge-bd:#bbf7d0;">Coach</span>
+            <div class="arrow-btn">↗</div>
+          </div>
+          <h2>Gym / Fitness Studio</h2>
+          <p>High-energy fitness brand website with class schedules, trainer profiles, and membership sign-up flow.</p>
+          <div class="card-footer">
+            <span class="card-tag">Fitness</span>
+            <span class="card-tag">Gym</span>
+            <span class="card-tag">Memberships</span>
+          </div>
+        </div>
+      </a>
+
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p>Built with ❤️ by <a href="https://muhammad-ramees.github.io" target="_blank">Muhammad Ramees</a> &mdash; All
-      demos are custom-coded, pixel-perfect websites.</p>
+    <p>Built by <a href="https://muhammad-ramees.github.io" target="_blank">Muhammad Ramees</a> — All demos are custom-coded from scratch.</p>
   </footer>
 
   <script>
-    /* ── Filter ── */
     function filterCards(btn, category) {
-      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
+      document.querySelectorAll('.card').forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
           card.classList.remove('hidden');
         } else {
@@ -798,44 +675,7 @@
         }
       });
     }
-
-    /* ── Particles ── */
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const particles = Array.from({ length: 55 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.4 + 0.3,
-      dx: (Math.random() - 0.5) * 0.4,
-      dy: (Math.random() - 0.5) * 0.4,
-      alpha: Math.random() * 0.5 + 0.1,
-    }));
-
-    function drawParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245,200,66,${p.alpha})`;
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-      requestAnimationFrame(drawParticles);
-    }
-    drawParticles();
   </script>
 
 </body>
-
 </html>
