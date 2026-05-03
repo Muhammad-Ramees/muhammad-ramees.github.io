@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ Jalebi Dubai — Since 1947 · Mohammed Ali Road, Mumbai · Al Karama</title>
+    <meta name="description"
+        content="Dubai's most talked-about street food destination. 75 years. One secret recipe. Mawa jalebi, seekh paratha, mutton bhuna & more — fresh daily in Al Karama. Order on Talabat, Noon, Zomato or WhatsApp.">
+    <meta property="og:title" content="JJ Jalebi Dubai — Since 1947">
+    <meta property="og:description"
+        content="The legendary Mohammed Ali Road jalebi — now in Al Karama, Dubai. Mawa Jalebi · Seekh Paratha · Malpua · Mutton Bhuna.">
+    <meta property="og:image" content="./hero-jalebi.jpg">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Yatra+One&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ===========================
+   CSS VARIABLES & RESET
+=========================== */
+        :root {
+            --red-deep: #C0141C;
+            --red-dark: #8B0000;
+            --red-card: #6B0F0F;
+            --red-deeper: #3D0505;
+            --gold: #F5C518;
+            --gold-amber: #D4A017;
+            --gold-dim: #B8860B;
+            --cream: #FFF8F0;
+            --cream-dim: #E8D8C4;
+            --glow: rgba(245, 197, 24, 0.18);
+            --glow-strong: rgba(245, 197, 24, 0.35);
+            --smoke: rgba(255, 200, 100, 0.04);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background: var(--red-deep);
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* ===========================
+   NOISE TEXTURE
+=========================== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.6;
+            mix-blend-mode: overlay;
+        }
+
+        /* ===========================
+   TYPOGRAPHY
+=========================== */
+        .font-display {
+            font-family: 'Yatra One', cursive;
+        }
+
+        .font-serif {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Yatra One', cursive;
+            line-height: 1.1;
+        }
+
+        /* ===========================
+   ANIMATIONS
+=========================== */
+        @keyframes steamRise {
+            0% {
+                transform: translateY(0) scaleX(1);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.7;
+            }
+
+            85% {
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateY(-180px) scaleX(1.8);
+                opacity: 0;
+            }
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 6px 2px rgba(245, 197, 24, 0.6);
+            }
+
+            50% {
+                opacity: 0.4;
+                box-shadow: 0 0 2px 1px rgba(245, 197, 24, 0.2);
+            }
+        }
+
+        @keyframes slowRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes slowRotateReverse {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 var(--glow-strong), 0 0 20px 8px var(--glow);
+            }
+
+            50% {
+                box-shadow: 0 0 0 12px transparent, 0 0 35px 16px var(--glow);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes drawLine {
+            from {
+                stroke-dashoffset: 1000;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes goldFlicker {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(245, 197, 24, 0.4), 0 0 40px rgba(245, 197, 24, 0.2);
+            }
+
+            50% {
+                text-shadow: 0 0 30px rgba(245, 197, 24, 0.7), 0 0 60px rgba(245, 197, 24, 0.3), 0 0 80px rgba(245, 197, 24, 0.1);
+            }
+        }
+
+        /* ===========================
+   REVEAL ON SCROLL
+=========================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ===========================
+   STRING LIGHTS — CSS-only, infinite width
+=========================== */
+        @keyframes twinkle-a {
+
+            0%,
+            100% {
+                opacity: 1;
+                filter: brightness(1.1) blur(0px);
+            }
+
+            40% {
+                opacity: 0.45;
+                filter: brightness(0.7) blur(1px);
+            }
+
+            70% {
+                opacity: 0.85;
+                filter: brightness(1) blur(0px);
+            }
+        }
+
+        @keyframes twinkle-b {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                filter: brightness(0.75) blur(1px);
+            }
+
+            35% {
+                opacity: 1;
+                filter: brightness(1.15) blur(0px);
+            }
+
+            65% {
+                opacity: 0.7;
+                filter: brightness(0.9) blur(0px);
+            }
+        }
+
+        .string-lights {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 32px;
+            z-index: 10;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* The wire / cord */
+        .string-lights::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(180, 120, 20, 0.35) 4%,
+                    rgba(200, 140, 30, 0.65) 50%,
+                    rgba(180, 120, 20, 0.35) 96%,
+                    transparent 100%);
+        }
+
+        /* Layer A — main bulbs, filling full width, twinkling */
+        .string-lights::after {
+            content: '';
+            position: absolute;
+            top: 9px;
+            left: 0;
+            right: 0;
+            height: 22px;
+            background-image:
+                radial-gradient(ellipse 8px 12px at 50% 52%,
+                    #fffde8 0%,
+                    #F5C518 28%,
+                    #D4A017 56%,
+                    rgba(212, 160, 23, 0.15) 75%,
+                    transparent 90%);
+            background-size: 44px 22px;
+            background-repeat: repeat-x;
+            background-position: 12px 0;
+            animation: twinkle-a 2.4s ease-in-out infinite;
+            /* Glow haze under every bulb via drop-shadow */
+            filter: drop-shadow(0 0 4px rgba(245, 197, 24, 0.75));
+        }
+
+        /* ===========================
+   HERO SECTION
+=========================== */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse 90% 80% at 50% 45%, #A01015 0%, #8B0000 40%, #3D0505 100%);
+            padding: 80px 24px 100px;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(245, 197, 24, 0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            background-image: url("./hero-jalebi.jpg");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.45;
+            z-index: 0;
+            filter: saturate(1.05) contrast(1.05);
+        }
+
+        .hero-bg-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 80% at 50% 50%, transparent 0%, rgba(61, 5, 5, 0.55) 60%, rgba(61, 5, 5, 0.95) 100%),
+                linear-gradient(180deg, rgba(61, 5, 5, 0.55) 0%, transparent 30%, transparent 70%, rgba(61, 5, 5, 0.95) 100%);
+        }
+
+        /* Steam elements */
+        .steam-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .steam {
+            position: absolute;
+            bottom: -20px;
+            width: 60px;
+            height: 120px;
+            background: radial-gradient(ellipse, rgba(255, 220, 150, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(8px);
+            animation: steamRise 5s ease-in-out infinite;
+        }
+
+        .steam:nth-child(1) {
+            left: 15%;
+            animation-delay: 0s;
+            width: 50px;
+        }
+
+        .steam:nth-child(2) {
+            left: 30%;
+            animation-delay: 1.2s;
+            width: 70px;
+            height: 140px;
+        }
+
+        .steam:nth-child(3) {
+            left: 50%;
+            animation-delay: 0.6s;
+            width: 55px;
+        }
+
+        .steam:nth-child(4) {
+            left: 65%;
+            animation-delay: 2s;
+            width: 65px;
+            height: 130px;
+        }
+
+        .steam:nth-child(5) {
+            left: 80%;
+            animation-delay: 0.9s;
+            width: 45px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero-arabic {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            opacity: 0.8;
+            margin-bottom: 16px;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: clamp(4.5rem, 14vw, 11rem);
+            color: var(--gold);
+            line-height: 0.9;
+            letter-spacing: -2px;
+            animation: goldFlicker 4s ease-in-out infinite, fadeSlideUp 1s ease forwards;
+            text-shadow: 0 0 40px rgba(245, 197, 24, 0.4), 0 4px 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .hero-origin {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.85rem, 2vw, 1.05rem);
+            color: var(--cream-dim);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            animation: fadeSlideUp 1s 0.3s ease both;
+            margin-bottom: 28px;
+        }
+
+        .hero-tagline {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+            color: var(--cream);
+            line-height: 1.3;
+            animation: fadeSlideUp 1s 0.5s ease both;
+            margin-bottom: 48px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeSlideUp 1s 0.7s ease both;
+            margin-bottom: 60px;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--red-dark);
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: #FFD740;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 197, 24, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--cream);
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(245, 197, 24, 0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 197, 24, 0.2);
+        }
+
+        .hero-divider {
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1s 1s ease both;
+        }
+
+        .hero-divider svg {
+            animation: slowRotate 18s linear infinite;
+        }
+
+        /* ===========================
+   SECTION COMMONS
+=========================== */
+        section {
+            position: relative;
+        }
+
+        .section-pad {
+            padding: 100px 24px;
+        }
+
+        .section-title {
+            font-family: 'Yatra One', cursive;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(245, 197, 24, 0.25);
+        }
+
+        .section-subtitle {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: clamp(1rem, 2.5vw, 1.35rem);
+            color: var(--cream-dim);
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+        }
+
+        .gold-rule {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* ===========================
+   STORY SECTION
+=========================== */
+        #story {
+            background: linear-gradient(180deg, #3D0505 0%, #5a0a0a 50%, #3D0505 100%);
+            padding: 100px 24px;
+        }
+
+        .story-intro {
+            max-width: 750px;
+            margin: 0 auto 80px;
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+            line-height: 1.85;
+            color: var(--cream);
+            text-align: center;
+            font-style: italic;
+        }
+
+        .story-intro strong {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--gold-dim) 20%, var(--gold) 50%, var(--gold-dim) 80%, transparent 100%);
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        .timeline-line svg {
+            width: 100%;
+            height: 4px;
+        }
+
+        .timeline-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            position: relative;
+        }
+
+        .timeline-items::before {
+            content: '';
+            position: absolute;
+            top: 38px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim) 10%, var(--gold) 50%, var(--gold-dim) 90%, transparent);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            background: var(--red-card);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 197, 24, 0.3);
+        }
+
+        .timeline-dot {
+            width: 18px;
+            height: 18px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            box-shadow: 0 0 12px rgba(245, 197, 24, 0.6);
+            position: relative;
+        }
+
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid rgba(245, 197, 24, 0.3);
+            animation: pulse-glow 2.5s ease-in-out infinite;
+        }
+
+        .timeline-year {
+            font-family: 'Yatra One', cursive;
+            font-size: 2.2rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .timeline-text {
+            font-size: 0.88rem;
+            color: var(--cream-dim);
+            line-height: 1.5;
+        }
+
+        /* ===========================
+   WHY IT'S DIFFERENT
+=========================== */
+        #why {
+            background: linear-gradient(180deg, #3D0505 0%, var(--red-card) 100%);
+            padding: 100px 24px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            background: linear-gradient(135deg, #7a1010 0%, var(--red-card) 100%);
+            border: 1px solid rgba(245, 197, 24, 0.12);
+            border-radius: 16px;
+            padding: 36px 28px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+            transition: all 0.35s ease;
+            pointer-events: none;
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 197, 24, 0.25), 0 0 40px rgba(245, 197, 24, 0.08);
+            border-color: rgba(245, 197, 24, 0.3);
+        }
+
+        .why-card:hover::before {
+            bottom: -30px;
+            left: -30px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .why-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .why-card:nth-child(2) .why-icon {
+            animation-delay: 0.5s;
+        }
+
+        .why-card:nth-child(3) .why-icon {
+            animation-delay: 1s;
+        }
+
+        .why-card:nth-child(4) .why-icon {
+            animation-delay: 1.5s;
+        }
+
+        .why-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .why-text {
+            font-size: 0.92rem;
+            color: var(--cream-dim);
+            line-height: 1.7;
+        }
+
+        /* ===========================
+   SIGNATURE ITEMS
+=========================== */
+        #signatures {
+            background: var(--red-deeper);
+            padding: 100px 0;
+        }
+
+        #signatures .section-title,
+        #signatures .section-subtitle {
+            padding: 0 24px;
+        }
+
+        .sig-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1200px;
+            margin: 0 auto 6px;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .sig-item:nth-child(even) .sig-visual {
+            order: 2;
+        }
+
+        .sig-item:nth-child(even) .sig-content {
+            order: 1;
+        }
+
+        .sig-visual {
+            background: var(--red-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 340px;
+        }
+
+        .sig-visual img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .sig-item:hover .sig-visual img {
+            transform: scale(1.06);
+        }
+
+        .sig-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(61, 5, 5, 0.35) 0%, rgba(61, 5, 5, 0) 50%, rgba(61, 5, 5, 0.55) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sig-emoji-bg {
+            font-size: 12rem;
+            opacity: 0.12;
+            position: absolute;
+            filter: blur(4px);
+            transform: rotate(-10deg);
+            display: none;
+        }
+
+        .sig-emoji-main {
+            font-size: 7rem;
+            position: relative;
+            z-index: 2;
+            animation: float 5s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(245, 197, 24, 0.3));
+            display: none;
+        }
+
+        .sig-content {
+            background: linear-gradient(135deg, #5a0a0a 0%, var(--red-card) 100%);
+            padding: 60px 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(245, 197, 24, 0.08);
+        }
+
+        .sig-name {
+            font-family: 'Yatra One', cursive;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--gold);
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .sig-desc {
+            font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+            color: var(--cream-dim);
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+        }
+
+        .sig-price {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--red-dark);
+            font-family: 'Yatra One', cursive;
+            font-size: 1.6rem;
+            padding: 8px 24px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 20px rgba(245, 197, 24, 0.25);
+        }
+
+        .btn-order {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--gold);
+            border: 1.5px solid var(--gold);
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .btn-order:hover {
+            background: var(--gold);
+            color: var(--red-dark);
+            transform: translateX(4px);
+        }
+
+        /* ===========================
+   FULL MENU
+=========================== */
+        #menu {
+            background: linear-gradient(180deg, var(--red-deeper) 0%, var(--red-dark) 100%);
+            padding: 100px 24px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 48px;
+        }
+
+        .menu-card {
+            background: var(--red-card);
+            border: 1px solid rgba(245, 197, 24, 0.1);
+            border-radius: 16px;
+            padding: 36px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--gold-amber), 0 0 30px rgba(245, 197, 24, 0.1);
+            border-color: var(--gold-amber);
+        }
+
+        .menu-emoji {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .menu-label {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--cream);
+            letter-spacing: 0.05em;
+        }
+
+        .menu-cta-wrap {
+            text-align: center;
+        }
+
+        .btn-menu {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gold);
+            color: var(--red-dark);
+            padding: 18px 44px;
+            border-radius: 8px;
+            font-family: 'Yatra One', cursive;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(245, 197, 24, 0.25);
+        }
+
+        .btn-menu:hover {
+            background: #FFD740;
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(245, 197, 24, 0.4);
+        }
+
+        /* ===========================
+   DELIVERY
+=========================== */
+        #delivery {
+            background: radial-gradient(ellipse 100% 100% at 50% 50%, #A01015 0%, #6B0000 100%);
+            padding: 100px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .delivery-platforms {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .platform-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            border-radius: 16px;
+            padding: 36px 28px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(245, 197, 24, 0.12);
+        }
+
+        .platform-name {
+            font-family: 'Yatra One', cursive;
+            font-size: 1.9rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .platform-sub {
+            font-size: 0.9rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.05em;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto 48px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px 16px;
+            border: 1px solid rgba(245, 197, 24, 0.1);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Yatra One', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 6px;
+            text-shadow: 0 0 20px rgba(245, 197, 24, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .price-badge {
+            display: block;
+            text-align: center;
+            max-width: 380px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #D4A017, var(--gold));
+            color: var(--red-deeper);
+            border-radius: 16px;
+            padding: 28px 40px;
+            box-shadow: 0 12px 40px rgba(245, 197, 24, 0.3);
+        }
+
+        .price-badge-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .price-badge-price {
+            font-family: 'Yatra One', cursive;
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .price-badge-item {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ===========================
+   REVIEWS
+=========================== */
+        #reviews {
+            background: var(--red-deeper);
+            padding: 100px 24px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--red-card);
+            border: 1px solid rgba(245, 197, 24, 0.1);
+            border-radius: 16px;
+            padding: 36px 32px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 197, 24, 0.2);
+        }
+
+        .review-quote-mark {
+            font-family: 'DM Serif Display', serif;
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.25;
+            line-height: 0.5;
+            display: block;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-text {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--cream);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .review-source {
+            font-size: 0.82rem;
+            color: var(--gold);
+            opacity: 0.7;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ===========================
+   FIND US
+=========================== */
+        #findus {
+            background: linear-gradient(180deg, #3D0505 0%, var(--red-dark) 100%);
+            padding: 100px 24px;
+        }
+
+        .findus-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .findus-info h3 {
+            font-family: 'Yatra One', cursive;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .findus-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(245, 197, 24, 0.08);
+        }
+
+        .findus-detail:last-of-type {
+            border-bottom: none;
+        }
+
+        .findus-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .findus-detail-text {
+            font-size: 1rem;
+            color: var(--cream-dim);
+            line-height: 1.6;
+        }
+
+        .findus-detail-text a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .findus-detail-text a:hover {
+            text-decoration: underline;
+        }
+
+        .findus-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            position: relative;
+            min-height: 350px;
+            background: #1a0505;
+        }
+
+        .map-embed {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            filter: saturate(0.7) contrast(1.1);
+        }
+
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(192, 20, 28, 0.15) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* ===========================
+   FLOATING WHATSAPP
+=========================== */
+        #whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+        }
+
+        .wa-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.7rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            animation: pulse-glow 2.5s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .wa-btn:hover {
+            transform: scale(1.12);
+        }
+
+        /* ===========================
+   FOOTER
+=========================== */
+        footer {
+            background: var(--red-deeper);
+            padding: 80px 24px 40px;
+            border-top: 1px solid rgba(245, 197, 24, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-logo {
+            font-family: 'Yatra One', cursive;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            color: var(--gold);
+            text-align: center;
+            line-height: 1;
+            text-shadow: 0 0 40px rgba(245, 197, 24, 0.2);
+            margin-bottom: 4px;
+        }
+
+        .footer-stamp {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--gold-amber);
+            color: var(--gold-amber);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 5px 18px;
+            border-radius: 3px;
+            margin: 0 auto 12px;
+            display: table;
+            opacity: 0.85;
+        }
+
+        .footer-journey {
+            text-align: center;
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            color: var(--cream-dim);
+            font-size: 1rem;
+            margin-bottom: 48px;
+            opacity: 0.8;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+
+        .footer-col-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            font-size: 0.9rem;
+            color: var(--cream-dim);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-spiral {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 32px;
+            opacity: 0.3;
+        }
+
+        .footer-spiral svg {
+            animation: slowRotateReverse 25s linear infinite;
+        }
+
+        .footer-copy {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--cream-dim);
+            opacity: 0.4;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===========================
+   JALEBI SVG SPIRAL
+=========================== */
+        .jalebi-spiral {
+            display: block;
+        }
+
+        /* ===========================
+   DIVIDER
+=========================== */
+        .jalebi-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(245, 197, 24, 0.4), transparent);
+        }
+
+        /* ===========================
+   RESPONSIVE
+=========================== */
+        @media (max-width: 900px) {
+            .timeline-items {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .timeline-items::before {
+                display: none;
+            }
+
+            .sig-item {
+                grid-template-columns: 1fr;
+            }
+
+            .sig-item:nth-child(even) .sig-visual {
+                order: 0;
+            }
+
+            .sig-item:nth-child(even) .sig-content {
+                order: 1;
+            }
+
+            .sig-visual {
+                min-height: 200px;
+            }
+
+            .sig-content {
+                padding: 40px 28px;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .findus-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .delivery-platforms {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                letter-spacing: -1px;
+            }
+
+            .timeline-items {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-ctas a {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .section-pad {
+                padding: 70px 20px;
+            }
+
+            #story,
+            #why,
+            #menu,
+            #delivery,
+            #reviews,
+            #findus {
+                padding: 70px 20px;
+            }
+
+            #signatures {
+                padding: 70px 0;
+            }
+
+            .sig-content {
+                padding: 32px 20px;
+            }
+        }
+
+        /* ===========================
+           STORY IMAGE
+        =========================== */
+        .story-photo {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(245, 197, 24, 0.18);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(245, 197, 24, 0.1);
+            aspect-ratio: 16 / 9;
+        }
+
+        .story-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.95) contrast(1.05);
+        }
+
+        .story-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(61, 5, 5, 0.85) 100%);
+        }
+
+        .story-photo .story-caption {
+            position: absolute;
+            left: 28px;
+            bottom: 22px;
+            z-index: 2;
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            color: var(--cream);
+            font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .story-photo .story-caption span {
+            display: block;
+            font-family: 'Yatra One', cursive;
+            font-style: normal;
+            color: var(--gold);
+            font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+            letter-spacing: 0.04em;
+        }
+
+        /* ===========================
+           GALLERY
+        =========================== */
+        #gallery {
+            background: linear-gradient(180deg, var(--red-deeper) 0%, #2a0303 100%);
+            padding: 100px 24px;
+            position: relative;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 180px;
+            gap: 14px;
+        }
+
+        .gallery-tile {
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid rgba(245, 197, 24, 0.12);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background: var(--red-card);
+        }
+
+        .gallery-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+            display: block;
+        }
+
+        .gallery-tile::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(61, 5, 5, 0.85) 100%);
+            pointer-events: none;
+        }
+
+        .gallery-tile .gallery-label {
+            position: absolute;
+            left: 16px;
+            bottom: 14px;
+            z-index: 2;
+            font-family: 'Yatra One', cursive;
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 0.03em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .gallery-tile:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.05) saturate(1.1);
+        }
+
+        .gallery-tile.tile-wide {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-tile.tile-tall {
+            grid-row: span 2;
+        }
+
+        @media (max-width: 720px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 160px;
+            }
+
+            .gallery-tile.tile-wide {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .gallery-tile.tile-tall {
+                grid-row: span 1;
+            }
+        }
+
+        /* ===========================
+           DELIVERY PLATFORM TWEAKS
+        =========================== */
+        .delivery-platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 900px;
+            margin: 40px auto 60px;
+        }
+
+        .platform-card {
+            background: linear-gradient(135deg, #7a1010 0%, var(--red-card) 100%);
+            border: 1px solid rgba(245, 197, 24, 0.18);
+            border-radius: 14px;
+            padding: 28px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--cream);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(245, 197, 24, 0.4);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(245, 197, 24, 0.1);
+        }
+
+        .platform-name {
+            font-family: 'Yatra One', cursive;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        .platform-sub {
+            font-size: 0.82rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===========================
+     FLOATING WHATSAPP
+=========================== -->
+    <div id="whatsapp-float">
+        <a class="wa-btn"
+            href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8C%80"
+            target="_blank" title="Order on WhatsApp">💬</a>
+    </div>
+
+    <!-- ===========================
+     HERO
+=========================== -->
+    <section id="hero">
+        <div class="string-lights" aria-hidden="true"></div>
+
+        <div class="hero-bg-image" aria-hidden="true"></div>
+        <div class="hero-bg-glow" aria-hidden="true"></div>
+
+        <div class="steam-container" aria-hidden="true">
+            <div class="steam"></div>
+            <div class="steam"></div>
+            <div class="steam"></div>
+            <div class="steam"></div>
+            <div class="steam"></div>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-arabic">جي جي جليبي — Since 1947</p>
+
+            <h1 class="hero-title">JJ Jalebi</h1>
+
+            <p class="hero-origin">Mohammed Ali Road, Mumbai &nbsp;·&nbsp; Since 1947 &nbsp;·&nbsp; Now in Dubai 🇦🇪
+            </p>
+
+            <p class="hero-tagline">75 Years. One Secret Recipe. Finally in Your City.</p>
+
+            <div class="hero-ctas">
+                <a href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8C%80"
+                    class="btn-primary" target="_blank">
+                    💬 Order on WhatsApp
+                </a>
+                <a href="https://www.talabat.com" class="btn-outline" target="_blank">
+                    🛵 Order on Talabat
+                </a>
+            </div>
+
+            <div class="hero-divider">
+                <!-- Jalebi Spiral SVG -->
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="jalebi-spiral">
+                    <g opacity="0.9">
+                        <path
+                            d="M40 40 C40 40 38 36 34 35 C30 34 27 37 28 41 C29 45 34 47 38 45 C43 43 45 37 42 32 C39 27 32 25 26 28 C20 31 17 39 21 46 C25 53 35 56 43 51 C51 46 54 34 48 25 C42 16 28 13 19 20 C10 27 8 43 16 53 C24 63 42 65 53 56 C64 47 65 27 55 17 C45 7 24 5 14 16"
+                            stroke="#F5C518" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.95" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     THE STORY
+=========================== -->
+    <section id="story">
+        <div class="string-lights" aria-hidden="true"></div>
+
+        <h2 class="section-title reveal">Since 1947 — The Story No One Forgets</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+
+        <p class="story-intro reveal reveal-delay-2">
+            <strong>1947. Partition. A new city.</strong> Rafeek Shaikh sets up a small sweet shop near JJ Hospital on
+            Mohammed Ali Road, Nagpada, Mumbai. The jalebis were different — darker, richer, made with <strong>mawa
+                instead of maida</strong>. Mumbaikars didn't call it by its name. They just said <strong>"JJ
+                Jalebi."</strong> The name stuck. 75 years later — same kadai, same recipe, same magic. <strong>Now in
+                Dubai.</strong>
+        </p>
+
+        <div class="story-photo reveal reveal-delay-3">
+            <img src="./story-mumbai.jpg" alt="Mohammed Ali Road, Mumbai — where it all began in 1947" loading="lazy">
+            <div class="story-caption">
+                <span>Mohammed Ali Road, Mumbai</span>
+                Where the queues started — and never stopped.
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-items">
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1947</div>
+                    <div class="timeline-text">Born on Mohammed Ali Road, Mumbai. Rafeek Shaikh's first sweet shop near
+                        JJ Hospital.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1970s</div>
+                    <div class="timeline-text">Mumbaikars made it a legend — JJ Jalebi becomes the city's shorthand for
+                        the best jalebi in town.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-3">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2000s</div>
+                    <div class="timeline-text">Three generations. Same recipe. No shortcuts. No compromises. The queue
+                        never got shorter.</div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-4">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-text">Dubai 🇦🇪. The world's first JJ Jalebi outside India. Al Karama welcomes
+                        Mohammed Ali Road.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     WHY IT TASTES DIFFERENT
+=========================== -->
+    <section id="why">
+        <h2 class="section-title reveal">The Secret Has Never Changed</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+
+        <div class="why-grid">
+            <div class="why-card reveal reveal-delay-1">
+                <span class="why-icon">🌾</span>
+                <div class="why-title">Multi-grain flour</div>
+                <div class="why-text">Not regular maida. A special blend that makes the jalebi absorb syrup differently
+                    — crispier outside, softer inside. You'll notice immediately.</div>
+            </div>
+            <div class="why-card reveal reveal-delay-2">
+                <span class="why-icon">🚫</span>
+                <div class="why-title">Zero frozen food</div>
+                <div class="why-text">Everything made fresh daily. If it's not fresh, it doesn't go on your plate.
+                    That's been the rule since 1947 and it hasn't changed.</div>
+            </div>
+            <div class="why-card reveal reveal-delay-3">
+                <span class="why-icon">🌿</span>
+                <div class="why-title">Secret Bombay chutney</div>
+                <div class="why-text">The herbs come from Bombay. The recipe stays in the family. You'll taste the
+                    difference before you can explain it.</div>
+            </div>
+            <div class="why-card reveal reveal-delay-4">
+                <span class="why-icon">✅</span>
+                <div class="why-title">100% Halal</div>
+                <div class="why-text">Always has been. Always will be. Certified and verified. Every dish, every day.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     SIGNATURE ITEMS
+=========================== -->
+    <section id="signatures">
+        <h2 class="section-title reveal">Why People Cross the City</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+        <p class="section-subtitle reveal reveal-delay-2">These four dishes have been on our menu since the beginning.
+            They haven't changed because they don't need to.</p>
+
+        <!-- Mawa Jalebi -->
+        <div class="sig-item reveal">
+            <div class="sig-visual">
+                <img src="./dish-mawa-jalebi.jpg" alt="Mawa Jalebi — dark, dense, cream-filled" loading="lazy">
+                <span class="sig-emoji-bg">🌀</span>
+                <span class="sig-emoji-main">🌀</span>
+            </div>
+            <div class="sig-content">
+                <div class="sig-name">Mawa Jalebi</div>
+                <div class="sig-desc">Dark. Dense. Cream-filled. Made with pure mawa — not the pale yellow jalebi you're
+                    used to. This is the reason Dubai found out about us.</div>
+                <div class="sig-price">AED 35 / 500g</div>
+                <a href="https://www.talabat.com" class="btn-order" target="_blank">Order This →</a>
+            </div>
+        </div>
+
+        <!-- Seekh Paratha -->
+        <div class="sig-item reveal">
+            <div class="sig-visual">
+                <img src="./dish-seekh-paratha.jpg" alt="Seekh Paratha with secret Bombay chutney" loading="lazy">
+                <span class="sig-emoji-bg">🫓</span>
+                <span class="sig-emoji-main">🫓</span>
+            </div>
+            <div class="sig-content">
+                <div class="sig-name">Seekh Paratha</div>
+                <div class="sig-desc">Grilled minced meat wrapped in freshly made paratha. Served with the secret Bombay
+                    chutney — ingredients flown in from Mumbai. Our most reviewed dish in Dubai.</div>
+                <a href="https://www.talabat.com" class="btn-order" target="_blank">Order This →</a>
+            </div>
+        </div>
+
+        <!-- Malpua with Rabri -->
+        <div class="sig-item reveal">
+            <div class="sig-visual">
+                <img src="./dish-malpua.jpg" alt="Malpua with thick rabri cream" loading="lazy">
+                <span class="sig-emoji-bg">🍮</span>
+                <span class="sig-emoji-main">🍮</span>
+            </div>
+            <div class="sig-content">
+                <div class="sig-name">Malpua with Rabri</div>
+                <div class="sig-desc">Deep-fried sweet pancake. Soaked in warm sugar syrup. Drowned in cold thick rabri.
+                    Served together. Eaten slowly. One of those combinations you think about days later.</div>
+                <a href="https://www.talabat.com" class="btn-order" target="_blank">Order This →</a>
+            </div>
+        </div>
+
+        <!-- Mutton Bhuna -->
+        <div class="sig-item reveal">
+            <div class="sig-visual">
+                <img src="./dish-mutton-bhuna.jpg" alt="Slow-cooked mutton bhuna with fresh pav" loading="lazy">
+                <span class="sig-emoji-bg">🍖</span>
+                <span class="sig-emoji-main">🍖</span>
+            </div>
+            <div class="sig-content">
+                <div class="sig-name">Mutton Bhuna with Pav</div>
+                <div class="sig-desc">Slow cooked. Hours of bhunao. Rich, dark, layered masala. Served with fresh pav.
+                    Probably the best version of this dish in Dubai — our customers keep saying it.</div>
+                <a href="https://www.talabat.com" class="btn-order" target="_blank">Order This →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     GALLERY
+=========================== -->
+    <section id="gallery">
+        <h2 class="section-title reveal">From Our Kitchen</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+        <p class="section-subtitle reveal reveal-delay-2">75 years of muscle memory. Made fresh, every single morning.
+        </p>
+
+        <div class="gallery-grid">
+            <div class="gallery-tile tile-wide reveal reveal-delay-1">
+                <img src="./gallery-making.jpg" alt="Halwai hand-piping jalebi spirals into hot ghee" loading="lazy">
+                <div class="gallery-label">The Spiral · Hand-piped daily</div>
+            </div>
+            <div class="gallery-tile reveal reveal-delay-2">
+                <img src="./gallery-grills.jpg" alt="Sizzling seekh kebabs on the tawa" loading="lazy">
+                <div class="gallery-label">Tawa &amp; Coals</div>
+            </div>
+            <div class="gallery-tile reveal reveal-delay-3">
+                <img src="./gallery-sweets.jpg" alt="Brass thali of Indian mithai" loading="lazy">
+                <div class="gallery-label">The Mithai Thali</div>
+            </div>
+            <div class="gallery-tile reveal reveal-delay-2">
+                <img src="./gallery-biryani.jpg" alt="Steaming biryani in copper handi" loading="lazy">
+                <div class="gallery-label">Dum Biryani</div>
+            </div>
+            <div class="gallery-tile reveal reveal-delay-3">
+                <img src="./dish-mawa-jalebi.jpg" alt="Mawa Jalebi close-up" loading="lazy">
+                <div class="gallery-label">Mawa Jalebi · The Original</div>
+            </div>
+            <div class="gallery-tile tile-wide reveal reveal-delay-4">
+                <img src="./dish-mutton-bhuna.jpg" alt="Mutton Bhuna with pav" loading="lazy">
+                <div class="gallery-label">Mutton Bhuna · Hours of bhunao</div>
+            </div>
+            <div class="gallery-tile reveal reveal-delay-2">
+                <img src="./dish-malpua.jpg" alt="Malpua with rabri" loading="lazy">
+                <div class="gallery-label">Malpua &amp; Rabri</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     FULL MENU GRID
+=========================== -->
+    <section id="menu">
+        <h2 class="section-title reveal">The Full Menu</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+        <p class="section-subtitle reveal reveal-delay-2">Mohammed Ali Road, right here in Al Karama</p>
+
+        <div class="menu-grid">
+            <a href="https://www.talabat.com" class="menu-card reveal reveal-delay-1" target="_blank">
+                <span class="menu-emoji">🔥</span>
+                <div class="menu-label">Tawa Starters</div>
+            </a>
+            <a href="https://www.talabat.com" class="menu-card reveal reveal-delay-2" target="_blank">
+                <span class="menu-emoji">🍖</span>
+                <div class="menu-label">Grills & Kebabs</div>
+            </a>
+            <a href="https://www.talabat.com" class="menu-card reveal reveal-delay-3" target="_blank">
+                <span class="menu-emoji">🫓</span>
+                <div class="menu-label">Parathas & Mains</div>
+            </a>
+            <a href="https://www.talabat.com" class="menu-card reveal reveal-delay-1" target="_blank">
+                <span class="menu-emoji">🍚</span>
+                <div class="menu-label">Biryani & Rice</div>
+            </a>
+            <a href="https://www.talabat.com" class="menu-card reveal reveal-delay-2" target="_blank">
+                <span class="menu-emoji">🍮</span>
+                <div class="menu-label">Indian Sweets & Desserts</div>
+            </a>
+            <a href="https://www.talabat.com" class="menu-card reveal reveal-delay-3" target="_blank">
+                <span class="menu-emoji">☕</span>
+                <div class="menu-label">Beverages</div>
+            </a>
+        </div>
+
+        <div class="menu-cta-wrap reveal">
+            <a href="https://www.talabat.com" class="btn-menu" target="_blank">
+                See Full Menu on Talabat →
+            </a>
+        </div>
+    </section>
+
+    <!-- ===========================
+     DELIVERY
+=========================== -->
+    <section id="delivery">
+        <div class="string-lights" aria-hidden="true"></div>
+
+        <h2 class="section-title reveal">Order Online — We Come to You</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+
+        <div class="delivery-platforms">
+            <a href="https://www.talabat.com" class="platform-card reveal reveal-delay-1" target="_blank">
+                <div class="platform-name">Talabat</div>
+                <div class="platform-sub">Fast delivery · Al Karama</div>
+            </a>
+            <a href="https://food.noon.com" class="platform-card reveal reveal-delay-2" target="_blank">
+                <div class="platform-name">Noon Food</div>
+                <div class="platform-sub">Fast delivery · Al Karama</div>
+            </a>
+            <a href="https://www.zomato.com/dubai" class="platform-card reveal reveal-delay-3" target="_blank">
+                <div class="platform-name">Zomato</div>
+                <div class="platform-sub">Order &amp; reviews</div>
+            </a>
+            <a href="https://www.instagram.com/jjjalebidubai/" class="platform-card reveal reveal-delay-4"
+                target="_blank">
+                <div class="platform-name">Instagram</div>
+                <div class="platform-sub">@jjjalebidubai · DM to order</div>
+            </a>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-item reveal reveal-delay-1">
+                <div class="stat-number">231+</div>
+                <div class="stat-label">Reviews</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-2">
+                <div class="stat-number">3.8★</div>
+                <div class="stat-label">Rating</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-3">
+                <div class="stat-number">40m</div>
+                <div class="stat-label">Delivery</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-4">
+                <div class="stat-number">AED 7</div>
+                <div class="stat-label">Delivery Fee</div>
+            </div>
+        </div>
+
+        <div class="price-badge reveal">
+            <div class="price-badge-label">🌀 Signature Dish</div>
+            <div class="price-badge-price">AED 35</div>
+            <div class="price-badge-item">Mawa Jalebi · 500g · The Original</div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     REVIEWS
+=========================== -->
+    <section id="reviews">
+        <h2 class="section-title reveal">What Dubai Says</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+        <p class="section-subtitle reveal reveal-delay-2">These are real people. Real plates. Real opinions.</p>
+
+        <div class="reviews-grid">
+            <div class="review-card reveal reveal-delay-1">
+                <span class="review-quote-mark">"</span>
+                <p class="review-text">Every dish takes me back to Bombay — Seekh Paratha, Tikka, Kebabs, Malpua, Mawa
+                    Jalebi. Every person who tries for the first time becomes a fan.</p>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-source">Google Review · Al Karama</div>
+            </div>
+            <div class="review-card reveal reveal-delay-2">
+                <span class="review-quote-mark">"</span>
+                <p class="review-text">Seekh Paratha and Mawa Jalebi — make sure you try these. The taste is worth every
+                    dirham. Nothing like it anywhere else in Dubai.</p>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-source">Google Review · Al Karama</div>
+            </div>
+            <div class="review-card reveal reveal-delay-3">
+                <span class="review-quote-mark">"</span>
+                <p class="review-text">Their secret Bombay chutney — they bring the herbs directly from Bombay.
+                    Something very special. You can't replicate it. I've been coming back just for the chutney.</p>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-source">Google Review · Al Karama</div>
+            </div>
+            <div class="review-card reveal reveal-delay-4">
+                <span class="review-quote-mark">"</span>
+                <p class="review-text">Mutton Bhuna with Pav — probably the best version in Dubai. I've been searching
+                    for two years and finally found it. This is the real deal.</p>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-source">Talabat Review · Al Karama</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     FIND US
+=========================== -->
+    <section id="findus">
+        <h2 class="section-title reveal">Come Find Us</h2>
+        <div class="gold-rule reveal reveal-delay-1"></div>
+
+        <div class="findus-inner">
+            <div class="findus-info reveal reveal-delay-1">
+                <div class="findus-detail">
+                    <span class="findus-icon">📍</span>
+                    <div class="findus-detail-text">
+                        <strong style="color:var(--cream)">41, 6A Street, Al Karama, Dubai</strong><br>
+                        First international branch · Since 2022
+                    </div>
+                </div>
+                <div class="findus-detail">
+                    <span class="findus-icon">🕘</span>
+                    <div class="findus-detail-text">
+                        <strong style="color:var(--cream)">9:00 AM – 1:30 AM</strong><br>
+                        Open daily · No holidays
+                    </div>
+                </div>
+                <div class="findus-detail">
+                    <span class="findus-icon">📸</span>
+                    <div class="findus-detail-text">
+                        <a href="https://instagram.com/jjjalebidubai" target="_blank">@jjjalebidubai</a><br>
+                        Follow our story on Instagram
+                    </div>
+                </div>
+                <div class="findus-detail">
+                    <span class="findus-icon">🛵</span>
+                    <div class="findus-detail-text">
+                        Delivery via <a href="https://www.talabat.com" target="_blank">Talabat</a> & <a
+                            href="https://food.noon.com" target="_blank">Noon Food</a><br>
+                        AED 7 fee · ~40 minutes
+                    </div>
+                </div>
+
+                <div class="findus-buttons">
+                    <a href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8C%80"
+                        class="btn-primary" target="_blank">💬 WhatsApp Order</a>
+                    <a href="https://www.talabat.com" class="btn-outline" target="_blank">🛵 Talabat</a>
+                </div>
+            </div>
+
+            <div class="map-container reveal reveal-delay-2">
+                <iframe class="map-embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.7!2d55.3045!3d25.2516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDE1JzA1LjgiTiA1NcKwMTgnMTYuMiJF!5e0!3m2!1sen!2sae!4v1234567890"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="JJ Jalebi Dubai Location">
+                </iframe>
+                <div class="map-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     FOOTER
+=========================== -->
+    <footer>
+        <div class="footer-logo">JJ Jalebi</div>
+        <div class="footer-stamp">Since 1947</div>
+        <p class="footer-journey">Mohammed Ali Road, Mumbai → Al Karama, Dubai</p>
+
+        <div class="footer-spiral">
+            <svg width="60" height="60" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M40 40 C40 40 38 36 34 35 C30 34 27 37 28 41 C29 45 34 47 38 45 C43 43 45 37 42 32 C39 27 32 25 26 28 C20 31 17 39 21 46 C25 53 35 56 43 51 C51 46 54 34 48 25 C42 16 28 13 19 20 C10 27 8 43 16 53 C24 63 42 65 53 56 C64 47 65 27 55 17 C45 7 24 5 14 16"
+                    stroke="#F5C518" stroke-width="3" stroke-linecap="round" fill="none" />
+            </svg>
+        </div>
+
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-col-title">Visit Us</div>
+                <p>41, 6A Street</p>
+                <p>Al Karama, Dubai</p>
+                <p>9:00 AM – 1:30 AM · Daily</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Order Online</div>
+                <a href="https://www.talabat.com" target="_blank">Talabat</a>
+                <a href="https://food.noon.com" target="_blank">Noon Food</a>
+                <a href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8C%80"
+                    target="_blank">WhatsApp
+                    Order</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Follow Us</div>
+                <a href="https://instagram.com/jjjalebidubai" target="_blank">@jjjalebidubai</a>
+                <p style="margin-top:8px; font-size:0.8rem; opacity:0.5">Your Famous Jalebi Wala<br>is Now in Dubai 🇦🇪
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-copy">© 2026 JJ Jalebi Dubai · All rights reserved · Founded 1947 by Rafeek Shaikh, Mohammed
+            Ali Road, Mumbai</div>
+    </footer>
+
+    <!-- ===========================
+     JAVASCRIPT
+=========================== -->
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Parallax subtle on hero
+        window.addEventListener('scroll', () => {
+            const hero = document.getElementById('hero');
+            if (hero) {
+                const scrolled = window.scrollY;
+                const heroContent = hero.querySelector('.hero-content');
+                if (heroContent && scrolled < window.innerHeight) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.25}px)`;
+                    heroContent.style.opacity = 1 - scrolled / (window.innerHeight * 0.8);
+                }
+            }
+        }, { passive: true });
+    </script>
+</body>
+
+</html>

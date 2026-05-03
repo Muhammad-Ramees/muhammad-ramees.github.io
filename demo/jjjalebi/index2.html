@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JJ Jalebi — Mohammed Ali Road, since 1947 · Now in Al Karama, Dubai</title>
+  <meta name="description"
+    content="The legendary JJ Jalebi from Mohammed Ali Road, Mumbai — now in Al Karama, Dubai. Mawa jalebi, seekh paratha, malpua, mutton bhuna. Order on Talabat, Noon, Zomato or WhatsApp.">
+  <meta property="og:title" content="JJ Jalebi Dubai — Since 1947">
+  <meta property="og:description" content="Three generations. One secret recipe. Now serving Al Karama.">
+  <meta property="og:image" content="./v2-flatlay.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --bg-dim: #F2EEE6;
+      --ink: #181818;
+      --ink-soft: #2A2A2A;
+      --muted: #8C8579;
+      --line: #E5DFD3;
+      --orange: #ff1f1f;
+      --orange-dark: #ff1616;
+      --cream-card: #FFFFFF;
+      --shadow-sm: 0 1px 2px rgba(24, 24, 24, .04), 0 4px 12px rgba(24, 24, 24, .04);
+      --shadow-md: 0 4px 12px rgba(24, 24, 24, .06), 0 16px 48px rgba(24, 24, 24, .08);
+      --radius: 18px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Hind', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    /* ---------- Type ---------- */
+    .font-display {
+      font-family: 'Archivo Black', sans-serif;
+      letter-spacing: -.02em;
+      line-height: .95
+    }
+
+    .font-serif {
+      font-family: 'Fraunces', serif;
+      font-weight: 400
+    }
+
+    .eyebrow {
+      font-family: 'Hind', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .eyebrow.muted {
+      color: var(--muted)
+    }
+
+    .h-section {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      letter-spacing: -.025em;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .body-lg {
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: var(--ink-soft)
+    }
+
+    .body-sm {
+      font-size: .92rem;
+      color: var(--muted)
+    }
+
+    /* ---------- Layout ---------- */
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    section {
+      padding: 96px 0
+    }
+
+    @media (max-width:720px) {
+      section {
+        padding: 64px 0
+      }
+    }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 247, 242, .85);
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: -.01em;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255, 90, 31, .15);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--ink-soft)
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 6px 0;
+      transition: color .2s
+    }
+
+    .nav-links a:hover {
+      color: var(--orange)
+    }
+
+    .nav-cta {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .2s, background .2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange);
+      transform: translateY(-1px)
+    }
+
+    @media(max-width:820px) {
+      .nav-links {
+        display: none
+      }
+    }
+
+    /* ---------- HERO BENTO ---------- */
+    .hero {
+      padding-top: 48px;
+      padding-bottom: 48px
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(120px, auto);
+      gap: 14px;
+    }
+
+    .tile {
+      background: var(--cream-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+      transition: transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .4s;
+    }
+
+    .tile:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md)
+    }
+
+    .tile-photo {
+      padding: 0
+    }
+
+    .tile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .tile-photo:hover img {
+      transform: scale(1.04)
+    }
+
+    .tile-pad {
+      padding: 28px
+    }
+
+    /* hero composition */
+    .tile-title {
+      grid-column: span 7;
+      grid-row: span 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink)
+    }
+
+    .tile-title:hover {
+      transform: none
+    }
+
+    .tile-title .hero-headline {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(3rem, 7.5vw, 6.5rem);
+      letter-spacing: -.04em;
+      line-height: .92;
+      text-transform: uppercase;
+    }
+
+    .tile-title .hero-headline em {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--orange);
+      letter-spacing: -.02em;
+    }
+
+    .tile-title .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px
+    }
+
+    .tile-title .hero-meta .meta-block {
+      font-size: .85rem;
+      color: rgba(250, 247, 242, .6);
+      max-width: 260px;
+      line-height: 1.55
+    }
+
+    .tile-title .hero-meta .meta-block strong {
+      color: var(--bg);
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+      transition: transform .2s, background .2s, color .2s, border-color .2s;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: #fff
+    }
+
+    .btn-orange:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px)
+    }
+
+    .btn-ghost {
+      border-color: rgba(250, 247, 242, .3);
+      color: var(--bg)
+    }
+
+    .btn-ghost:hover {
+      background: rgba(250, 247, 242, .1);
+      border-color: var(--bg)
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: var(--bg)
+    }
+
+    .btn-dark:hover {
+      background: var(--orange)
+    }
+
+    .btn-light {
+      background: var(--bg);
+      color: var(--ink);
+      border-color: var(--line)
+    }
+
+    .btn-light:hover {
+      border-color: var(--ink)
+    }
+
+    .tile-flatlay {
+      grid-column: span 5;
+      grid-row: span 4
+    }
+
+    .tile-flatlay img {
+      height: 100%
+    }
+
+    .tile-stat {
+      grid-column: span 3;
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between
+    }
+
+    .stat-num {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      letter-spacing: -.03em;
+      line-height: 1
+    }
+
+    .stat-num .accent {
+      color: var(--orange)
+    }
+
+    .stat-label {
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .tile-quote {
+      grid-column: span 6;
+      grid-row: span 2;
+      background: var(--bg-dim)
+    }
+
+    .tile-quote p {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: var(--ink)
+    }
+
+    .tile-quote .source {
+      margin-top: 14px;
+      font-size: .78rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    /* ---------- STORY ---------- */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: center
+    }
+
+    .story-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--bg-dim)
+    }
+
+    .story-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .story-text h2 {
+      margin: 14px 0 28px
+    }
+
+    .story-text p {
+      margin-bottom: 18px
+    }
+
+    .story-text p strong {
+      color: var(--orange);
+      font-weight: 600
+    }
+
+    .timeline {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden
+    }
+
+    .tl-item {
+      background: var(--bg);
+      padding: 22px 24px
+    }
+
+    .tl-year {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.4rem;
+      color: var(--orange);
+      letter-spacing: -.01em;
+      margin-bottom: 6px
+    }
+
+    .tl-text {
+      font-size: .88rem;
+      line-height: 1.5;
+      color: var(--ink-soft)
+    }
+
+    @media(max-width:820px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+    }
+
+    /* ---------- DISHES BENTO ---------- */
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 48px;
+      flex-wrap: wrap
+    }
+
+    .section-head .lead {
+      max-width: 480px;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.6
+    }
+
+    .dish-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 140px;
+      gap: 14px;
+    }
+
+    .dish {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--bg);
+      transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+      display: block;
+      min-height: 140px;
+    }
+
+    .dish:hover {
+      transform: translateY(-4px)
+    }
+
+    .dish img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .9s cubic-bezier(.16, 1, .3, 1);
+      opacity: .85
+    }
+
+    .dish:hover img {
+      transform: scale(1.06);
+      opacity: 1
+    }
+
+    .dish::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(24, 24, 24, 0) 35%, rgba(24, 24, 24, .85) 100%);
+      pointer-events: none
+    }
+
+    .dish-info {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 22px;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    .dish-info .name {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: -.01em;
+      line-height: 1.05
+    }
+
+    .dish-info .desc {
+      font-size: .82rem;
+      color: rgba(250, 247, 242, .7);
+      margin-top: 6px;
+      max-width: 80%
+    }
+
+    .dish-info .price {
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: .95rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      letter-spacing: .01em;
+    }
+
+    .dish.size-hero {
+      grid-column: span 6;
+      grid-row: span 4
+    }
+
+    .dish.size-tall {
+      grid-column: span 3;
+      grid-row: span 4
+    }
+
+    .dish.size-wide {
+      grid-column: span 6;
+      grid-row: span 2
+    }
+
+    .dish.size-sq {
+      grid-column: span 3;
+      grid-row: span 2
+    }
+
+    .dish.size-md {
+      grid-column: span 4;
+      grid-row: span 2
+    }
+
+    /* light dish (no photo, label only) */
+    .dish-label {
+      background: var(--bg-dim);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+    }
+
+    .dish-label::after {
+      display: none
+    }
+
+    .dish-label .tag {
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .dish-label h4 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: -.01em;
+      line-height: 1;
+      margin-top: 8px
+    }
+
+    .dish-label .arrow {
+      font-size: 1.4rem;
+      color: var(--orange);
+      align-self: flex-end
+    }
+
+    /* ---------- ORDER ---------- */
+    .order-band {
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 24px;
+      padding: 64px 48px;
+      margin: 0 24px
+    }
+
+    .order-band .wrap {
+      padding: 0;
+      max-width: none
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center
+    }
+
+    .order-grid .h-section {
+      color: var(--bg)
+    }
+
+    .order-grid .lead {
+      color: rgba(250, 247, 242, .7);
+      font-size: 1.05rem;
+      margin-top: 18px;
+      max-width: 420px
+    }
+
+    .platforms {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .platform {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 22px;
+      border: 1px solid rgba(250, 247, 242, .15);
+      border-radius: 14px;
+      transition: all .25s;
+    }
+
+    .platform:hover {
+      background: rgba(250, 247, 242, .06);
+      border-color: var(--orange);
+      transform: translateY(-2px)
+    }
+
+    .platform .pname {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: -.01em
+    }
+
+    .platform .psub {
+      font-size: .78rem;
+      color: rgba(250, 247, 242, .55);
+      margin-top: 2px;
+      font-weight: 500
+    }
+
+    .platform .arrow {
+      color: var(--orange);
+      font-size: 1.2rem
+    }
+
+    @media(max-width:820px) {
+      .order-band {
+        padding: 40px 28px;
+        margin: 0 16px
+      }
+
+      .order-grid {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+
+      .platforms {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ---------- VISIT ---------- */
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 32px
+    }
+
+    .visit-card {
+      background: var(--cream-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .visit-row {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start
+    }
+
+    .visit-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-dim);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .visit-row .label {
+      font-size: .74rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px
+    }
+
+    .visit-row .value {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: -.005em;
+      line-height: 1.3
+    }
+
+    .visit-row .sub {
+      font-size: .88rem;
+      color: var(--ink-soft);
+      margin-top: 4px
+    }
+
+    .visit-row a {
+      color: var(--orange);
+      font-weight: 500
+    }
+
+    .visit-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px
+    }
+
+    .map-frame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 420px;
+      background: var(--bg-dim)
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: 0;
+      filter: grayscale(.2) contrast(.95)
+    }
+
+    @media(max-width:820px) {
+      .visit-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 48px 0 32px;
+      background: var(--bg-dim)
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px
+    }
+
+    .foot-col h5 {
+      font-size: .74rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 14px
+    }
+
+    .foot-col a,
+    .foot-col p {
+      display: block;
+      font-size: .92rem;
+      color: var(--ink-soft);
+      margin-bottom: 6px
+    }
+
+    .foot-col a:hover {
+      color: var(--orange)
+    }
+
+    .foot-brand .logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: -.02em;
+      margin-bottom: 6px
+    }
+
+    .foot-brand .tag {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      max-width: 280px
+    }
+
+    .foot-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .82rem;
+      color: var(--muted)
+    }
+
+    @media(max-width:820px) {
+      .foot-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px
+      }
+    }
+
+    /* ---------- WhatsApp float ---------- */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 60;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, .4), 0 4px 12px rgba(0, 0, 0, .15);
+      transition: transform .25s;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.08)
+    }
+
+    /* ---------- Reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    /* ---------- Mobile bento collapse ---------- */
+    @media(max-width:820px) {
+      .hero-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(110px, auto)
+      }
+
+      .tile-title {
+        grid-column: span 6;
+        grid-row: auto;
+        padding: 32px
+      }
+
+      .tile-title .hero-headline {
+        font-size: 3rem
+      }
+
+      .tile-flatlay {
+        grid-column: span 6;
+        grid-row: span 3
+      }
+
+      .tile-stat {
+        grid-column: span 3;
+        grid-row: span 2
+      }
+
+      .tile-quote {
+        grid-column: span 6;
+        grid-row: auto
+      }
+
+      .dish-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 140px
+      }
+
+      .dish.size-hero {
+        grid-column: span 6;
+        grid-row: span 3
+      }
+
+      .dish.size-tall {
+        grid-column: span 3;
+        grid-row: span 3
+      }
+
+      .dish.size-wide {
+        grid-column: span 6;
+        grid-row: span 2
+      }
+
+      .dish.size-sq {
+        grid-column: span 3;
+        grid-row: span 2
+      }
+
+      .dish.size-md {
+        grid-column: span 6;
+        grid-row: span 2
+      }
+    }
+
+    /* ---------- talabat ---------- */
+    .talabat {
+      background: #FF7010;
+      /* talabat primary red */
+      border-color: #FF7010;
+      color: #fff;
+    }
+
+    .talabat:hover {
+      background: #E06200;
+      border-color: #E06200;
+      transform: translateY(-3px);
+    }
+
+    .talabat .pname {
+      color: #fff !important;
+    }
+
+    .talabat .psub {
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .talabat .arrow {
+      color: #fff;
+    }
+
+    /* ---------- noon ---------- */
+    .noon {
+      background: #ffef01;
+      border-color: #ffef01;
+      color: #000;
+    }
+
+    .noon:hover {
+      background: #fff00b;
+      border-color: #fff00b;
+      transform: translateY(-3px);
+    }
+
+    .noon .pname {
+      color: #000 !important;
+    }
+
+    .noon .psub {
+      color: rgba(0, 0, 0, .9);
+    }
+
+    .noon .arrow {
+      color: #000;
+    }
+
+    /* ---------- zomato ---------- */
+    .zomato {
+      background: #C3002F;
+      /* Zomato red */
+      border-color: #C3002F;
+      color: #fff;
+    }
+
+    .zomato:hover {
+      background: #A80028;
+      border-color: #A80028;
+      transform: translateY(-3px);
+    }
+
+    .zomato .pname {
+      color: #fff !important;
+    }
+
+    .zomato .psub {
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .zomato .arrow {
+      color: #fff;
+    }
+
+    /* ---------- instagram ---------- */
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 25%, #d6249f 50%, #285AEB 100%);
+      border-color: #d6249f;
+      color: #fff;
+    }
+
+    .instagram:hover {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #d6249f 25%, #a80080 50%, #0037da 100%);
+      border-color: #a80080;
+      transform: translateY(-3px);
+    }
+
+    .instagram .pname {
+      color: #fff !important;
+    }
+
+    .instagram .psub {
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .instagram .arrow {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand"><span class="brand-dot"></span> JJ JALEBI</a>
+      <nav class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#dishes">Menu</a>
+        <a href="#order">Order</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order"
+        class="nav-cta" target="_blank">Order now →</a>
+    </div>
+  </header>
+
+  <!-- HERO BENTO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+
+        <!-- Title tile -->
+        <div class="tile tile-title tile-pad">
+          <div>
+            <p class="eyebrow" style="color:var(--orange)">Est. 1947 · Mohammed Ali Road, Mumbai</p>
+            <h1 class="hero-headline" style="margin-top:18px">
+              The legendary<br>jalebi <em>now</em><br>in Al Karama.
+            </h1>
+          </div>
+          <div>
+            <div class="hero-cta-row">
+              <a href="#dishes" class="btn btn-orange">See the menu →</a>
+              <a href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order"
+                target="_blank" class="btn btn-ghost">💬 WhatsApp</a>
+            </div>
+            <div class="hero-meta">
+              <div class="meta-block"><strong>Three generations</strong> Same kadai. Same recipe. Same secret Bombay
+                chutney.</div>
+              <div class="meta-block"><strong>Fresh daily</strong> Made every morning from 9am. Zero frozen, 100% halal.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flatlay -->
+        <div class="tile tile-photo tile-flatlay">
+          <img src="./v2-flatlay.jpg" alt="Brass plate of golden jalebis with pistachios and chutney">
+        </div>
+
+        <!-- Stats -->
+        <div class="tile tile-stat tile-pad">
+          <div class="stat-num">75<span class="accent">+</span></div>
+          <div>
+            <div class="stat-label">Years</div>
+            <div class="body-sm" style="margin-top:4px">since the first kadai in Nagpada, 1947.</div>
+          </div>
+        </div>
+        <div class="tile tile-stat tile-pad">
+          <div class="stat-num">4<span class="accent">.6★</span></div>
+          <div>
+            <div class="stat-label">Reviews</div>
+            <div class="body-sm" style="margin-top:4px">Across Talabat, Noon &amp; Zomato.</div>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="tile tile-quote tile-pad">
+          <p>"Every dish takes me back to Bombay. The Mawa Jalebi is something else — dark, dense, the kind you can't
+            find anywhere else in Dubai."</p>
+          <div class="source">— Google review · Al Karama</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story-photo reveal">
+          <img src="./v2-halwai.jpg" alt="Halwai hand-piping jalebis into a copper kadai" loading="lazy">
+        </div>
+        <div class="story-text reveal">
+          <p class="eyebrow">The Story</p>
+          <h2 class="h-section">Born on Mohammed&nbsp;Ali Road.</h2>
+          <p class="body-lg">In 1947, Rafeek Shaikh set up a small sweet shop near JJ Hospital, Nagpada. His jalebis
+            were different — darker, denser, made with <strong>mawa instead of maida</strong>. Mumbaikars didn't bother
+            with names. They just said <strong>"JJ Jalebi"</strong>.</p>
+          <p class="body-lg">The name stuck. So did the queue. 75 years and three generations later — same kadai, same
+            recipe, same secret chutney. <strong>Now serving Dubai.</strong></p>
+
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-year">1947</div>
+              <div class="tl-text">First kadai opens near JJ Hospital, Nagpada.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">1970s</div>
+              <div class="tl-text">Becomes Mumbai's shorthand for the best jalebi in town.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2000s</div>
+              <div class="tl-text">Three generations. No shortcuts. The queue never shortens.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2022</div>
+              <div class="tl-text">First branch outside India. Al Karama, Dubai 🇦🇪</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISHES BENTO -->
+  <section id="dishes" style="background:var(--bg-dim)">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The Menu</p>
+          <h2 class="h-section" style="margin-top:14px">Why people<br>cross the city.</h2>
+        </div>
+        <p class="lead">Four dishes have been on the menu since day one. Everything is made fresh that morning. If it's
+          not fresh, it doesn't go on your plate — that's still the rule.</p>
+      </div>
+
+      <div class="dish-grid">
+
+        <!-- Mawa Jalebi (hero) -->
+        <a class="dish size-hero reveal"
+          href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20order%20Mawa%20Jalebi" target="_blank">
+          <img src="./dish-mawa-jalebi.jpg" alt="Mawa Jalebi" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Mawa Jalebi</div>
+              <div class="desc">Dark. Dense. Cream-filled. Made with pure mawa.</div>
+            </div>
+            <div class="price">AED 35</div>
+          </div>
+        </a>
+
+        <!-- Seekh Paratha (tall) -->
+        <a class="dish size-tall reveal"
+          href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20order%20Seekh%20Paratha" target="_blank">
+          <img src="./dish-seekh-paratha.jpg" alt="Seekh Paratha" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Seekh Paratha</div>
+              <div class="desc">With the secret Bombay chutney.</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Label tile -->
+        <div class="dish dish-label size-tall reveal">
+          <div>
+            <div class="tag">Signature · Sweet</div>
+            <h4>Made fresh,<br>every morning.</h4>
+          </div>
+          <div class="arrow">↓</div>
+        </div>
+
+        <!-- Mutton Bhuna (wide) -->
+        <a class="dish size-wide reveal"
+          href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20order%20Mutton%20Bhuna" target="_blank">
+          <img src="./dish-mutton-bhuna.jpg" alt="Mutton Bhuna with Pav" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Mutton Bhuna with Pav</div>
+              <div class="desc">Hours of slow bhunao. Layered masala.</div>
+            </div>
+            <div class="price">AED 45</div>
+          </div>
+        </a>
+
+        <!-- Malpua (sq) -->
+        <a class="dish size-sq reveal" href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20order%20Malpua"
+          target="_blank">
+          <img src="./dish-malpua.jpg" alt="Malpua with Rabri" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Malpua &amp; Rabri</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Biryani (sq) -->
+        <a class="dish size-sq reveal"
+          href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20order%20Biryani" target="_blank">
+          <img src="./gallery-biryani.jpg" alt="Dum Biryani" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Dum Biryani</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Grills (md) -->
+        <a class="dish size-md reveal" href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20order%20Grills"
+          target="_blank">
+          <img src="./gallery-grills.jpg" alt="Grills & Kebabs" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Grills &amp; Kebabs</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sweets (md) -->
+        <a class="dish size-md reveal" href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20order%20Mithai"
+          target="_blank">
+          <img src="./gallery-sweets.jpg" alt="Mithai assortment" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Indian Mithai</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Behind the scenes (md) -->
+        <a class="dish size-md reveal" href="https://www.instagram.com/jjjalebidubai/" target="_blank">
+          <img src="./gallery-making.jpg" alt="Behind the kadai" loading="lazy">
+          <div class="dish-info">
+            <div>
+              <div class="name">Behind the kadai</div>
+              <div class="desc">Watch us cook on @jjjalebidubai</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section id="order">
+    <div class="order-band">
+      <div class="wrap">
+        <div class="order-grid">
+          <div class="reveal">
+            <p class="eyebrow">Order Online</p>
+            <h2 class="h-section" style="margin-top:14px">We come to you.</h2>
+            <p class="lead">~40 min delivery across Karama, Bur Dubai, Satwa &amp; Oud Metha. Bulk orders for events
+              &amp; offices? Send a WhatsApp.</p>
+            <div class="hero-cta-row" style="margin-top:24px">
+              <a href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20enquire%20about%20a%20bulk%20order"
+                target="_blank" class="btn btn-orange">💬 Bulk &amp; events on WhatsApp</a>
+            </div>
+          </div>
+          <div class="platforms reveal">
+            <a class="platform talabat" href="https://www.talabat.com" target="_blank">
+              <div>
+                <div class="pname">Talabat</div>
+                <div class="psub">Fast delivery · Al Karama</div>
+              </div>
+              <div class="arrow">→</div>
+            </a>
+            <a class="platform noon" href="https://food.noon.com" target="_blank">
+              <div>
+                <div class="pname">Noon Food</div>
+                <div class="psub">Same day · 40 min</div>
+              </div>
+              <div class="arrow">→</div>
+            </a>
+            <a class="platform zomato" href="https://www.zomato.com/dubai" target="_blank">
+              <div>
+                <div class="pname">Zomato</div>
+                <div class="psub">Order &amp; reviews</div>
+              </div>
+              <div class="arrow">→</div>
+            </a>
+            <a class="platform instagram" href="https://www.instagram.com/jjjalebidubai/" target="_blank">
+              <div>
+                <div class="pname">Instagram</div>
+                <div class="psub">@jjjalebidubai · DM</div>
+              </div>
+              <div class="arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Visit</p>
+          <h2 class="h-section" style="margin-top:14px">Come find us<br>in Al&nbsp;Karama.</h2>
+        </div>
+        <p class="lead">Open from 9 in the morning until 1:30 at night. Daily. No holidays. Bring a friend, bring an
+          empty stomach.</p>
+      </div>
+
+      <div class="visit-grid">
+        <div class="visit-card reveal">
+          <div class="visit-row">
+            <div class="visit-icon">📍</div>
+            <div>
+              <div class="label">Address</div>
+              <div class="value">41, 6A Street, Al Karama</div>
+              <div class="sub">Dubai, UAE · First international branch since 2022</div>
+            </div>
+          </div>
+          <div class="visit-row">
+            <div class="visit-icon">🕘</div>
+            <div>
+              <div class="label">Hours</div>
+              <div class="value">9:00 AM — 1:30 AM</div>
+              <div class="sub">Open every day. No holidays.</div>
+            </div>
+          </div>
+          <div class="visit-row">
+            <div class="visit-icon">📸</div>
+            <div>
+              <div class="label">Follow</div>
+              <div class="value"><a href="https://www.instagram.com/jjjalebidubai/" target="_blank">@jjjalebidubai</a>
+              </div>
+              <div class="sub">Behind-the-scenes, new dishes, stories.</div>
+            </div>
+          </div>
+          <div class="visit-row">
+            <div class="visit-icon">🛵</div>
+            <div>
+              <div class="label">Delivery</div>
+              <div class="value">Talabat · Noon · Zomato</div>
+              <div class="sub">~40 min · AED 7 fee</div>
+            </div>
+          </div>
+
+          <div class="visit-buttons">
+            <a class="btn btn-dark"
+              href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order"
+              target="_blank">💬 WhatsApp order</a>
+            <a class="btn btn-light" href="https://maps.google.com/?q=JJ+Jalebi+Al+Karama+Dubai" target="_blank">📍 Get
+              directions</a>
+          </div>
+        </div>
+
+        <div class="map-frame reveal">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=JJ+Jalebi+Al+Karama+Dubai&output=embed"
+            title="JJ Jalebi Dubai location"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-col foot-brand">
+          <div class="logo">JJ JALEBI<span style="color:var(--orange)">.</span></div>
+          <p class="tag">Mohammed Ali Road, Mumbai → Al Karama, Dubai. Three generations of one secret recipe.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Visit</h5>
+          <p>41, 6A Street</p>
+          <p>Al Karama, Dubai</p>
+          <p>9 AM — 1:30 AM · Daily</p>
+        </div>
+        <div class="foot-col">
+          <h5>Order</h5>
+          <a href="https://www.talabat.com" target="_blank">Talabat</a>
+          <a href="https://food.noon.com" target="_blank">Noon Food</a>
+          <a href="https://www.zomato.com/dubai" target="_blank">Zomato</a>
+          <a href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
+        </div>
+        <div class="foot-col">
+          <h5>Follow</h5>
+          <a href="https://www.instagram.com/jjjalebidubai/" target="_blank">Instagram</a>
+          <a href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 JJ Jalebi Dubai · Founded 1947 by Rafeek Shaikh</span>
+        <span>Mumbai → Dubai 🇦🇪</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a class="wa-float"
+    href="https://wa.me/971501234567?text=Hi%20JJ%20Jalebi%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank"
+    title="Order on WhatsApp">💬</a>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+
+</html>
