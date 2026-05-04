@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>My Coach — Personal Plan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --gray50: #f9f9f7;
+    --gray100: #f1efea;
+    --gray200: #e3e1da;
+    --gray400: #9a9890;
+    --gray600: #6b6963;
+    --green: #1D9E75;
+    --green-light: #EAF3DE;
+    --green-dark: #3B6D11;
+    --red-light: #FCEBEB;
+    --red-dark: #A32D2D;
+    --amber-light: #FAEEDA;
+    --amber-dark: #854F0B;
+    --blue-light: #E6F1FB;
+    --blue-dark: #185FA5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--gray50);
+    color: var(--black);
+    min-height: 100vh;
+    max-width: 430px;
+    margin: 0 auto;
+    padding-bottom: 90px;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--black);
+    color: var(--white);
+    padding: 24px 20px 18px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .header h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.5px; }
+  .header-sub { font-size: 12px; color: #888; margin-top: 3px; }
+  .header-badge { font-size: 10px; background: var(--green); color: white; padding: 3px 10px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray200);
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 76px;
+    z-index: 99;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--gray600);
+    border-bottom: 2px solid transparent;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .nav-btn.active { color: var(--black); border-bottom-color: var(--black); }
+
+  /* TABS */
+  .tab { display: none; padding: 20px 16px; }
+  .tab.active { display: block; }
+
+  /* SECTION LABEL */
+  .label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray400);
+    margin: 0 0 10px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 14px;
+    border: 1px solid var(--gray200);
+  }
+
+  /* COACH MESSAGE */
+  .coach-msg {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 1.65;
+    position: relative;
+  }
+  .coach-msg::before {
+    content: 'Coach';
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* STATS GRID */
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .stat {
+    background: var(--white);
+    border: 1px solid var(--gray200);
+    border-radius: 14px;
+    padding: 14px;
+  }
+  .stat-val { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; font-family: 'DM Serif Display', serif; }
+  .stat-lbl { font-size: 11px; color: var(--gray600); margin-top: 3px; }
+  .stat-change { font-size: 11px; color: var(--green); margin-top: 2px; font-weight: 500; }
+
+  /* CHECKLIST */
+  .check-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--gray100);
+    cursor: pointer;
+    user-select: none;
+  }
+  .check-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .check-item:first-child { padding-top: 0; }
+  .check-left { display: flex; align-items: center; gap: 10px; }
+  .check-icon { font-size: 16px; width: 24px; text-align: center; }
+  .check-text { font-size: 14px; }
+  .check-sub { font-size: 11px; color: var(--gray600); margin-top: 1px; }
+  .check-box {
+    width: 24px; height: 24px;
+    border-radius: 8px;
+    border: 1.5px solid var(--gray200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    color: transparent;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .check-box.done { background: var(--black); border-color: var(--black); color: white; }
+  .check-item.done .check-text { color: var(--gray400); text-decoration: line-through; }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .badge-green { background: var(--green-light); color: var(--green-dark); }
+  .badge-red { background: var(--red-light); color: var(--red-dark); }
+  .badge-amber { background: var(--amber-light); color: var(--amber-dark); }
+  .badge-blue { background: var(--blue-light); color: var(--blue-dark); }
+  .badge-gray { background: var(--gray100); color: var(--gray600); }
+
+  /* DAY CARDS */
+  .day-card {
+    border-left: 3px solid var(--black);
+    background: var(--white);
+    border-radius: 0 14px 14px 0;
+    padding: 13px 14px;
+    margin-bottom: 10px;
+    border-top: 1px solid var(--gray200);
+    border-right: 1px solid var(--gray200);
+    border-bottom: 1px solid var(--gray200);
+  }
+  .day-card.football { border-left-color: var(--green); }
+  .day-card.rest { border-left-color: var(--gray400); }
+  .day-card.light { border-left-color: #378ADD; }
+  .day-name { font-size: 14px; font-weight: 600; }
+  .day-focus { display: inline-block; font-size: 11px; font-weight: 600; color: var(--gray600); background: var(--gray100); padding: 2px 8px; border-radius: 10px; margin: 4px 0; }
+  .day-detail { font-size: 12px; color: var(--gray600); line-height: 1.5; margin-top: 4px; }
+
+  /* EXERCISE ROWS */
+  .ex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--gray100);
+  }
+  .ex-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .ex-row:first-child { padding-top: 0; }
+  .ex-name { font-size: 14px; font-weight: 500; }
+  .ex-tip { font-size: 11px; color: var(--gray600); margin-top: 2px; line-height: 1.4; max-width: 220px; }
+  .ex-sets { font-size: 12px; color: var(--gray600); text-align: right; white-space: nowrap; padding-left: 8px; }
+
+  /* MEAL ROWS */
+  .meal-time { font-size: 11px; font-weight: 600; color: var(--green); letter-spacing: 0.3px; margin: 14px 0 6px; }
+  .meal-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray100);
+  }
+  .meal-row:last-child { border-bottom: none; }
+  .meal-name { font-size: 13px; }
+  .meal-macro { font-size: 12px; color: var(--gray600); text-align: right; }
+
+  /* SUPPLEMENT ROWS */
+  .supp-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray100);
+  }
+  .supp-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .supp-row:first-child { padding-top: 0; }
+  .supp-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .supp-name { font-size: 14px; font-weight: 500; }
+  .supp-dose { font-size: 12px; color: var(--green); font-weight: 500; margin-top: 2px; }
+  .supp-detail { font-size: 11px; color: var(--gray600); margin-top: 3px; line-height: 1.4; }
+
+  /* TIMELINE */
+  .timeline { padding-left: 22px; position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--gray200);
+  }
+  .tl-item { position: relative; margin-bottom: 22px; }
+  .tl-dot {
+    position: absolute;
+    left: -18px; top: 5px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--black);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--black);
+  }
+  .tl-dot.future { background: var(--gray200); box-shadow: 0 0 0 1px var(--gray400); }
+  .tl-month { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+  .tl-desc { font-size: 13px; color: var(--gray600); line-height: 1.6; }
+
+  /* PROGRESS BAR */
+  .progress-wrap { margin-top: 6px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--gray600); margin-bottom: 4px; }
+  .progress-track { background: var(--gray100); border-radius: 4px; height: 6px; }
+  .progress-fill { height: 100%; border-radius: 4px; background: var(--black); transition: width 1s ease; }
+
+  /* RULE ROWS */
+  .rule-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--gray100);
+  }
+  .rule-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .rule-name { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+  .rule-detail { font-size: 12px; color: var(--gray600); max-width: 200px; line-height: 1.4; }
+
+  /* WEIGHT LOG */
+  .weight-input-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .weight-input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid var(--gray200);
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+  }
+  .weight-input:focus { outline: none; border-color: var(--black); }
+  .log-btn {
+    padding: 12px 20px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .weight-log { }
+  .log-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--gray100);
+    font-size: 13px;
+  }
+  .log-entry:last-child { border-bottom: none; }
+  .log-date { color: var(--gray600); }
+  .log-kg { font-weight: 600; }
+  .log-diff { font-size: 11px; font-weight: 500; }
+  .log-diff.neg { color: var(--green); }
+  .log-diff.pos { color: var(--red-dark); }
+
+  /* SKIN CARE */
+  .care-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray100);
+  }
+  .care-item:last-child { border-bottom: none; }
+  .care-emoji { font-size: 20px; flex-shrink: 0; padding-top: 1px; }
+  .care-name { font-size: 14px; font-weight: 500; }
+  .care-detail { font-size: 12px; color: var(--gray600); line-height: 1.4; margin-top: 2px; }
+
+  /* SLEEP */
+  .sleep-track {
+    background: var(--gray100);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .sleep-week { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+  .sleep-time { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; font-family: 'DM Serif Display', serif; }
+  .sleep-sub { font-size: 12px; color: var(--gray600); margin-top: 2px; }
+  .sleep-arrow { color: var(--green); font-weight: 600; }
+
+  /* TIPS */
+  .tip-box {
+    background: var(--amber-light);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--amber-dark);
+    line-height: 1.5;
+  }
+
+  /* BOTTOM NAV */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    max-width: 430px;
+    margin: 0 auto;
+    background: var(--white);
+    border-top: 1px solid var(--gray200);
+    display: flex;
+    padding: 8px 0 env(safe-area-inset-bottom, 8px);
+    z-index: 100;
+  }
+  .bnav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gray400);
+    font-size: 10px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .bnav-btn.active { color: var(--black); }
+  .bnav-icon { font-size: 20px; }
+
+  /* MONTH PILLS */
+  .month-pills { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; scrollbar-width: none; }
+  .month-pills::-webkit-scrollbar { display: none; }
+  .mpill {
+    flex-shrink: 0;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--gray200);
+    font-size: 12px;
+    font-weight: 500;
+    background: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gray600);
+    transition: all 0.15s;
+  }
+  .mpill.active { background: var(--black); color: var(--white); border-color: var(--black); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--gray100); margin: 16px 0; }
+
+  /* SECTION GAP */
+  .gap { margin-bottom: 20px; }
+
+  /* EMPTY STATE */
+  .empty { text-align: center; padding: 24px; color: var(--gray400); font-size: 13px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .tab.active { animation: fadeIn 0.2s ease; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>My Coach 💪</h1>
+      <div class="header-sub">86kg · 175cm · 23yrs · Dubai</div>
+    </div>
+    <div class="header-badge">Week 1</div>
+  </div>
+</div>
+
+<!-- TOP NAV (hidden, controlled by bottom nav) -->
+<div class="nav" id="topnav" style="display:none"></div>
+
+<!-- ===== TODAY TAB ===== -->
+<div id="tab-today" class="tab active">
+  <div class="coach-msg" id="daily-msg">
+    You are in week 1. Focus on building habits — gym 4 days, 3L water, all supplements. Consistency beats perfection right now. Start zinc and vitamin D today if not already done.
+  </div>
+
+  <div class="label">Your numbers</div>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-val" id="curr-weight">86kg</div>
+      <div class="stat-lbl">Current weight</div>
+      <div class="stat-change" id="weight-lost">−6kg lost so far</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">76kg</div>
+      <div class="stat-lbl">3-month target</div>
+      <div class="stat-change">~10kg to go</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">115g</div>
+      <div class="stat-lbl">Protein target/day</div>
+      <div class="stat-change">7 eggs + 300g chicken</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">3L</div>
+      <div class="stat-lbl">Water target/day</div>
+      <div class="stat-change">+more on football days</div>
+    </div>
+  </div>
+
+  <div class="label">Daily checklist</div>
+  <div class="card" id="checklist">
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">🥚</div>
+        <div><div class="check-text">7 eggs today</div><div class="check-sub">spread across meals</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">🍗</div>
+        <div><div class="check-text">300g chicken</div><div class="check-sub">split into 2 portions</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">💧</div>
+        <div><div class="check-text">3 litres water</div><div class="check-sub">track throughout day</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">🐟</div>
+        <div><div class="check-text">Omega-3 (with food)</div><div class="check-sub">fatty liver + skin + hair</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">⚡</div>
+        <div><div class="check-text">Zinc 25mg (with food)</div><div class="check-sub">hairfall + testosterone</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">☀️</div>
+        <div><div class="check-text">Vitamin D 2000 IU</div><div class="check-sub">morning with food</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">🍋</div>
+        <div><div class="check-text">Lemon water (morning)</div><div class="check-sub">half lemon — free vitamin C</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">🧴</div>
+        <div><div class="check-text">Moisturiser (after shower)</div><div class="check-sub">Cerave or any basic brand</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">📵</div>
+        <div><div class="check-text">Phone down 45 min before bed</div><div class="check-sub">blue light kills melatonin</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-left">
+        <div class="check-icon">☀️</div>
+        <div><div class="check-text">15 min sunlight (pre-noon)</div><div class="check-sub">balcony is fine — free vitamin D</div></div>
+      </div>
+      <div class="check-box">✓</div>
+    </div>
+  </div>
+
+  <div class="label">Log your weight today</div>
+  <div class="card">
+    <div class="weight-input-row">
+      <input class="weight-input" type="number" id="weight-in" placeholder="e.g. 85.5" step="0.1" min="50" max="150">
+      <button class="log-btn" onclick="logWeight()">Save</button>
+    </div>
+    <div id="weight-log-list"><div class="empty">No entries yet — log your weight each morning</div></div>
+  </div>
+</div>
+
+<!-- ===== SCHEDULE TAB ===== -->
+<div id="tab-schedule" class="tab">
+  <div class="label">Weekly split</div>
+
+  <div class="day-card">
+    <div class="day-name">Monday</div>
+    <div class="day-focus">Push — Chest · Shoulders · Triceps</div>
+    <div class="day-detail">11am–12pm or 1pm–2pm · + 15 min treadmill after</div>
+  </div>
+  <div class="day-card">
+    <div class="day-name">Tuesday</div>
+    <div class="day-focus">Pull — Back · Biceps</div>
+    <div class="day-detail">11am–12pm · + 15 min treadmill after</div>
+  </div>
+  <div class="day-card">
+    <div class="day-name">Wednesday</div>
+    <div class="day-focus">Legs + Core</div>
+    <div class="day-detail">Daytime or 8pm–9pm · + 15 min treadmill after</div>
+  </div>
+  <div class="day-card football">
+    <div class="day-name">Thursday</div>
+    <div class="day-focus" style="background:#EAF3DE;color:#3B6D11">Football training + game</div>
+    <div class="day-detail">No gym needed. Football = legs + cardio day. If must gym: morning upper body only, short session.</div>
+  </div>
+  <div class="day-card light">
+    <div class="day-name">Friday</div>
+    <div class="day-focus" style="background:#E6F1FB;color:#185FA5">Light cardio + abs</div>
+    <div class="day-detail">Morning or afternoon · 30 min walk/jog + core only · Keep it short</div>
+  </div>
+  <div class="day-card football">
+    <div class="day-name">Saturday</div>
+    <div class="day-focus" style="background:#EAF3DE;color:#3B6D11">Football game</div>
+    <div class="day-detail">This is your cardio day. No gym. Focus on performance + hydration on field.</div>
+  </div>
+  <div class="day-card rest">
+    <div class="day-name">Sunday</div>
+    <div class="day-focus" style="background:#F1EFE8;color:#6b6963">Rest or full body</div>
+    <div class="day-detail">After 9pm or morning/afternoon flex. Full rest OR light full body. Don't force it.</div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="label">Monday — Push day exercises</div>
+  <div class="card">
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Flat bench press (machine)</div>
+        <div class="ex-tip">Chest. Press out slowly, control it back. Don't let weight drop fast.</div>
+      </div>
+      <div class="ex-sets">3 × 10–12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Incline chest press (machine)</div>
+        <div class="ex-tip">Upper chest. Sit at 45°. Squeeze at top.</div>
+      </div>
+      <div class="ex-sets">3 × 10</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Pec deck / chest fly (machine)</div>
+        <div class="ex-tip">Squeeze chest, don't let elbows go too far back.</div>
+      </div>
+      <div class="ex-sets">3 × 12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Shoulder press (machine)</div>
+        <div class="ex-tip">Sit straight. Don't arch lower back. Press up fully.</div>
+      </div>
+      <div class="ex-sets">3 × 10–12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Lateral raise (dumbbell)</div>
+        <div class="ex-tip">Light weight. No swinging. Raise to shoulder height only.</div>
+      </div>
+      <div class="ex-sets">3 × 12–15</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Tricep pushdown (cable)</div>
+        <div class="ex-tip">Lock elbows in. Push straight down. Squeeze at bottom.</div>
+      </div>
+      <div class="ex-sets">3 × 12</div>
+    </div>
+  </div>
+
+  <div class="label">Tuesday — Pull day exercises</div>
+  <div class="card">
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Lat pulldown (machine)</div>
+        <div class="ex-tip">Pull to chest, lean back slightly. Don't use momentum.</div>
+      </div>
+      <div class="ex-sets">3 × 10–12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Seated cable row</div>
+        <div class="ex-tip">Pull elbows back, squeeze shoulder blades together.</div>
+      </div>
+      <div class="ex-sets">3 × 10</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Chest-supported row (machine)</div>
+        <div class="ex-tip">Chest on pad. Strict form. Feel the back working.</div>
+      </div>
+      <div class="ex-sets">3 × 12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Face pulls (cable)</div>
+        <div class="ex-tip">Rope to face level, elbows high. Rear delts + posture.</div>
+      </div>
+      <div class="ex-sets">3 × 15</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Bicep curl (dumbbell)</div>
+        <div class="ex-tip">Don't swing body. Squeeze at top. Lower slowly.</div>
+      </div>
+      <div class="ex-sets">3 × 12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Hammer curl (dumbbell)</div>
+        <div class="ex-tip">Neutral grip. Same strict form. Works brachialis.</div>
+      </div>
+      <div class="ex-sets">3 × 10–12</div>
+    </div>
+  </div>
+
+  <div class="label">Wednesday — Legs + Core</div>
+  <div class="card">
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Leg press (machine)</div>
+        <div class="ex-tip">Feet shoulder width. Don't lock knees at top.</div>
+      </div>
+      <div class="ex-sets">4 × 10–12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Leg curl (machine)</div>
+        <div class="ex-tip">Hamstrings. Curl all the way, lower slowly.</div>
+      </div>
+      <div class="ex-sets">3 × 12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Leg extension (machine)</div>
+        <div class="ex-tip">Quads. Extend fully, feel the squeeze.</div>
+      </div>
+      <div class="ex-sets">3 × 12</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Calf raise (machine or standing)</div>
+        <div class="ex-tip">Full range — all the way up, all the way down.</div>
+      </div>
+      <div class="ex-sets">3 × 15</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Plank</div>
+        <div class="ex-tip">Hold straight body. Don't let hips sag. Start 30 sec.</div>
+      </div>
+      <div class="ex-sets">3 × 30–45s</div>
+    </div>
+    <div class="ex-row">
+      <div>
+        <div class="ex-name">Ab crunches (machine or floor)</div>
+        <div class="ex-tip">Slow controlled movement. Feel the abs, not the neck.</div>
+      </div>
+      <div class="ex-sets">3 × 15</div>
+    </div>
+  </div>
+
+  <div class="label">Warm-up (every session)</div>
+  <div class="card">
+    <div class="ex-row"><div><div class="ex-name">Arm circles</div><div class="ex-tip">Forward + backward, 30 sec each direction</div></div><div class="ex-sets">1 min</div></div>
+    <div class="ex-row"><div><div class="ex-name">Hip circles</div><div class="ex-tip">Hands on hips, rotate both directions</div></div><div class="ex-sets">30 sec</div></div>
+    <div class="ex-row"><div><div class="ex-name">Leg swings</div><div class="ex-tip">Hold wall, swing each leg front to back</div></div><div class="ex-sets">10 each</div></div>
+    <div class="ex-row"><div><div class="ex-name">Light treadmill walk</div><div class="ex-tip">Get blood flowing before weights</div></div><div class="ex-sets">5 min</div></div>
+  </div>
+
+  <div class="label">Cool-down + Stretches (every session)</div>
+  <div class="card">
+    <div class="ex-row"><div><div class="ex-name">Chest doorway stretch</div><div class="ex-tip">Arms at 90°, lean into doorframe. Open chest.</div></div><div class="ex-sets">30 sec</div></div>
+    <div class="ex-row"><div><div class="ex-name">Lat stretch</div><div class="ex-tip">Reach arm overhead, lean to side. Feel the back.</div></div><div class="ex-sets">30s each</div></div>
+    <div class="ex-row"><div><div class="ex-name">Quad stretch (standing)</div><div class="ex-tip">Hold foot behind you, balance on one leg.</div></div><div class="ex-sets">30s each</div></div>
+    <div class="ex-row"><div><div class="ex-name">Hamstring stretch</div><div class="ex-tip">Sit, reach for toes. Don't bounce.</div></div><div class="ex-sets">30s each</div></div>
+    <div class="ex-row"><div><div class="ex-name">Treadmill brisk walk</div><div class="ex-tip">After EVERY gym session. Builds football stamina.</div></div><div class="ex-sets">15 min</div></div>
+  </div>
+</div>
+
+<!-- ===== NUTRITION TAB ===== -->
+<div id="tab-nutrition" class="tab">
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-val">~1800</div><div class="stat-lbl">Calories/day</div></div>
+    <div class="stat"><div class="stat-val">115g+</div><div class="stat-lbl">Protein target</div></div>
+  </div>
+
+  <div class="label">Daily meal plan</div>
+  <div class="card">
+    <div class="meal-time">⏰ Morning (wake up)</div>
+    <div class="meal-row"><span class="meal-name">Lemon water — half lemon squeezed</span><span class="meal-macro">Vitamin C · free</span></div>
+
+    <div class="meal-time">🏋️ Pre-gym (30–40 min before)</div>
+    <div class="meal-row"><span class="meal-name">2 eggs — omelette style</span><span class="meal-macro">~14g protein</span></div>
+    <div class="meal-row"><span class="meal-name">1 slice whole wheat bread</span><span class="meal-macro">carbs for energy</span></div>
+
+    <div class="meal-time">💪 Post-gym (within 1 hour)</div>
+    <div class="meal-row"><span class="meal-name">150g chicken breast</span><span class="meal-macro">~35g protein</span></div>
+    <div class="meal-row"><span class="meal-name">2 eggs</span><span class="meal-macro">~14g protein</span></div>
+    <div class="meal-row"><span class="meal-name">Spinach + broccoli (steamed)</span><span class="meal-macro">iron · fibre · vitamins</span></div>
+
+    <div class="meal-time">🍽️ Lunch</div>
+    <div class="meal-row"><span class="meal-name">2 eggs</span><span class="meal-macro">~14g protein</span></div>
+    <div class="meal-row"><span class="meal-name">Carrots or broccoli</span><span class="meal-macro">veg variety</span></div>
+    <div class="meal-row"><span class="meal-name">Bullet coffee (with food only)</span><span class="meal-macro">focus + energy</span></div>
+
+    <div class="meal-time">🌙 Dinner</div>
+    <div class="meal-row"><span class="meal-name">150g chicken (remaining)</span><span class="meal-macro">~35g protein</span></div>
+    <div class="meal-row"><span class="meal-name">1 egg</span><span class="meal-macro">~7g protein</span></div>
+    <div class="meal-row"><span class="meal-name">Spinach or any veg</span><span class="meal-macro">fibre</span></div>
+
+    <div class="meal-time">🌛 Before bed (optional)</div>
+    <div class="meal-row"><span class="meal-name">Glass of low-fat milk</span><span class="meal-macro">~8g casein protein</span></div>
+    <div class="meal-row"><span class="meal-name">Magnesium glycinate 200mg</span><span class="meal-macro">sleep + recovery</span></div>
+  </div>
+
+  <div class="label">Food rules</div>
+  <div class="card">
+    <div class="rule-row">
+      <div><div class="rule-name">Bread</div><div class="rule-detail">Max 2 slices/day — whole wheat only. Refined carbs directly worsen fatty liver.</div></div>
+      <span class="badge badge-amber">⚠ Watch</span>
+    </div>
+    <div class="rule-row">
+      <div><div class="rule-name">Butter</div><div class="rule-detail">1 teaspoon max when frying chicken. No more.</div></div>
+      <span class="badge badge-amber">⚠ Limit</span>
+    </div>
+    <div class="rule-row">
+      <div><div class="rule-name">Milk</div><div class="rule-detail">Switch to low-fat. Daily full-fat dairy + fatty liver is not ideal.</div></div>
+      <span class="badge badge-blue">Switch</span>
+    </div>
+    <div class="rule-row">
+      <div><div class="rule-name">Chicken</div><div class="rule-detail">300g daily — non-negotiable. Split into 2 portions.</div></div>
+      <span class="badge badge-green">✓ Keep</span>
+    </div>
+    <div class="rule-row">
+      <div><div class="rule-name">Eggs</div><div class="rule-detail">7 per day total across all meals.</div></div>
+      <span class="badge badge-green">✓ Keep</span>
+    </div>
+    <div class="rule-row">
+      <div><div class="rule-name">Fatty liver foods to avoid</div><div class="rule-detail">Biryani, fast food, fried food, sugary drinks, alcohol — all feed fatty liver directly.</div></div>
+      <span class="badge badge-red">❌ Avoid</span>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    💡 Fatty liver tip: Your biggest improvements come from cutting refined carbs + doing cardio consistently. Omega-3 + exercise is the number one combo to reverse early stage fatty liver.
+  </div>
+</div>
+
+<!-- ===== SUPPLEMENTS TAB ===== -->
+<div id="tab-supps" class="tab">
+
+  <div class="label">Start immediately</div>
+  <div class="card">
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#EAF3DE">🐟</div>
+      <div>
+        <div class="supp-name">Omega-3</div>
+        <div class="supp-dose">With any meal · Daily</div>
+        <div class="supp-detail">Fatty liver · scalp health · skin moisture · reduces inflammation. Minimum 3 months to see full effect.</div>
+        <div style="margin-top:5px"><span class="badge badge-green">Start now</span></div>
+      </div>
+    </div>
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#FCEBEB">⚡</div>
+      <div>
+        <div class="supp-name">Zinc 25–30mg</div>
+        <div class="supp-dose">With food (not empty stomach) · Daily</div>
+        <div class="supp-detail">Single biggest fix for hairfall. Also boosts testosterone, immunity, skin healing. Don't skip this.</div>
+        <div style="margin-top:5px"><span class="badge badge-red">Buy this week</span></div>
+      </div>
+    </div>
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#FAEEDA">☀️</div>
+      <div>
+        <div class="supp-name">Vitamin D — 2000 IU</div>
+        <div class="supp-dose">Morning with food · Daily</div>
+        <div class="supp-detail">You are almost certainly deficient — 1pm wake-up + indoor job. Affects mood, hair, muscle, testosterone, immunity. Critical.</div>
+        <div style="margin-top:5px"><span class="badge badge-red">Buy this week</span></div>
+      </div>
+    </div>
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#FAECE7">🍋</div>
+      <div>
+        <div class="supp-name">Vitamin C — 500mg</div>
+        <div class="supp-dose">Morning · Daily — or just use lemon water (free!)</div>
+        <div class="supp-detail">Skin collagen production. Your current diet has zero vitamin C source. Lemon in water every morning is enough if you're consistent.</div>
+        <div style="margin-top:5px"><span class="badge badge-amber">Medium priority</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Add in month 1–2</div>
+  <div class="card">
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#E6F1FB">🌙</div>
+      <div>
+        <div class="supp-name">Magnesium Glycinate — 200–300mg</div>
+        <div class="supp-dose">30–45 min before bed · Daily</div>
+        <div class="supp-detail">Reduces cortisol (stress hormone), improves sleep quality, helps with recovery. Underrated. Fixes the 4am phone scrolling loop.</div>
+        <div style="margin-top:5px"><span class="badge badge-amber">Add week 2–3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Add in month 2</div>
+  <div class="card">
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#EAF3DE">💪</div>
+      <div>
+        <div class="supp-name">Creatine — 5g/day</div>
+        <div class="supp-dose">Any time of day · Mix in water · No loading needed</div>
+        <div class="supp-detail">Gym strength up. Football stamina up. Reduces brain fog. Some evidence for hair health. Start once other habits are locked in — don't overwhelm week 1.</div>
+        <div style="margin-top:5px"><span class="badge badge-gray">Start month 2</span></div>
+      </div>
+    </div>
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#F1EFE8">🥛</div>
+      <div>
+        <div class="supp-name">Whey Protein Powder</div>
+        <div class="supp-dose">Post-gym · Mix in water or milk</div>
+        <div class="supp-detail">Bridges the protein gap. Good add if budget allows, but zinc and vitamin D are more impactful and cheaper — prioritise those first.</div>
+        <div style="margin-top:5px"><span class="badge badge-gray">Add month 2–3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Hair — buy this week</div>
+  <div class="card">
+    <div class="supp-row">
+      <div class="supp-icon" style="background:#FAECE7">🧴</div>
+      <div>
+        <div class="supp-name">Ketoconazole 2% Shampoo</div>
+        <div class="supp-dose">3x per week · Leave on 3–5 min before washing off</div>
+        <div class="supp-detail">Dandruff is fungal — not dryness. This kills the fungus. Nizoral brand or any pharmacy generic. Don't use hot water on scalp. Don't scratch.</div>
+        <div style="margin-top:5px"><span class="badge badge-red">Buy this week</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ROADMAP TAB ===== -->
+<div id="tab-roadmap" class="tab">
+
+  <div class="label">3-month transformation</div>
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-val">86kg</div><div class="stat-lbl">Start weight</div></div>
+    <div class="stat"><div class="stat-val">75–77kg</div><div class="stat-lbl">Month 3 target</div></div>
+  </div>
+
+  <div class="timeline gap">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-month">Month 1 — Build the base</div>
+      <div class="tl-desc">
+        Gym 4 days/week locked in. Dandruff clearing (ketoconazole). Sleep shifting earlier 30 min every week. Protein at 115g daily. Cardio 15 min after every gym session. Water at 3L. Zinc + D started.
+        <br><br><span class="badge badge-amber">Expected loss: 3–4kg</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-month">Month 2 — Add creatine · Momentum</div>
+      <div class="tl-desc">
+        Creatine starts. Gym strength clearly up. Football stamina noticeably better. Hairfall reducing — zinc working. Cardio up to 20 min. Sleep target 1am–9am. Skin glowing with moisturiser + lemon habit.
+        <br><br><span class="badge badge-amber">Expected loss: 3–4kg more</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-month">Month 3 — Athlete mode</div>
+      <div class="tl-desc">
+        Visible muscle definition. Cardio 25–30 min. Football is comfortable. Fatty liver markers improving. Hair and dandruff under control. Consider adding whey protein. Target: 75–77kg lean, athletic body.
+        <br><br><span class="badge badge-green">Slim athletic body emerging</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Hair + skin timeline</div>
+  <div class="card">
+    <div style="margin-bottom:14px">
+      <div class="progress-label"><span>Dandruff</span><span>Improves week 3–4</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:5%"></div></div>
+    </div>
+    <div style="margin-bottom:14px">
+      <div class="progress-label"><span>Hairfall reduction</span><span>Weeks 6–8</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:5%"></div></div>
+    </div>
+    <div style="margin-bottom:14px">
+      <div class="progress-label"><span>Skin glow</span><span>Weeks 4–6</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:5%"></div></div>
+    </div>
+    <div>
+      <div class="progress-label"><span>Visible fat loss / definition</span><span>Month 2</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:5%"></div></div>
+    </div>
+  </div>
+
+  <div class="label">Sleep — shift it gradually</div>
+  <div class="sleep-track">
+    <div class="sleep-week">Now (Week 1)</div>
+    <div class="sleep-time">4:00am → 1:00pm</div>
+    <div class="sleep-sub">Current — not ideal but 8-9 hours at least</div>
+  </div>
+  <div style="text-align:center; color:var(--green); font-size:18px; margin: 4px 0">↓</div>
+  <div class="sleep-track">
+    <div class="sleep-week">Week 2</div>
+    <div class="sleep-time">3:30am → 12:30pm</div>
+    <div class="sleep-sub">Shift 30 min earlier. Small step — easier to do.</div>
+  </div>
+  <div style="text-align:center; color:var(--green); font-size:18px; margin: 4px 0">↓</div>
+  <div class="sleep-track">
+    <div class="sleep-week">Week 3–4</div>
+    <div class="sleep-time">2:30am → 11:30am</div>
+    <div class="sleep-sub">Getting better. Sunlight in morning now possible.</div>
+  </div>
+  <div style="text-align:center; color:var(--green); font-size:18px; margin: 4px 0">↓</div>
+  <div class="sleep-track">
+    <div class="sleep-week">Month 2 target</div>
+    <div class="sleep-time">12:00am → 8:00am</div>
+    <div class="sleep-sub">Testosterone peaks while you're awake. Everything improves.</div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="label">Daily skin + hair care</div>
+  <div class="card">
+    <div class="care-item">
+      <div class="care-emoji">🚿</div>
+      <div><div class="care-name">Lukewarm water on scalp</div><div class="care-detail">No hot water on head. Hot water strips scalp oils and worsens dandruff and dryness.</div></div>
+    </div>
+    <div class="care-item">
+      <div class="care-emoji">🧴</div>
+      <div><div class="care-name">Moisturiser after shower</div><div class="care-detail">Apply while skin still slightly damp — this locks in moisture. Cerave or any basic moisturiser. Every single day, no skipping.</div></div>
+    </div>
+    <div class="care-item">
+      <div class="care-emoji">☀️</div>
+      <div><div class="care-name">15 min sunlight pre-noon</div><div class="care-detail">Go to balcony or outside before noon. Free vitamin D, fixes sleep cycle, improves mood. Even cloudy days count.</div></div>
+    </div>
+    <div class="care-item">
+      <div class="care-emoji">💆</div>
+      <div><div class="care-name">No scalp scratching</div><div class="care-detail">Scratching spreads fungus and causes more inflammation. Let the shampoo do the work.</div></div>
+    </div>
+    <div class="care-item">
+      <div class="care-emoji">🥗</div>
+      <div><div class="care-name">Hair grows from inside</div><div class="care-detail">Zinc + vitamin D + omega-3 + protein = what your hair needs. Topical products alone won't fix deficiency hair loss.</div></div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    💬 Remember: the first 2-3 weeks already showed 6kg drop. That's proof the body responds fast when you treat it right. The next 3 months with this full plan — gym, sleep, supplements, diet all together — will compound. Stay consistent.
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="bnav-btn active" onclick="switchTab('today', this)">
+    <span class="bnav-icon">📋</span>Today
+  </button>
+  <button class="bnav-btn" onclick="switchTab('schedule', this)">
+    <span class="bnav-icon">🏋️</span>Gym
+  </button>
+  <button class="bnav-btn" onclick="switchTab('nutrition', this)">
+    <span class="bnav-icon">🍽️</span>Food
+  </button>
+  <button class="bnav-btn" onclick="switchTab('supps', this)">
+    <span class="bnav-icon">💊</span>Supps
+  </button>
+  <button class="bnav-btn" onclick="switchTab('roadmap', this)">
+    <span class="bnav-icon">🗺️</span>Roadmap
+  </button>
+</div>
+
+<script>
+  // TAB SWITCHING
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.bnav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    if(btn) btn.classList.add('active');
+    window.scrollTo(0,0);
+  }
+
+  // CHECKLIST
+  function toggleCheck(item) {
+    const box = item.querySelector('.check-box');
+    box.classList.toggle('done');
+    item.classList.toggle('done');
+    saveChecks();
+  }
+
+  function saveChecks() {
+    const items = document.querySelectorAll('.check-item');
+    const state = [];
+    items.forEach(i => state.push(i.classList.contains('done')));
+    localStorage.setItem('checks_' + today(), JSON.stringify(state));
+  }
+
+  function loadChecks() {
+    const saved = localStorage.getItem('checks_' + today());
+    if (!saved) return;
+    const state = JSON.parse(saved);
+    const items = document.querySelectorAll('.check-item');
+    items.forEach((item, i) => {
+      if (state[i]) {
+        item.classList.add('done');
+        item.querySelector('.check-box').classList.add('done');
+      }
+    });
+  }
+
+  function today() {
+    return new Date().toISOString().split('T')[0];
+  }
+
+  // WEIGHT LOG
+  function logWeight() {
+    const val = parseFloat(document.getElementById('weight-in').value);
+    if (!val || val < 40 || val > 200) { alert('Enter a valid weight (e.g. 85.5)'); return; }
+    const logs = getWeightLog();
+    logs.unshift({ date: today(), kg: val });
+    localStorage.setItem('weight_log', JSON.stringify(logs));
+    document.getElementById('weight-in').value = '';
+    renderWeightLog();
+  }
+
+  function getWeightLog() {
+    try { return JSON.parse(localStorage.getItem('weight_log')) || []; } catch { return []; }
+  }
+
+  function renderWeightLog() {
+    const logs = getWeightLog();
+    const el = document.getElementById('weight-log-list');
+    if (!logs.length) { el.innerHTML = '<div class="empty">No entries yet — log your weight each morning</div>'; return; }
+
+    // Update header stat
+    if (logs.length > 0) {
+      const latest = logs[0].kg;
+      document.getElementById('curr-weight').textContent = latest + 'kg';
+      const diff = (92 - latest).toFixed(1);
+      document.getElementById('weight-lost').textContent = '−' + diff + 'kg lost so far';
+    }
+
+    let html = '';
+    logs.slice(0, 14).forEach((entry, i) => {
+      const prev = logs[i+1];
+      let diffHtml = '';
+      if (prev) {
+        const d = (entry.kg - prev.kg).toFixed(1);
+        const cls = d <= 0 ? 'neg' : 'pos';
+        const sign = d <= 0 ? '' : '+';
+        diffHtml = `<span class="log-diff ${cls}">${sign}${d}kg</span>`;
+      }
+      const dateStr = new Date(entry.date + 'T00:00:00').toLocaleDateString('en-GB', { day:'numeric', month:'short' });
+      html += `<div class="log-entry"><span class="log-date">${dateStr}</span><span class="log-kg">${entry.kg}kg</span>${diffHtml}</div>`;
+    });
+    el.innerHTML = html;
+  }
+
+  // INIT
+  loadChecks();
+  renderWeightLog();
+</script>
+</body>
+</html>
